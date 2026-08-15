@@ -5,114 +5,262 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sekolahku yang BALI | SD Negeri 1 Renon</title>
 <style>
-:root{--g:#176b45;--g2:#2f8f62;--l:#f3f8f3;--d:#17352a;--m:#66756d;--b:#dce8df;--gold:#c99a3d}
+:root{
+  --g:#176b45;--g2:#2f8f62;--l:#f3f8f3;--d:#17352a;
+  --m:#66756d;--b:#dce8df;--gold:#c99a3d
+}
 *{box-sizing:border-box;scroll-behavior:smooth}
 body{margin:0;font:16px/1.65 system-ui,Arial;color:#26352e;background:#fff}
-a{text-decoration:none;color:inherit}.c{width:min(1160px,92%);margin:auto}
-header{position:sticky;top:0;z-index:20;background:#fffffff2;backdrop-filter:blur(12px);border-bottom:1px solid var(--b)}
-.nav{min-height:70px;display:flex;justify-content:space-between;align-items:center;gap:20px}
-.brand{font-weight:950;color:var(--g);line-height:1.05;font-size:18px}.brand small{display:block;color:var(--m);font-size:11px;font-weight:650;margin-top:4px}
-nav{display:flex;gap:17px;flex-wrap:wrap}nav a{font-size:13px;font-weight:800}nav a:hover{color:var(--g)}
-.hero{position:relative;overflow:hidden;padding:70px 0 45px;background:linear-gradient(135deg,#eaf7ed 0%,#fff 52%,#fff6dc 100%)}
-.heroGrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:center;position:relative;z-index:2}
-.k{color:var(--g);font-weight:950;letter-spacing:1px}.hero h1{font-size:clamp(43px,6vw,76px);line-height:.98;margin:12px 0;color:var(--d)}
-.tag{font-size:21px;font-weight:900;color:#8b6b2c}.lead{font-size:18px;color:var(--m);max-width:580px}
-.btn{display:inline-block;padding:12px 18px;border-radius:13px;font-weight:850;margin:5px 6px 5px 0;transition:.2s}.btn:hover{transform:translateY(-2px)}.primary{background:var(--g);color:#fff}.light{background:#fff;color:var(--g);border:1px solid var(--b)}
-.scene{height:390px;position:relative;border-radius:32px;overflow:hidden;background:linear-gradient(#83c9ef 0 48%,#d8f0d0 48%);box-shadow:0 18px 45px #176b4525}
-.sun{position:absolute;width:80px;height:80px;border-radius:50%;background:#ffd85b;right:55px;top:35px;box-shadow:0 0 35px #ffd85b88;animation:pulse 3s infinite}
-.cloud{position:absolute;background:#fff;border-radius:50px;width:120px;height:35px;opacity:.8;animation:cloud 18s linear infinite}
-.cloud:before,.cloud:after{content:"";position:absolute;background:#fff;border-radius:50%}.cloud:before{width:48px;height:48px;left:20px;top:-22px}.cloud:after{width:65px;height:65px;right:17px;top:-30px}.c1{left:15px;top:50px}.c2{left:230px;top:95px;animation-duration:25s}
-.hill{position:absolute;bottom:75px;width:110%;height:130px;left:-5%;background:#70b968;border-radius:50% 50% 0 0/100% 100% 0 0}
-.school{position:absolute;bottom:75px;left:50%;transform:translateX(-50%);width:62%;height:145px;background:#f8dfae;border:5px solid #d28d47;border-bottom:0;border-radius:8px 8px 0 0}
-.roof{position:absolute;top:-54px;left:-7%;width:114%;height:70px;background:#b84b2f;clip-path:polygon(50% 0,100% 100%,0 100%);filter:drop-shadow(0 5px 2px #73301e)}
-.flag{position:absolute;left:50%;top:-93px;height:88px;border-left:3px solid #555}.flag:after{content:"";position:absolute;left:2px;top:0;width:43px;height:26px;background:linear-gradient(#e63131 0 50%,#fff 50%);animation:wave 1.4s ease-in-out infinite}
-.door{position:absolute;width:38px;height:65px;bottom:0;left:50%;transform:translateX(-50%);background:#754a2b;border-radius:7px 7px 0 0}.win{position:absolute;width:35px;height:42px;top:38px;background:#76bfe3;border:5px solid #fff}.w1{left:12%}.w2{right:12%}
-.tree{position:absolute;bottom:63px;width:72px;height:125px}.tree:before{content:"";position:absolute;bottom:0;left:33px;width:12px;height:75px;background:#79502f}.tree:after{content:"";position:absolute;top:0;left:0;width:72px;height:72px;border-radius:50%;background:#318b49;box-shadow:30px 15px 0 #49a554,-25px 20px 0 #26783e}.t1{left:5%}.t2{right:5%}
-.child{position:absolute;bottom:57px;font-size:58px;animation:bob 2.4s ease-in-out infinite}.ch1{left:15%;animation-delay:.2s}.ch2{right:15%;animation-delay:.8s}.broom{position:absolute;bottom:45px;left:29%;font-size:42px;animation:sweep 2s ease-in-out infinite}.plant{position:absolute;bottom:46px;right:30%;font-size:42px;animation:bob 2s ease-in-out infinite}
-.leaf{position:absolute;font-size:25px;opacity:.8;animation:fall 8s linear infinite}.l1{left:8%;top:15%}.l2{left:80%;top:5%;animation-delay:2s}.l3{left:55%;top:2%;animation-delay:4s}
-.section{padding:70px 0}.head{text-align:center;max-width:780px;margin:0 auto 35px}.head h2{font-size:35px;color:var(--d);margin:0 0 8px}.muted{color:var(--m)}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.card{padding:22px;border:1px solid var(--b);border-radius:18px;box-shadow:0 10px 30px #176b4510;background:#fff;transition:.2s}.card:hover{transform:translateY(-5px);box-shadow:0 15px 35px #176b4520}.icon{font-size:30px}.badge{font-size:11px;font-weight:900;color:var(--g);background:#e7f3eb;padding:4px 8px;border-radius:99px}
-.highlight{background:var(--l);padding:28px;border-radius:22px}.quote{font-size:21px;font-weight:800;color:var(--g);border-left:5px solid var(--gold);padding-left:17px}
-.programs,.teams,.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.programs .card{text-align:center}
-.table{overflow:auto}.table table{width:100%;border-collapse:collapse}.table th,.table td{padding:13px;border-bottom:1px solid var(--b);text-align:left}.table th{background:var(--g);color:#fff}
-.filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 auto 28px}.filter{border:1px solid var(--b);background:#fff;color:var(--g);padding:9px 13px;border-radius:99px;font-weight:800;cursor:pointer}.filter.active,.filter:hover{background:var(--g);color:#fff}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.photoItem{overflow:hidden;border-radius:18px;border:1px solid var(--b);background:#f4f8f4}.photoItem img{width:100%;height:220px;object-fit:cover;display:block}.ph{height:220px;display:none;place-items:center;text-align:center;color:var(--g);font-size:28px;background:linear-gradient(135deg,#e4f1e7,#f6f0df)}.ph small{display:block;font-size:11px;color:var(--m)}.caption{padding:12px 15px;font-weight:800;background:#fff}
-.bar{height:18px;background:#e5eee8;border-radius:99px;overflow:hidden}.bar span{display:block;width:90%;height:100%;background:linear-gradient(90deg,var(--g),#61ad73);animation:grow 2s ease-out}
-footer{background:#102b21;color:#d8e5df;padding:42px 0}footer strong{color:#fff;font-size:22px}
-@keyframes pulse{50%{transform:scale(1.08);opacity:.85}}@keyframes cloud{0%{transform:translateX(-140px)}100%{transform:translateX(520px)}}@keyframes wave{50%{transform:skewY(5deg)}}@keyframes bob{50%{transform:translateY(-9px)}}@keyframes sweep{50%{transform:rotate(-12deg) translateY(-6px)}}@keyframes fall{0%{transform:translate(0,-20px) rotate(0);opacity:0}15%{opacity:.8}100%{transform:translate(100px,430px) rotate(300deg);opacity:0}}@keyframes grow{from{width:0}}
-@media(max-width:900px){nav{display:none}.heroGrid{grid-template-columns:1fr}.grid,.programs,.teams,.areas{grid-template-columns:repeat(2,1fr)}.scene{height:330px}}
-@media(max-width:600px){.grid,.programs,.teams,.areas,.gallery{grid-template-columns:1fr}.hero{padding:48px 0 35px}.scene{height:270px}.school{width:68%;height:105px}.roof{top:-40px}.child{font-size:43px}.broom,.plant{font-size:32px}}
+a{text-decoration:none;color:inherit}
+.c{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:#fffffff2;backdrop-filter:blur(10px);border-bottom:1px solid var(--b)}
+.nav{min-height:68px;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.brand{font-weight:900;color:var(--g);line-height:1.1}
+.brand small{display:block;color:var(--m);font-weight:600}
+nav{display:flex;gap:14px;flex-wrap:wrap}
+nav a{font-size:13px;font-weight:700}
+nav a:hover{color:var(--g2)}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#eaf6ed,#fff 55%,#f8f2df);padding:85px 0}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.35;animation:float 8s ease-in-out infinite}
+.hero:before{width:220px;height:220px;background:#b8ddc3;right:-60px;top:30px}
+.hero:after{width:160px;height:160px;background:#e8d49b;left:-50px;bottom:-40px;animation-delay:2s}
+.heroGrid,.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;position:relative;z-index:1}
+.k{color:var(--g);font-weight:900;letter-spacing:1px}
+.hero h1{font-size:clamp(42px,6vw,72px);line-height:1;margin:12px 0;color:var(--d)}
+h2{font-size:35px;color:var(--d)}
+.tag{font-size:22px;font-weight:800;color:#8b6b2c}
+.btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:800;margin:5px;transition:.25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px #176b4520}
+.primary{background:var(--g);color:white}.light{background:white;color:var(--g);border:1px solid var(--b)}
+.art{min-height:330px;border-radius:30px;background:linear-gradient(145deg,var(--g2),var(--g));display:flex;align-items:center;justify-content:center;color:white;font-size:110px;box-shadow:0 12px 35px #176b4520;position:relative;overflow:hidden;animation:cardFloat 5s ease-in-out infinite}
+.art:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:#ffffff18;top:-40px;right:-20px}
+.art:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:#ffffff12;bottom:-30px;left:-20px}
+.art span{font-size:16px;position:absolute;bottom:22px;margin:0;background:#0003;padding:10px 18px;border-radius:12px;z-index:2;text-align:center}
+.section{padding:70px 0}
+.head{text-align:center;max-width:760px;margin:0 auto 35px}
+.head h2{margin-bottom:8px}
+.muted{color:var(--m)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.card{padding:22px;border:1px solid var(--b);border-radius:18px;box-shadow:0 10px 30px #176b4510;background:white;transition:.25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 30px #176b4520}
+.stats{background:var(--d);color:white}.stat{text-align:center}.stat b{font-size:38px;display:block}
+.highlight{background:var(--l);padding:28px;border-radius:22px}
+.quote{font-size:21px;font-weight:800;color:var(--g);border-left:5px solid var(--gold);padding-left:17px}
+.programs{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.search{display:block;width:min(600px,100%);margin:0 auto 30px;padding:14px;border:1px solid var(--b);border-radius:12px;font-size:16px}
+.badge{font-size:11px;font-weight:900;color:var(--g);background:#e7f3eb;padding:4px 8px;border-radius:99px}
+.table{overflow:auto}.table table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:13px;border-bottom:1px solid var(--b);text-align:left}
+.table th{background:var(--g);color:white}
+.teams,.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 auto 28px}
+.filter{border:1px solid var(--b);background:white;color:var(--g);padding:9px 13px;border-radius:99px;font-weight:800;cursor:pointer}
+.filter.active,.filter:hover{background:var(--g);color:white}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.photoItem{overflow:hidden;border-radius:18px;border:1px solid var(--b);background:#f4f8f4;box-shadow:0 8px 25px #176b4510}
+.photoItem img{width:100%;height:220px;object-fit:cover;display:block}
+.ph{height:220px;display:none;place-items:center;text-align:center;color:var(--g);font-size:28px;background:linear-gradient(135deg,#e4f1e7,#f6f0df)}
+.ph small{display:block;font-size:11px;color:var(--m);margin:5px}
+.caption{padding:12px 15px;font-weight:800;background:white}
+.galleryNote{margin-top:20px;padding:16px;border-radius:14px;background:var(--l);color:var(--m)}
+code{background:white;padding:3px 6px;border-radius:5px}
+.bar{height:18px;background:#e5eee8;border-radius:99px;overflow:hidden}.bar span{display:block;width:90%;height:100%;background:var(--g)}
+footer{background:#102b21;color:#d8e5df;padding:42px 0}footer strong{color:white;font-size:22px}
+
+/* Animasi */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.show{opacity:1;transform:none}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+@keyframes cardFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(.5deg)}}
+
+@media(max-width:900px){
+ nav{display:none}.heroGrid,.two{grid-template-columns:1fr}
+ .grid,.programs{grid-template-columns:repeat(2,1fr)}
+ .teams,.areas{grid-template-columns:repeat(2,1fr)}
+ .gallery{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+ .grid,.programs,.teams,.areas,.gallery{grid-template-columns:1fr}
+ .hero{padding:55px 0}.art{min-height:230px;font-size:80px}
+ .art span{bottom:15px;font-size:13px;max-width:85%}
+}
 </style>
 </head>
 <body>
 
-<header><div class="c nav">
-<a class="brand" href="#beranda">🌿 SEKOLAHKU YANG BALI<small>SD Negeri 1 Renon</small></a>
+<header>
+<div class="c nav">
+<a class="brand" href="#beranda">SEKOLAHKU YANG BALI<small>SD NEGERI 1 RENON</small></a>
 <nav>
-<a href="#beranda">Beranda</a><a href="#tentang">Tentang</a><a href="#kegiatan">Kegiatan</a><a href="#area">Area</a><a href="#peran">Peran</a><a href="#bali-rangers">BALI Rangers</a><a href="#dokumentasi">Dokumentasi</a><a href="#monitoring">Monitoring</a>
-</nav></div></header>
+<a href="#beranda">Beranda</a><a href="#tentang">Tentang</a><a href="#visi">Visi & Misi</a>
+<a href="#aksi">Aksi Program</a><a href="#jadwal">Jadwal</a><a href="#peran">Peran</a>
+<a href="#aturan">Aturan</a><a href="#dokumentasi">Dokumentasi</a><a href="#monitoring">Monitoring</a><a href="#kontak">Kontak</a>
+</nav>
+</div>
+</header>
 
 <section class="hero" id="beranda">
-<div class="leaf l1">🍃</div><div class="leaf l2">🍂</div><div class="leaf l3">🌿</div>
 <div class="c heroGrid">
-<div>
-<div class="k">PROGRAM LINGKUNGAN SEKOLAH</div>
-<h1>Sekolahku<br>yang BALI</h1>
+<div class="reveal">
+<div class="k">PROGRAM LINGKUNGAN SD NEGERI 1 RENON</div>
+<h1>SEKOLAHKU<br>YANG BALI</h1>
+<h2>SD NEGERI 1 RENON</h2>
 <div class="tag">Bersih • Asri • Lestari • Indah</div>
-<p class="lead">“Bersama menjaga sekolah, bersama membangun masa depan.”</p>
-<a class="btn primary" href="#kegiatan">🌱 Lihat Kegiatan</a><a class="btn light" href="#dokumentasi">📸 Dokumentasi</a>
+<p class="muted">Program sekolah yang berfokus pada terciptanya lingkungan belajar yang bersih, asri, lestari, dan indah melalui keterlibatan seluruh warga sekolah.</p>
+<a class="btn primary" href="#aksi">Lihat Program</a><a class="btn light" href="#jadwal">Aksi Sekolah</a><a class="btn light" href="#dokumentasi">Dokumentasi</a>
 </div>
-<div class="scene" aria-label="Animasi lingkungan sekolah">
-<div class="sun"></div><div class="cloud c1"></div><div class="cloud c2"></div><div class="hill"></div>
-<div class="tree t1"></div><div class="tree t2"></div>
-<div class="school"><div class="roof"></div><div class="flag"></div><div class="win w1"></div><div class="win w2"></div><div class="door"></div></div>
-<div class="child ch1">🧒</div><div class="child ch2">👧</div><div class="broom">🧹</div><div class="plant">🌱</div>
+<div class="art reveal">🌿<span>Lingkungan sekolah yang bersih, hijau, sehat, ramah anak, dan peduli lingkungan.</span></div>
 </div>
+</section>
+
+<section class="section" id="tentang"><div class="c reveal">
+<div class="head"><h2>Sekolahku yang BALI</h2><p class="muted">Media informasi dan dokumentasi Program “Sekolahku yang BALI” di SD Negeri 1 Renon.</p></div>
+<div class="grid">
+<div class="card">🧹<h3>BERSIH</h3><p class="muted">Membiasakan seluruh warga sekolah menjaga kebersihan lingkungan.</p></div>
+<div class="card">🌿<h3>ASRI</h3><p class="muted">Mewujudkan lingkungan sekolah yang hijau, rindang, dan nyaman.</p></div>
+<div class="card">♻️<h3>LESTARI</h3><p class="muted">Menumbuhkan kepedulian terhadap kelestarian lingkungan.</p></div>
+<div class="card">🌺<h3>INDAH</h3><p class="muted">Menciptakan lingkungan sekolah yang rapi, tertata, dan menyenangkan.</p></div>
+</div>
+<div class="two" style="margin-top:20px">
+<div class="highlight"><h3>Nama Program</h3><b>Sekolahku yang BALI</b><h3>BALI adalah</h3><b>Bersih, Asri, Lestari, Indah.</b></div>
+<div class="highlight"><h3>Tujuan Program</h3><ul><li>Menciptakan lingkungan sekolah yang sehat, nyaman, dan menyenangkan.</li><li>Menumbuhkan kepedulian dan tanggung jawab warga sekolah terhadap kebersihan dan kelestarian lingkungan.</li><li>Mewujudkan sekolah berkarakter peduli lingkungan.</li></ul></div>
+</div></div></section>
+
+<section class="section stats"><div class="c grid">
+<div class="stat reveal"><b>90%</b>Target partisipasi aktif warga sekolah</div>
+<div class="stat reveal"><b>Setiap Hari</b>Pembiasaan yang berkelanjutan</div>
+<div class="stat reveal"><b>Seluruh Area Sekolah</b>Menjadi ruang aksi program</div>
+<div class="stat reveal"><b>4 BALI</b>Bersih • Asri • Lestari • Indah</div>
 </div></section>
 
-<section class="section" id="tentang"><div class="c"><div class="head"><h2>Semangat Sekolahku yang BALI</h2><p class="muted">Membangun budaya sekolah yang bersih, asri, lestari, indah, peduli lingkungan dan berkelanjutan.</p></div>
-<div class="grid">
-<div class="card"><div class="icon">👁️</div><h3>Visi</h3><p>Terwujudnya sekolah yang bersih, asri, lestari, indah serta berkarakter dan berprestasi.</p></div>
-<div class="card"><div class="icon">🌿</div><h3>Pembiasaan & Inovasi</h3><p>Membiasakan hidup bersih, peduli lingkungan dan berinovasi untuk sekolah hijau.</p></div>
-<div class="card"><div class="icon">📍</div><h3>Area General Clean Up</h3><p>Menjaga kebersihan area sekolah secara terjadwal dan berkelanjutan.</p></div>
-<div class="card"><div class="icon">🤝</div><h3>Peran Warga Sekolah</h3><p>Kepala sekolah, guru, siswa dan tenaga kependidikan berperan aktif.</p></div>
+<section class="section" id="visi"><div class="c reveal">
+<div class="head"><h2>Visi & Misi</h2></div>
+<div class="two">
+<div class="card"><span class="badge">VISI</span><p class="quote">“Terwujudnya lingkungan sekolah yang bersih, asri, lestari dan indah.”</p></div>
+<div class="card"><span class="badge">MISI</span><p class="quote">“Optimalisasi peran seluruh warga sekolah dalam mewujudkan lingkungan sekolah yang bersih, asri, lestari dan indah.”</p></div>
 </div></div></section>
 
-<section class="section" id="kegiatan" style="background:var(--l)"><div class="c"><div class="head"><h2>Program & Kegiatan</h2><p class="muted">Kegiatan nyata yang dapat dilaksanakan dan didokumentasikan sepanjang tahun.</p></div>
+<section class="section" id="aksi" style="background:var(--l)"><div class="c reveal">
+<div class="head"><h2>Aksi Program</h2><p class="muted">Pembiasaan dan inovasi.</p></div>
+<input class="search" id="q" placeholder="🔎 Cari kegiatan...">
+<h3>PEMBIASAAN</h3>
+<div class="programs" id="p">
+<div class="card" data-k="piket kelas">🧹 <h3>Piket Kelas</h3><p class="muted">Senin–Jumat.</p></div>
+<div class="card" data-k="piket umum">🧹 <h3>Piket Umum</h3></div>
+<div class="card" data-k="operasi semut">🐜 <h3>Operasi Semut</h3></div>
+<div class="card" data-k="general clean up">🧽 <h3>General Clean Up</h3></div>
+<div class="card" data-k="sisir meja">🪑 <h3>Sisir Meja</h3></div>
+<div class="card" data-k="pemilahan sampah">♻️ <h3>Pemilahan Sampah</h3></div>
+<div class="card" data-k="perawatan tanaman">🌱 <h3>Perawatan Tanaman</h3></div>
+</div>
+<h3 style="margin-top:35px">INOVASI</h3>
 <div class="programs">
-<div class="card"><span class="badge">SETIAP HARI</span><h3>🧹 Piket Kelas</h3><p>Menjaga kebersihan dan kerapian ruang kelas.</p></div>
-<div class="card"><span class="badge">SETIAP HARI</span><h3>🧽 Piket Umum</h3><p>Menjaga area bersama tetap bersih dan nyaman.</p></div>
-<div class="card"><span class="badge">TERJADWAL</span><h3>🌿 Operasi Semut</h3><p>Gerakan memungut sampah dan merawat lingkungan.</p></div>
-<div class="card"><span class="badge">TERJADWAL</span><h3>✨ General Clean Up</h3><p>Pembersihan area sekolah secara menyeluruh.</p></div>
+<div class="card" data-k="piral">🏆 <h3>PIRAL</h3><p class="muted">Piala Ramah Lingkungan.</p></div>
+<div class="card" data-k="si-pahala">💧 <h3>Si-Pahala</h3><p class="muted">Sistem Penampungan Air Hujan Alami.</p></div>
+<div class="card" data-k="apatar">🚰 <h3>Apatar</h3><p class="muted">Air Pakai Tumbler.</p></div>
+<div class="card" data-k="dupa">🔥 <h3>Pembakaran Khusus Dupa Upakara</h3></div>
+<div class="card" data-k="eco enzym">🍃 <h3>Eco Enzym</h3></div>
+<div class="card" data-k="komposting">♻️ <h3>Berbagai Media Komposting</h3></div>
+<div class="card" data-k="eco break">🧱 <h3>Eco Break</h3></div>
+<div class="card" data-k="recycle">🔄 <h3>Berbagai Produk Recycle</h3></div>
 </div></div></section>
 
-<section class="section" id="area"><div class="c"><div class="head"><h2>Area Sekolah</h2><p class="muted">Area yang menjadi tanggung jawab bersama warga sekolah.</p></div>
-<div class="areas"><div class="card">🏫 <b>Halaman Depan</b><p class="muted">Area utama sekolah.</p></div><div class="card">⚽ <b>Lapangan</b><p class="muted">Ruang aktivitas siswa.</p></div><div class="card">🌳 <b>Taman Sekolah</b><p class="muted">Area hijau dan tanaman.</p></div><div class="card">♻️ <b>Area Sampah</b><p class="muted">Pemilahan dan pengelolaan sampah.</p></div></div></div></section>
-
-<section class="section" id="peran" style="background:var(--l)"><div class="c"><div class="head"><h2>Peran Warga Sekolah</h2></div>
-<div class="grid"><div class="card"><h3>👨‍🏫 Kepala Sekolah</h3><p>Memimpin, mengarahkan dan memastikan program berjalan.</p></div><div class="card"><h3>🧑‍🏫 Guru</h3><p>Menjadi teladan dan mendampingi pembiasaan siswa.</p></div><div class="card"><h3>🧒 Siswa</h3><p>Menjadi pelaku utama budaya bersih dan peduli lingkungan.</p></div><div class="card"><h3>👨‍👩‍👧 Warga Sekolah</h3><p>Berpartisipasi menjaga lingkungan secara bersama.</p></div></div></div></section>
-
-<section class="section" id="bali-rangers"><div class="c"><div class="head"><h2>🌿 BALI Rangers</h2><p class="muted">Tim kecil penggerak kebersihan, keindahan dan kepedulian lingkungan sekolah.</p></div>
-<div class="teams"><div class="card"><h3>🌱 Rangers Taman</h3><p>Merawat tanaman dan taman.</p></div><div class="card"><h3>🧹 Rangers Kebersihan</h3><p>Mendorong budaya bersih.</p></div><div class="card"><h3>⚡ Rangers Energi</h3><p>Mengajak hemat energi.</p></div><div class="card"><h3>💧 Rangers Air</h3><p>Menjaga penggunaan air.</p></div><div class="card"><h3>♻️ Rangers Daur Ulang</h3><p>Mendorong pemanfaatan kembali.</p></div><div class="card"><h3>✨ Rangers Keindahan</h3><p>Menjaga lingkungan tetap indah.</p></div><div class="card"><h3>📚 Rangers Kelas</h3><p>Mendorong budaya bersih di kelas.</p></div><div class="card"><h3>💡 Rangers Kreatif</h3><p>Mengembangkan ide lingkungan.</p></div></div></div></section>
-
-<section class="section" id="dokumentasi"><div class="c"><div class="head"><h2>📸 Dokumentasi Sekolahku yang BALI</h2><p class="muted">Foto kegiatan akan muncul otomatis dari folder <b>dokumentasi</b>.</p></div>
-<div class="filters"><button class="filter active" data-filter="semua">Semua</button><button class="filter" data-filter="piket-kelas">Piket Kelas</button><button class="filter" data-filter="piket-umum">Piket Umum</button><button class="filter" data-filter="operasi-semut">Operasi Semut</button><button class="filter" data-filter="general-clean-up">General Clean Up</button><button class="filter" data-filter="pemilahan-sampah">Pemilahan Sampah</button><button class="filter" data-filter="perawatan-tanaman">Perawatan Tanaman</button><button class="filter" data-filter="bali-rangers">BALI Rangers</button></div>
-<div class="gallery">
-<div class="photoItem" data-cat="piket-kelas"><img src="dokumentasi/piket-kelas-1.jpg" alt="Piket Kelas"><div class="ph">📷<br><b>Piket Kelas</b><small>Tambahkan foto piket-kelas-1.jpg</small></div><div class="caption">Piket Kelas</div></div>
-<div class="photoItem" data-cat="piket-umum"><img src="dokumentasi/piket-umum.jpg" alt="Piket Umum"><div class="ph">📷<br><b>Piket Umum</b><small>Tambahkan foto piket-umum.jpg</small></div><div class="caption">Piket Umum</div></div>
-<div class="photoItem" data-cat="operasi-semut"><img src="dokumentasi/operasi-semut.jpg" alt="Operasi Semut"><div class="ph">📷<br><b>Operasi Semut</b><small>Tambahkan foto operasi-semut.jpg</small></div><div class="caption">Operasi Semut</div></div>
-<div class="photoItem" data-cat="general-clean-up"><img src="dokumentasi/general-clean-up.jpg" alt="General Clean Up"><div class="ph">📷<br><b>General Clean Up</b><small>Tambahkan foto general-clean-up.jpg</small></div><div class="caption">General Clean Up</div></div>
-<div class="photoItem" data-cat="pemilahan-sampah"><img src="dokumentasi/pemilahan-sampah.jpg" alt="Pemilahan Sampah"><div class="ph">📷<br><b>Pemilahan Sampah</b><small>Tambahkan foto pemilahan-sampah.jpg</small></div><div class="caption">Pemilahan Sampah</div></div>
-<div class="photoItem" data-cat="perawatan-tanaman"><img src="dokumentasi/perawatan-tanaman.jpg" alt="Perawatan Tanaman"><div class="ph">📷<br><b>Perawatan Tanaman</b><small>Tambahkan foto perawatan-tanaman.jpg</small></div><div class="caption">Perawatan Tanaman</div></div>
+<section class="section" id="jadwal"><div class="c reveal">
+<div class="head"><h2>Jadwal Kegiatan</h2></div>
+<div class="table"><table><tr><th>Kegiatan</th><th>Jadwal</th></tr>
+<tr><td>Piket Kelas</td><td>Senin–Jumat</td></tr>
+<tr><td>Piket Umum</td><td>Kelas 6A, 6B, 6C: Senin dan Selasa<br>Kelas 5A, 5B, 5C: Rabu dan Kamis<br>Kelas 4A, 4B, 4C: Jumat</td></tr>
+<tr><td>Operasi Semut</td><td>Senin–Jumat</td></tr><tr><td>General Clean Up</td><td>Setiap Jumat secara bergiliran.</td></tr>
+<tr><td>Sisir Meja</td><td>Setiap hari.</td></tr><tr><td>Pemilahan Sampah</td><td>Setiap hari.</td></tr><tr><td>Perawatan Tanaman</td><td>Setiap hari.</td></tr>
+</table></div>
+<h3>Pembagian Area General Clean Up</h3>
+<div class="areas">
+<div class="card"><h3>Kelas 1</h3>Area sekitar kelas.</div><div class="card"><h3>Kelas 2</h3>Area sekitar kelas.</div>
+<div class="card"><h3>Kelas 3</h3>Lapangan, kebun sekitar lapangan basket dan gudang.</div><div class="card"><h3>Kelas 4</h3>Toilet lantai 1 dan halaman sekitar gedung baru.</div>
+<div class="card"><h3>Kelas 5</h3>Padmasana dan kebun depan-belakang gedung kelas 5.</div><div class="card"><h3>Kelas 6</h3>Toilet lantai 2 dan aula.</div>
 </div></div></section>
 
-<section class="section" id="monitoring" style="background:var(--l)"><div class="c"><div class="head"><h2>📊 Monitoring & Evaluasi</h2><p class="muted">Contoh tampilan capaian program yang dapat diperbarui sesuai data sekolah.</p></div>
-<div class="highlight"><h3>Capaian Program</h3><div style="display:flex;justify-content:space-between"><b>Target</b><b>90%</b></div><div class="bar"><span></span></div><p class="muted">Evaluasi dilakukan secara berkala untuk melihat keberlanjutan kegiatan.</p></div></div></section>
+<section class="section" id="peran" style="background:var(--l)"><div class="c reveal">
+<div class="head"><h2>Peran Warga Sekolah</h2></div><div class="grid">
+<div class="card"><h3>KEPALA SEKOLAH</h3><ul><li>Mengawasi pelaksanaan program.</li><li>Memberi penguatan kepada warga sekolah.</li><li>Mencari solusi terhadap permasalahan.</li></ul></div>
+<div class="card"><h3>GURU</h3><ul><li>Mengatur dan mengarahkan murid.</li><li>Memastikan seluruh murid terlibat.</li><li>Melakukan koordinasi dengan kepala sekolah.</li></ul></div>
+<div class="card"><h3>MURID</h3><ul><li>Datang tepat waktu.</li><li>Melaksanakan tugas dengan penuh kesadaran dan tanggung jawab.</li></ul></div>
+<div class="card"><h3>ORANG TUA</h3><ul><li>Mendorong anak datang tepat waktu.</li><li>Memberikan dukungan dan motivasi.</li></ul></div>
+</div><div class="card" style="margin-top:15px"><h3>PIHAK LAINNYA</h3>Mendukung program sesuai peran masing-masing.</div>
+</div></section>
 
-<footer><div class="c"><strong>🌿 Sekolahku yang BALI</strong><p>Bersih • Asri • Lestari • Indah</p><p>SD Negeri 1 Renon</p><p style="opacity:.7">“Kita Jaga Sekolah, Sekolah Jaga Masa Depan.”</p></div></footer>
+<section class="section" id="aturan"><div class="c reveal">
+<div class="head"><h2>Budaya BALI</h2></div><div class="two">
+<div class="card"><h3>Aturan Sekolah</h3><ul><li>Seluruh warga sekolah bertanggung jawab terhadap kebersihan, keasrian, kelestarian dan keindahan sekolah.</li><li>Wajib menggunakan tumbler dan kotak makan.</li><li>Membuang sampah sesuai jenisnya.</li><li>Tidak membuang sampah dari luar sekolah ke tempat sampah sekolah.</li><li>Tidak merusak sarana dan prasarana sekolah.</li></ul></div>
+<div class="card"><h3>Konsekuensi Edukatif</h3><ol><li>Teguran Lisan</li><li>Tindakan Sosial Edukatif<ul><li>Membersihkan area tertentu.</li><li>Mencabut tanaman liar.</li><li>Memotong rumput.</li><li>Merapikan tanaman.</li><li>Mengganti kerusakan yang ditimbulkan.</li></ul></li><li>Peringatan Tertulis</li></ol><p class="muted">Gunakan bahasa yang bersifat mendidik dan tidak menghakimi.</p></div>
+</div></div></section>
+
+<section class="section" style="background:var(--l)"><div class="c reveal">
+<div class="head"><h2>BALI RANGERS</h2><p class="muted">Kader Sekolahku yang BALI.</p></div><div class="teams">
+<div class="card">💧 <h3>Tim Biopori</h3></div><div class="card">🍃 <h3>Tim Eco Enzym</h3></div><div class="card">♻️ <h3>Tim Komposter</h3></div><div class="card">💡 <h3>Tim Inovasi</h3></div>
+<div class="card">📣 <h3>Tim Kampanye dan Edukasi</h3></div><div class="card">🔁 <h3>Tim Reuse</h3></div><div class="card">➖ <h3>Tim Reduce</h3></div><div class="card">🔄 <h3>Tim Recycle</h3></div>
+</div></div></section>
+
+<section class="section" id="dokumentasi"><div class="c reveal">
+<div class="head"><h2>Dokumentasi Sekolahku yang BALI</h2><p class="muted">Galeri kegiatan Program Sekolahku yang BALI.</p></div>
+<div class="filters">
+<button class="filter active" data-filter="semua">Semua</button><button class="filter" data-filter="piket-kelas">Piket Kelas</button>
+<button class="filter" data-filter="piket-umum">Piket Umum</button><button class="filter" data-filter="operasi-semut">Operasi Semut</button>
+<button class="filter" data-filter="general-clean-up">General Clean Up</button><button class="filter" data-filter="pemilahan-sampah">Pemilahan Sampah</button>
+<button class="filter" data-filter="perawatan-tanaman">Perawatan Tanaman</button><button class="filter" data-filter="bali-rangers">BALI Rangers</button>
+</div>
+<div class="gallery" id="gallery">
+<div class="photoItem" data-cat="piket-kelas"><img src="dokumentasi/piket-kelas-1.jpg" alt="Piket Kelas"><div class="ph">📷<br><b>Piket Kelas</b><small>piket-kelas-1.jpg</small></div><div class="caption">Piket Kelas</div></div>
+<div class="photoItem" data-cat="piket-umum"><img src="dokumentasi/piket-umum.jpg" alt="Piket Umum"><div class="ph">📷<br><b>Piket Umum</b><small>piket-umum.jpg</small></div><div class="caption">Piket Umum</div></div>
+<div class="photoItem" data-cat="operasi-semut"><img src="dokumentasi/operasi-semut.jpg" alt="Operasi Semut"><div class="ph">📷<br><b>Operasi Semut</b><small>operasi-semut.jpg</small></div><div class="caption">Operasi Semut</div></div>
+<div class="photoItem" data-cat="general-clean-up"><img src="dokumentasi/general-clean-up.jpg" alt="General Clean Up"><div class="ph">📷<br><b>General Clean Up</b><small>general-clean-up.jpg</small></div><div class="caption">General Clean Up</div></div>
+<div class="photoItem" data-cat="pemilahan-sampah"><img src="dokumentasi/pemilahan-sampah.jpg" alt="Pemilahan Sampah"><div class="ph">📷<br><b>Pemilahan Sampah</b><small>pemilahan-sampah.jpg</small></div><div class="caption">Pemilahan Sampah</div></div>
+<div class="photoItem" data-cat="perawatan-tanaman"><img src="dokumentasi/perawatan-tanaman.jpg" alt="Perawatan Tanaman"><div class="ph">📷<br><b>Perawatan Tanaman</b><small>perawatan-tanaman.jpg</small></div><div class="caption">Perawatan Tanaman</div></div>
+<div class="photoItem" data-cat="bali-rangers"><img src="dokumentasi/bali-rangers.jpg" alt="BALI Rangers"><div class="ph">📷<br><b>BALI Rangers</b><small>bali-rangers.jpg</small></div><div class="caption">BALI Rangers</div></div>
+</div>
+<div class="galleryNote">📌 <b>Menambah foto:</b> buat folder <code>dokumentasi</code> di GitHub, lalu upload foto dengan nama file yang sesuai. Commit → Vercel otomatis memperbarui website.</div>
+</div></section>
+
+<section class="section" id="monitoring" style="background:var(--l)"><div class="c reveal">
+<div class="head"><h2>Monitoring & Evaluasi</h2></div><div class="grid">
+<div class="card"><h3>Monitoring</h3>Dilakukan setiap hari oleh kepala sekolah.</div><div class="card"><h3>Evaluasi</h3>Dilakukan setiap bulan melalui rapat rutin bulanan.</div>
+<div class="card"><h3>Pengumpulan Data</h3><ul><li>Observasi.</li><li>Catatan guru piket.</li></ul></div><div class="card"><h3>Pelaporan</h3>Laporan disampaikan kepada kepala sekolah setiap satu bulan sekali.</div>
+</div><div class="card" style="margin-top:18px"><h3>Target Partisipasi Warga Sekolah: 90%</h3><div class="bar"><span></span></div></div>
+</div></section>
+
+<section class="section"><div class="c reveal"><div class="two">
+<div class="highlight"><h3>Sarana dan Prasarana</h3><ul><li>Pengeras suara</li><li>Alat-alat kebersihan</li><li>Buku catatan</li></ul></div>
+<div class="highlight"><h3>Sumber Pendanaan</h3><ul><li>Dana BOSP</li><li>Dana Komite</li><li>Sumbangan dari berbagai pihak</li></ul></div>
+</div></div></section>
+
+<section class="section"><div class="c reveal"><div class="highlight" style="text-align:center">
+<p class="quote">“SEKOLAH BERSIH BUKAN KARENA ADA PETUGAS KEBERSIHAN,<br>TETAPI KARENA SEMUA WARGA SEKOLAH PEDULI.”</p>
+<a class="btn primary" href="#kontak">AYO JADI BAGIAN DARI SEKOLAHKU YANG BALI</a>
+</div></div></section>
+
+<footer id="kontak"><div class="c"><strong>SEKOLAHKU YANG BALI</strong><br>SD NEGERI 1 RENON<br>Bersih • Asri • Lestari • Indah
+<p>Program lingkungan sekolah SD Negeri 1 Renon.</p><p>Denpasar – Bali</p><p>Kontak: <i>placeholder — dapat diisi kemudian</i></p></div></footer>
 
 <script>
-document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");let f=b.dataset.filter;document.querySelectorAll(".photoItem").forEach(x=>x.style.display=f==="semua"||x.dataset.cat===f?"block":"none")});
-document.querySelectorAll(".photoItem img").forEach(i=>i.onerror=()=>{i.style.display="none";i.nextElementSibling.style.display="grid"});
+document.getElementById('q').addEventListener('input',e=>{
+ let q=e.target.value.toLowerCase();
+ document.querySelectorAll('[data-k]').forEach(x=>{
+   x.style.display=!q||x.dataset.k.includes(q)||x.innerText.toLowerCase().includes(q)?'block':'none'
+ })
+});
+document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{
+ document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
+ b.classList.add("active");
+ let f=b.dataset.filter;
+ document.querySelectorAll(".photoItem").forEach(x=>x.style.display=f==="semua"||x.dataset.cat===f?"block":"none")
+});
+document.querySelectorAll(".photoItem img").forEach(i=>i.onerror=()=>{
+ i.style.display="none";i.nextElementSibling.style.display="grid"
+});
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
-</body></html>
+</body>
+</html>
