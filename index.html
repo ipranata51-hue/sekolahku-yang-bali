@@ -92,7 +92,198 @@
 .hero h2{color:#fff;text-shadow:2px 3px 8px rgba(0,0,0,.7);}
 .hero .muted{color:#fff;text-shadow:1px 2px 5px rgba(0,0,0,.8);}
 .hero .tag{color:#ffe082;text-shadow:2px 2px 6px rgba(0,0,0,.8);}
-</style>
+.aksi-bali{
+  background:linear-gradient(180deg,#f3f8f3,#ffffff);
+}
+
+.aksi-title{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin:45px 0 20px;
+}
+
+.aksi-title>span{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border-radius:15px;
+  background:#e4f2e8;
+  font-size:27px;
+}
+
+.aksi-title h3{
+  margin:0;
+  color:var(--d);
+}
+
+.aksi-title p{
+  margin:2px 0 0;
+  color:var(--m);
+}
+
+.inovasi-title{
+  margin-top:65px;
+}
+
+.aksi-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.aksi-card{
+  background:white;
+  border:1px solid var(--b);
+  border-radius:20px;
+  padding:22px;
+  box-shadow:0 8px 25px #176b4510;
+  transition:.25s ease;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+}
+
+.aksi-card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 18px 35px #176b4520;
+  border-color:#a9cfb6;
+}
+
+.aksi-card:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:5px;
+  height:100%;
+  background:var(--g);
+}
+
+.aksi-card.inovasi:before{
+  background:#c99a3d;
+}
+
+.aksi-icon{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.aksi-label{
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  color:var(--g);
+}
+
+.aksi-card.inovasi .aksi-label{
+  color:#9a762d;
+}
+
+.aksi-card h3{
+  margin:5px 0 8px;
+  color:var(--d);
+}
+
+.aksi-card p{
+  color:var(--m);
+  font-size:14px;
+  line-height:1.6;
+  min-height:67px;
+}
+
+.aksi-card button{
+  border:0;
+  background:transparent;
+  color:var(--g);
+  font-weight:900;
+  padding:8px 0 0;
+  cursor:pointer;
+}
+
+.aksi-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(8,35,25,.68);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:100;
+}
+
+.aksi-modal.show{
+  display:flex;
+}
+
+.aksi-modal-box{
+  width:min(680px,100%);
+  max-height:85vh;
+  overflow:auto;
+  background:white;
+  border-radius:24px;
+  padding:35px;
+  position:relative;
+  box-shadow:0 25px 70px #0005;
+}
+
+.aksi-close{
+  position:absolute;
+  right:18px;
+  top:15px;
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:50%;
+  background:#edf5ef;
+  color:var(--g);
+  font-size:27px;
+  cursor:pointer;
+}
+
+.modal-icon{
+  font-size:55px;
+}
+
+.aksi-modal-box h2{
+  margin:5px 0 12px;
+}
+
+.modal-tag{
+  display:inline-block;
+  background:#e7f3eb;
+  color:var(--g);
+  padding:5px 10px;
+  border-radius:99px;
+  font-size:11px;
+  font-weight:900;
+}
+
+.modal-section{
+  margin-top:22px;
+}
+
+.modal-section h4{
+  margin-bottom:5px;
+  color:var(--g);
+}
+
+@media(max-width:900px){
+  .aksi-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .aksi-grid{
+    grid-template-columns:1fr;
+  }
+
+  .aksi-modal-box{
+    padding:25px 20px;
+  }
+}</style>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -256,32 +447,171 @@ footer{background:#102b21;color:#d8e5df;padding:42px 0}footer strong{color:white
 <div class="card"><span class="badge">VISI</span><p class="quote">“Terwujudnya lingkungan sekolah yang bersih, asri, lestari dan indah.”</p></div>
 <div class="card"><span class="badge">MISI</span><p class="quote">“Optimalisasi peran seluruh warga sekolah dalam mewujudkan lingkungan sekolah yang bersih, asri, lestari dan indah.”</p></div>
 </div></div></section>
+<section class="section aksi-bali" id="aksi">
+  <div class="c">
 
-<section class="section" id="aksi" style="background:var(--l)"><div class="c reveal">
-<div class="head"><h2>Aksi Program</h2><p class="muted">Pembiasaan dan inovasi.</p></div>
-<input class="search" id="q" placeholder="🔎 Cari kegiatan...">
-<h3>PEMBIASAAN</h3>
-<div class="programs" id="p">
-<div class="card" data-k="piket kelas">🧹 <h3>Piket Kelas</h3><p class="muted">Senin–Jumat.</p></div>
-<div class="card" data-k="piket umum">🧹 <h3>Piket Umum</h3></div>
-<div class="card" data-k="operasi semut">🐜 <h3>Operasi Semut</h3></div>
-<div class="card" data-k="general clean up">🧽 <h3>General Clean Up</h3></div>
-<div class="card" data-k="sisir meja">🪑 <h3>Sisir Meja</h3></div>
-<div class="card" data-k="pemilahan sampah">♻️ <h3>Pemilahan Sampah</h3></div>
-<div class="card" data-k="perawatan tanaman">🌱 <h3>Perawatan Tanaman</h3></div>
+    <div class="head">
+      <span class="badge">AKSI SEKOLAH</span>
+      <h2>Pembiasaan & Inovasi</h2>
+      <p class="muted">
+        Sekolahku yang BALI diwujudkan melalui pembiasaan sehari-hari
+        dan inovasi kreatif yang melibatkan seluruh warga sekolah.
+      </p>
+    </div>
+
+    <div class="aksi-title">
+      <span>🌱</span>
+      <div>
+        <h3>PEMBIASAAN</h3>
+        <p>Kebiasaan sederhana untuk membangun budaya peduli lingkungan.</p>
+      </div>
+    </div>
+
+    <div class="aksi-grid">
+
+      <div class="aksi-card" onclick="openAksi('piket-kelas')">
+        <div class="aksi-icon">🧹</div>
+        <span class="aksi-label">PEMBIASAAN</span>
+        <h3>Piket Kelas</h3>
+        <p>Menjaga kebersihan dan kerapian ruang kelas secara bertanggung jawab.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+      <div class="aksi-card" onclick="openAksi('piket-umum')">
+        <div class="aksi-icon">🏫</div>
+        <span class="aksi-label">PEMBIASAAN</span>
+        <h3>Piket Umum</h3>
+        <p>Menjaga kebersihan lingkungan sekolah di luar ruang kelas.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+      <div class="aksi-card" onclick="openAksi('operasi-semut')">
+        <div class="aksi-icon">🐜</div>
+        <span class="aksi-label">PEMBIASAAN</span>
+        <h3>Operasi Semut</h3>
+        <p>Gerakan mengambil dan menempatkan sampah pada tempatnya.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+      <div class="aksi-card" onclick="openAksi('general-clean-up')">
+        <div class="aksi-icon">🧽</div>
+        <span class="aksi-label">PEMBIASAAN</span>
+        <h3>General Clean Up</h3>
+        <p>Kegiatan membersihkan lingkungan sekolah secara menyeluruh.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+      <div class="aksi-card" onclick="openAksi('sisir-meja')">
+        <div class="aksi-icon">🪑</div>
+        <span class="aksi-label">PEMBIASAAN</span>
+        <h3>Sisir Meja</h3>
+        <p>Memastikan area meja dan ruang belajar tetap bersih dan rapi.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+      <div class="aksi-card" onclick="openAksi('pemilahan-sampah')">
+        <div class="aksi-icon">♻️</div>
+        <span class="aksi-label">PEMBIASAAN</span>
+        <h3>Pemilahan Sampah</h3>
+        <p>Membiasakan warga sekolah memilah sampah sesuai jenisnya.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+      <div class="aksi-card" onclick="openAksi('perawatan-tanaman')">
+        <div class="aksi-icon">🌱</div>
+        <span class="aksi-label">PEMBIASAAN</span>
+        <h3>Perawatan Tanaman</h3>
+        <p>Menjaga tanaman dan ruang hijau sekolah agar tetap asri.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+    </div>
+
+    <div class="aksi-title inovasi-title">
+      <span>💡</span>
+      <div>
+        <h3>INOVASI</h3>
+        <p>Mengembangkan solusi kreatif untuk lingkungan sekolah yang lestari.</p>
+      </div>
+    </div>
+
+    <div class="aksi-grid">
+
+      <div class="aksi-card inovasi" onclick="openAksi('piral')">
+        <div class="aksi-icon">🏆</div>
+        <span class="aksi-label">INOVASI</span>
+        <h3>PIRAL</h3>
+        <p>Piala Ramah Lingkungan sebagai inovasi pemanfaatan kertas.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+      <div class="aksi-card inovasi" onclick="openAksi('si-pahala')">
+        <div class="aksi-icon">💧</div>
+        <span class="aksi-label">INOVASI</span>
+        <h3>Si-Pahala</h3>
+        <p>Sistem Penampungan Air Hujan Alami.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+      <div class="aksi-card inovasi" onclick="openAksi('dupa')">
+        <div class="aksi-icon">🪔</div>
+        <span class="aksi-label">INOVASI</span>
+        <h3>Tempat Pembakaran Khusus Dupa</h3>
+        <p>Tempat khusus untuk menjaga aktivitas pembakaran dupa tetap tertata.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+      <div class="aksi-card inovasi" onclick="openAksi('eco-enzym')">
+        <div class="aksi-icon">🧼</div>
+        <span class="aksi-label">INOVASI</span>
+        <h3>Eco Enzym</h3>
+        <p>Dimanfaatkan sebagai pengganti sabun cuci tangan.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+      <div class="aksi-card inovasi" onclick="openAksi('komposting')">
+        <div class="aksi-icon">🌱</div>
+        <span class="aksi-label">INOVASI</span>
+        <h3>Berbagai Media Komposting</h3>
+        <p>Teba Modern, Biopori, dan Tong Komposter.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+      <div class="aksi-card inovasi" onclick="openAksi('ecobrick')">
+        <div class="aksi-icon">🧱</div>
+        <span class="aksi-label">INOVASI</span>
+        <h3>Ecobrick</h3>
+        <p>Pemanfaatan sampah plastik melalui pengolahan menjadi ecobrick.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+      <div class="aksi-card inovasi" onclick="openAksi('recycle')">
+        <div class="aksi-icon">🔄</div>
+        <span class="aksi-label">INOVASI</span>
+        <h3>Berbagai Produk Recycle</h3>
+        <p>Mengolah bahan yang sudah tidak terpakai menjadi produk baru.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+      <div class="aksi-card inovasi" onclick="openAksi('lagu-bali')">
+        <div class="aksi-icon">🎵</div>
+        <span class="aksi-label">INOVASI</span>
+        <h3>Lagu Sekolahku yang BALI</h3>
+        <p>Media untuk membangun identitas dan budaya peduli lingkungan.</p>
+        <button>Lihat Detail →</button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<div class="aksi-modal" id="aksiModal">
+  <div class="aksi-modal-box">
+    <button class="aksi-close" onclick="closeAksi()">×</button>
+    <div id="aksiModalContent"></div>
+  </div>
 </div>
-<h3 style="margin-top:35px">INOVASI</h3>
-<div class="programs">
-<div class="card" data-k="piral">🏆 <h3>PIRAL</h3><p class="muted">Piala Ramah Lingkungan.</p></div>
-<div class="card" data-k="si-pahala">💧 <h3>Si-Pahala</h3><p class="muted">Sistem Penampungan Air Hujan Alami.</p></div>
-<div class="card" data-k="apatar">🚰 <h3>Apatar</h3><p class="muted">Air Pakai Tumbler.</p></div>
-<div class="card" data-k="dupa">🔥 <h3>Pembakaran Khusus Dupa Upakara</h3></div>
-<div class="card" data-k="eco enzym">🍃 <h3>Eco Enzym</h3></div>
-<div class="card" data-k="komposting">♻️ <h3>Berbagai Media Komposting</h3></div>
-<div class="card" data-k="eco break">🧱 <h3>Eco Break</h3></div>
-<div class="card" data-k="recycle">🔄 <h3>Berbagai Produk Recycle</h3></div>
-</div></div></section>
-
 <section class="section" id="jadwal"><div class="c reveal">
 <div class="head"><h2>Jadwal Kegiatan</h2></div>
 <div class="table"><table><tr><th>Kegiatan</th><th>Jadwal</th></tr>
@@ -405,6 +735,203 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
   showSlide(0);
   start();
 })();
+<script>
+const aksiData = {
+
+'piket-kelas': {
+ icon:'🧹',
+ type:'PEMBIASAAN',
+ title:'Piket Kelas',
+ desc:'Piket Kelas merupakan pembiasaan peserta didik untuk bertanggung jawab terhadap kebersihan dan kerapian ruang kelas.',
+ tujuan:'Membangun tanggung jawab, disiplin, gotong royong, dan kepedulian terhadap lingkungan belajar.',
+ pelaksanaan:'Murid menjaga kebersihan dan kerapian ruang kelas melalui kegiatan piket.',
+ frekuensi:'Senin–Jumat'
+},
+
+'piket-umum': {
+ icon:'🏫',
+ type:'PEMBIASAAN',
+ title:'Piket Umum',
+ desc:'Piket Umum merupakan kegiatan bersama untuk menjaga kebersihan lingkungan sekolah di luar ruang kelas.',
+ tujuan:'Menumbuhkan kesadaran bahwa kebersihan sekolah merupakan tanggung jawab bersama.',
+ pelaksanaan:'Murid bersama warga sekolah menjaga kebersihan halaman dan area umum sekolah.',
+ frekuensi:'Sesuai jadwal piket umum'
+},
+
+'operasi-semut': {
+ icon:'🐜',
+ type:'PEMBIASAAN',
+ title:'Operasi Semut',
+ desc:'Operasi Semut adalah gerakan mengambil sampah yang ditemukan di lingkungan sekolah dan menempatkannya pada tempat yang sesuai.',
+ tujuan:'Membangun kepedulian dan kebiasaan menjaga kebersihan secara spontan.',
+ pelaksanaan:'Melihat sampah, mengambil, memilah, dan menempatkannya pada tempat yang sesuai.',
+ frekuensi:'Senin–Jumat'
+},
+
+'general-clean-up': {
+ icon:'🧽',
+ type:'PEMBIASAAN',
+ title:'General Clean Up',
+ desc:'General Clean Up merupakan kegiatan pembersihan lingkungan sekolah secara menyeluruh.',
+ tujuan:'Menjaga lingkungan sekolah tetap bersih, nyaman, tertata, dan sehat.',
+ pelaksanaan:'Seluruh warga sekolah membersihkan area sekolah sesuai pembagian tugas.',
+ frekuensi:'Setiap Jumat secara bergiliran'
+},
+
+'sisir-meja': {
+ icon:'🪑',
+ type:'PEMBIASAAN',
+ title:'Sisir Meja',
+ desc:'Sisir Meja merupakan pembiasaan memastikan area meja dan ruang belajar tetap bersih setelah kegiatan pembelajaran.',
+ tujuan:'Membentuk kebiasaan menjaga kebersihan sebelum meninggalkan tempat.',
+ pelaksanaan:'Murid memeriksa meja dan area sekitarnya agar tidak terdapat sampah atau benda yang tidak pada tempatnya.',
+ frekuensi:'Setiap hari'
+},
+
+'pemilahan-sampah': {
+ icon:'♻️',
+ type:'PEMBIASAAN',
+ title:'Pemilahan Sampah',
+ desc:'Pemilahan Sampah merupakan pembiasaan memisahkan sampah berdasarkan jenisnya agar dapat dikelola dengan tepat.',
+ tujuan:'Membangun kepedulian terhadap pengelolaan sampah.',
+ pelaksanaan:'Mengenali jenis sampah dan menempatkannya pada wadah yang sesuai.',
+ frekuensi:'Setiap hari'
+},
+
+'perawatan-tanaman': {
+ icon:'🌱',
+ type:'PEMBIASAAN',
+ title:'Perawatan Tanaman',
+ desc:'Perawatan Tanaman merupakan pembiasaan warga sekolah untuk menjaga tanaman dan ruang hijau sekolah.',
+ tujuan:'Menumbuhkan tanggung jawab, kesabaran, dan kecintaan terhadap lingkungan.',
+ pelaksanaan:'Merawat dan menjaga tanaman serta area hijau sekolah.',
+ frekuensi:'Setiap hari'
+},
+
+'piral': {
+ icon:'🏆',
+ type:'INOVASI',
+ title:'PIRAL',
+ desc:'PIRAL atau Piala Ramah Lingkungan merupakan inovasi pemanfaatan kertas menjadi produk kreatif.',
+ tujuan:'Memanfaatkan kertas dan menumbuhkan kreativitas serta kepedulian lingkungan.',
+ pelaksanaan:'Kertas yang sudah tidak digunakan dimanfaatkan menjadi produk PIRAL.',
+ frekuensi:'Sesuai pelaksanaan program'
+},
+
+'si-pahala': {
+ icon:'💧',
+ type:'INOVASI',
+ title:'Si-Pahala',
+ desc:'Si-Pahala merupakan Sistem Penampungan Air Hujan Alami.',
+ tujuan:'Memanfaatkan air hujan dan menumbuhkan kesadaran terhadap konservasi air.',
+ pelaksanaan:'Air hujan ditampung melalui sistem yang tersedia untuk kemudian dimanfaatkan sesuai kebutuhan.',
+ frekuensi:'Sesuai kondisi dan kebutuhan'
+},
+
+'dupa': {
+ icon:'🪔',
+ type:'INOVASI',
+ title:'Tempat Pembakaran Khusus Dupa',
+ desc:'Tempat khusus yang disediakan untuk aktivitas pembakaran dupa agar lebih tertata.',
+ tujuan:'Menjaga kebersihan dan ketertiban lingkungan sekolah.',
+ pelaksanaan:'Pembakaran dupa dilakukan pada tempat khusus yang telah disediakan.',
+ frekuensi:'Sesuai kebutuhan'
+},
+
+'eco-enzym': {
+ icon:'🧼',
+ type:'INOVASI',
+ title:'Eco Enzym',
+ desc:'Eco Enzym merupakan inovasi pengolahan bahan organik yang dimanfaatkan sebagai pengganti sabun cuci tangan.',
+ tujuan:'Memanfaatkan bahan organik sekaligus mendukung upaya menjaga lingkungan.',
+ pelaksanaan:'Eco Enzym diolah dan dimanfaatkan sesuai penerapan yang dilakukan sekolah.',
+ frekuensi:'Sesuai kebutuhan'
+},
+
+'komposting': {
+ icon:'🌱',
+ type:'INOVASI',
+ title:'Berbagai Media Komposting',
+ desc:'Pengelolaan sampah organik dilakukan melalui berbagai media komposting.',
+ tujuan:'Mengolah sampah organik agar dapat dimanfaatkan kembali.',
+ pelaksanaan:'Menggunakan Teba Modern, Biopori, dan Tong Komposter sebagai media pengelolaan.',
+ frekuensi:'Berkelanjutan'
+},
+
+'ecobrick': {
+ icon:'🧱',
+ type:'INOVASI',
+ title:'Ecobrick',
+ desc:'Ecobrick merupakan inovasi pemanfaatan sampah plastik dengan mengemasnya secara padat ke dalam botol plastik.',
+ tujuan:'Mengurangi sampah plastik dan membangun kepedulian terhadap lingkungan.',
+ pelaksanaan:'Sampah plastik dikumpulkan dan dikelola menjadi ecobrick.',
+ frekuensi:'Berkelanjutan'
+},
+
+'recycle': {
+ icon:'🔄',
+ type:'INOVASI',
+ title:'Berbagai Produk Recycle',
+ desc:'Berbagai Produk Recycle merupakan hasil kreativitas dalam memanfaatkan bahan yang sudah tidak terpakai menjadi produk baru.',
+ tujuan:'Mengembangkan kreativitas sekaligus mengurangi limbah.',
+ pelaksanaan:'Bahan yang masih dapat dimanfaatkan diolah menjadi berbagai produk recycle.',
+ frekuensi:'Sesuai kegiatan'
+},
+
+'lagu-bali': {
+ icon:'🎵',
+ type:'INOVASI',
+ title:'Lagu Sekolahku yang BALI',
+ desc:'Lagu Sekolahku yang BALI menjadi media untuk membangun identitas dan budaya peduli lingkungan.',
+ tujuan:'Menanamkan semangat Bersih, Asri, Lestari, dan Indah melalui media musik.',
+ pelaksanaan:'Lagu digunakan sebagai bagian dari penguatan budaya Sekolahku yang BALI.',
+ frekuensi:'Sesuai kegiatan sekolah'
+}
+
+};
+
+function openAksi(id){
+ const d=aksiData[id];
+ if(!d)return;
+
+ document.getElementById('aksiModalContent').innerHTML=`
+   <div class="modal-icon">${d.icon}</div>
+   <span class="modal-tag">${d.type}</span>
+   <h2>${d.title}</h2>
+   <p>${d.desc}</p>
+
+   <div class="modal-section">
+     <h4>🎯 Tujuan</h4>
+     <p>${d.tujuan}</p>
+   </div>
+
+   <div class="modal-section">
+     <h4>🌿 Pelaksanaan</h4>
+     <p>${d.pelaksanaan}</p>
+   </div>
+
+   <div class="modal-section">
+     <h4>📅 Frekuensi</h4>
+     <p>${d.frekuensi}</p>
+   </div>
+ `;
+
+ document.getElementById('aksiModal').classList.add('show');
+ document.body.style.overflow='hidden';
+}
+
+function closeAksi(){
+ document.getElementById('aksiModal').classList.remove('show');
+ document.body.style.overflow='';
+}
+
+document.getElementById('aksiModal').addEventListener('click',function(e){
+ if(e.target===this)closeAksi();
+});
+
+document.addEventListener('keydown',function(e){
+ if(e.key==='Escape')closeAksi();
+});
 </script>
 </body>
 </html>
