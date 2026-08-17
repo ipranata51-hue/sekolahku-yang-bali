@@ -1,33 +1,66 @@
 <!doctype html>
 <html lang="id">
-  <style>
+ <style>
 .hero{
   position:relative;
   background:
-    linear-gradient(90deg,rgba(0,55,35,.88),rgba(0,55,35,.35)),
+    linear-gradient(
+      90deg,
+      rgba(0,35,25,.95) 0%,
+      rgba(0,45,30,.78) 32%,
+      rgba(0,45,30,.30) 65%,
+      rgba(0,45,30,.05) 100%
+    ),
     url('foto-sekolah.jpg') center/cover no-repeat !important;
   min-height:600px;
   color:white;
 }
 
-.hero h1,
-.hero h2,
-.hero .tag{
-  color:white;
+/* Tulisan utama */
+.hero h1{
+  color:#ffffff;
+  text-shadow:0 3px 12px rgba(0,0,0,.55);
+  font-weight:900;
 }
 
-.hero .muted{
-  color:#f1f7f3;
+.hero h2{
+  color:#ffffff;
+  text-shadow:0 2px 8px rgba(0,0,0,.5);
+}
+
+.hero .tag{
+  color:#ffe8a3;
+  text-shadow:0 2px 8px rgba(0,0,0,.6);
 }
 
 .hero .k{
   color:#d9f5e4;
+  text-shadow:0 2px 6px rgba(0,0,0,.6);
 }
 
+.hero .muted{
+  color:#ffffff;
+  text-shadow:0 2px 7px rgba(0,0,0,.6);
+}
+
+/* Tombol */
+.hero .primary{
+  background:#176b45;
+  color:white;
+  box-shadow:0 5px 15px rgba(0,0,0,.25);
+}
+
+.hero .light{
+  background:rgba(255,255,255,.95);
+  color:#176b45;
+  border:none;
+}
+
+/* Hilangkan kotak hijau lama */
 .hero .art{
-  background:rgba(0,0,0,.12);
+  background:transparent;
   box-shadow:none;
-  border:1px solid rgba(255,255,255,.2);
+  border:none;
 }
 </style>
 <head>
