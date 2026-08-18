@@ -912,6 +912,49 @@ body.aksi-modal-open{overflow:hidden}
   .aksi-detail-grid{grid-template-columns:1fr}
 }
 
+
+/* ================================
+   BALI RANGERS
+================================ */
+.ranger-card{
+  cursor:pointer;
+  position:relative;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.ranger-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 35px rgba(23,53,42,.10);
+  border-color:#b9d4bf;
+}
+.ranger-link{
+  display:inline-block;
+  margin-top:12px;
+  font-size:12px;
+  font-weight:800;
+  color:var(--forest2);
+}
+.ranger-modal-panel{
+  width:min(780px,100%);
+}
+.ranger-focus{
+  margin-top:20px;
+  padding:18px;
+  border-radius:17px;
+  background:#eef6ed;
+  border:1px solid #dbe9d9;
+}
+.ranger-focus strong{
+  display:block;
+  color:var(--forest2);
+  margin-bottom:7px;
+}
+.ranger-list{
+  margin:10px 0 0;
+  padding-left:20px;
+  color:var(--muted);
+  line-height:1.75;
+}
+
 </style></head>
 <body>
 <header><div class="c nav"><a class="brand" href="#beranda"><img src="logo-sdn1-renon.png" alt="Logo SD Negeri 1 Renon"><span><strong>SD NEGERI 1 RENON</strong><small>Taki Takining Sewaka Guna Widya</small></span></a><nav class="links"><a href="#beranda">BERANDA</a><a href="#tentang">TENTANG</a><a href="#visi">VISI & MISI</a><a href="#aksi">AKSI PROGRAM</a><a href="#jadwal">JADWAL</a><a href="#dokumentasi">DOKUMENTASI</a><a href="#monitoring">MONITORING</a><a href="#kontak">KONTAK</a></nav></div></header>
@@ -1146,14 +1189,14 @@ Sekolahku yang BALI — Bersih • Asri • Lestari • Indah
 </div></div></section>
 
 <section class="section" style="background:var(--paper)"><div class="c"><div class="head"><span class="kicker">Kader Lingkungan</span><h2>BALI Rangers</h2><p class="muted">Kader Sekolahku yang BALI.</p></div><div class="teams">
-<div class="card">💧 <h3>Tim Biopori</h3></div>
-<div class="card">🍃 <h3>Tim Eco Enzym</h3></div>
-<div class="card">♻️ <h3>Tim Komposter</h3></div>
-<div class="card">💡 <h3>Tim Inovasi</h3></div>
-<div class="card">📣 <h3>Tim Kampanye dan Edukasi</h3></div>
-<div class="card">🔁 <h3>Tim Reuse</h3></div>
-<div class="card">➖ <h3>Tim Reduce</h3></div>
-<div class="card">🔄 <h3>Tim Recycle</h3></div>
+<div class="card ranger-card" onclick="openRanger('biopori')">💧 <h3>Tim Biopori</h3><span class="ranger-link">Lihat Detail →</span></div>
+<div class="card ranger-card" onclick="openRanger('eco-enzym')">🍃 <h3>Tim Eco Enzym</h3><span class="ranger-link">Lihat Detail →</span></div>
+<div class="card ranger-card" onclick="openRanger('komposter')">♻️ <h3>Tim Komposter</h3><span class="ranger-link">Lihat Detail →</span></div>
+<div class="card ranger-card" onclick="openRanger('inovasi')">💡 <h3>Tim Inovasi</h3><span class="ranger-link">Lihat Detail →</span></div>
+<div class="card ranger-card" onclick="openRanger('kampanye')">📣 <h3>Tim Kampanye dan Edukasi</h3><span class="ranger-link">Lihat Detail →</span></div>
+<div class="card ranger-card" onclick="openRanger('reuse')">🔁 <h3>Tim Reuse</h3><span class="ranger-link">Lihat Detail →</span></div>
+<div class="card ranger-card" onclick="openRanger('reduce')">➖ <h3>Tim Reduce</h3><span class="ranger-link">Lihat Detail →</span></div>
+<div class="card ranger-card" onclick="openRanger('recycle')">🔄 <h3>Tim Recycle</h3><span class="ranger-link">Lihat Detail →</span></div>
 </div></div></section>
 
 <div class="terrace" style="background:var(--paper)"><svg viewBox="0 0 1200 34" preserveAspectRatio="none"><path d="M0,34 L0,20 L100,20 L100,10 L200,10 L200,24 L300,24 L300,6 L400,6 L400,18 L500,18 L500,2 L600,2 L600,16 L700,16 L700,4 L800,4 L800,22 L900,22 L900,8 L1000,8 L1000,20 L1100,20 L1100,0 L1200,0 L1200,34 Z" fill="#eef6ed"></path></svg></div>
@@ -1321,6 +1364,166 @@ const aksiData={
 };
 
 
+const rangerData = {
+  biopori: {
+    icon:'💧',
+    title:'Tim Biopori',
+    focus:'Konservasi air dan pengelolaan bahan organik melalui biopori.',
+    description:'Tim Biopori berperan dalam membangun kepedulian warga sekolah terhadap resapan air dan pemanfaatan bahan organik melalui kegiatan biopori.',
+    actions:[
+      'Membuat dan merawat lubang biopori di area yang sesuai.',
+      'Memanfaatkan bahan organik sebagai bagian dari pengelolaan biopori.',
+      'Melakukan pemantauan kondisi biopori secara berkala.'
+    ],
+    impact:'Mendorong lingkungan sekolah yang lebih peduli terhadap air, tanah, dan pengelolaan sampah organik.'
+  },
+  'eco-enzym': {
+    icon:'🍃',
+    title:'Tim Eco Enzym',
+    focus:'Pemanfaatan bahan organik menjadi eco enzym untuk mendukung kebersihan lingkungan.',
+    description:'Tim Eco Enzym mengembangkan pemanfaatan bahan organik agar memiliki nilai guna dan dapat mendukung kegiatan kebersihan di sekolah.',
+    actions:[
+      'Mengumpulkan bahan organik yang sesuai.',
+      'Mengolah bahan organik melalui proses pembuatan eco enzym.',
+      'Memanfaatkan hasilnya sesuai kebutuhan dan prosedur sekolah.'
+    ],
+    impact:'Mendorong pemanfaatan limbah organik sekaligus memperkuat budaya peduli lingkungan.'
+  },
+  komposter: {
+    icon:'♻️',
+    title:'Tim Komposter',
+    focus:'Pengelolaan sampah organik melalui berbagai media komposting.',
+    description:'Tim Komposter berfokus pada pengelolaan sampah organik dengan memanfaatkan media yang tersedia di sekolah.',
+    actions:[
+      'Memilah sampah organik dari sumbernya.',
+      'Mengelola sampah melalui Teba Modern, biopori, atau tong komposter.',
+      'Merawat media komposting dan memantau prosesnya.'
+    ],
+    impact:'Mengurangi sampah organik yang terbuang dan membangun kebiasaan mengolah sampah sejak dari sumbernya.'
+  },
+  inovasi: {
+    icon:'💡',
+    title:'Tim Inovasi',
+    focus:'Mengembangkan gagasan dan produk kreatif untuk mendukung Sekolahku yang BALI.',
+    description:'Tim Inovasi menjadi ruang bagi warga sekolah untuk menemukan ide, mencoba solusi, dan mengembangkan karya yang mendukung lingkungan sekolah yang Bersih, Asri, Lestari, dan Indah.',
+    actions:[
+      'Mengidentifikasi masalah lingkungan di sekolah.',
+      'Mengembangkan ide dan solusi kreatif.',
+      'Mencoba, memperbaiki, dan mendokumentasikan hasil inovasi.'
+    ],
+    impact:'Membangun budaya kreatif, reflektif, dan solutif dalam menjaga lingkungan sekolah.'
+  },
+  kampanye: {
+    icon:'📣',
+    title:'Tim Kampanye dan Edukasi',
+    focus:'Menggerakkan dan mengedukasi warga sekolah tentang perilaku peduli lingkungan.',
+    description:'Tim Kampanye dan Edukasi menyebarkan pesan dan mengajak warga sekolah membangun kebiasaan baik melalui komunikasi yang sederhana, menarik, dan konsisten.',
+    actions:[
+      'Menyampaikan pesan tentang kebersihan dan pengelolaan sampah.',
+      'Mengajak warga sekolah terlibat dalam aksi lingkungan.',
+      'Membuat media kampanye dan edukasi yang kreatif.'
+    ],
+    impact:'Meningkatkan kesadaran dan partisipasi warga sekolah dalam budaya Sekolahku yang BALI.'
+  },
+  reuse: {
+    icon:'🔁',
+    title:'Tim Reuse',
+    focus:'Memanfaatkan kembali barang yang masih layak agar tidak langsung menjadi sampah.',
+    description:'Tim Reuse mendorong kebiasaan menggunakan kembali barang atau bahan yang masih memiliki fungsi.',
+    actions:[
+      'Mengidentifikasi barang yang masih dapat digunakan.',
+      'Menggunakan kembali barang sesuai fungsi atau kebutuhan.',
+      'Mengembangkan pemanfaatan alternatif secara kreatif.'
+    ],
+    impact:'Mengurangi timbulan sampah dan membangun kebiasaan menggunakan barang secara lebih bijak.'
+  },
+  reduce: {
+    icon:'➖',
+    title:'Tim Reduce',
+    focus:'Mengurangi penggunaan barang dan bahan yang berpotensi menjadi sampah.',
+    description:'Tim Reduce mendorong warga sekolah untuk mengurangi penggunaan barang sekali pakai dan memilih kebiasaan yang menghasilkan lebih sedikit sampah.',
+    actions:[
+      'Mengidentifikasi sumber sampah yang paling banyak muncul.',
+      'Mendorong penggunaan barang yang dapat dipakai berulang.',
+      'Mengajak warga sekolah mengurangi penggunaan barang sekali pakai.'
+    ],
+    impact:'Mengurangi volume sampah dari sumbernya dan membangun pola hidup yang lebih hemat sumber daya.'
+  },
+  recycle: {
+    icon:'🔄',
+    title:'Tim Recycle',
+    focus:'Mengolah bahan yang sudah tidak terpakai menjadi produk baru yang memiliki nilai guna.',
+    description:'Tim Recycle mengembangkan kreativitas dalam memanfaatkan bahan yang sudah tidak terpakai melalui kegiatan daur ulang dan pembuatan produk kreatif.',
+    actions:[
+      'Mengumpulkan dan memilah bahan yang dapat didaur ulang.',
+      'Merancang produk sesuai karakteristik bahan.',
+      'Mengolah bahan menjadi produk baru yang dapat dimanfaatkan atau dipamerkan.'
+    ],
+    impact:'Mengurangi limbah sekaligus meningkatkan kreativitas dan keterampilan warga sekolah.'
+  }
+};
+
+function openRanger(id){
+  const d = rangerData[id];
+  if(!d) return;
+
+  closeRanger();
+
+  const box = document.createElement('div');
+  box.className = 'aksi-modal';
+  box.setAttribute('data-ranger-modal','true');
+  box.setAttribute('role','dialog');
+  box.setAttribute('aria-modal','true');
+  box.setAttribute('aria-label', d.title);
+
+  box.innerHTML = `
+    <div class="aksi-modal-panel ranger-modal-panel">
+      <button class="aksi-modal-close" type="button" aria-label="Tutup detail" onclick="closeRanger()">×</button>
+
+      <div class="aksi-modal-icon">${d.icon}</div>
+      <span class="aksi-modal-type">BALI RANGERS</span>
+      <h2>${d.title}</h2>
+      <p>${d.description}</p>
+
+      <div class="ranger-focus">
+        <strong>🌱 Fokus Tim</strong>
+        <span>${d.focus}</span>
+      </div>
+
+      <div class="aksi-detail-grid">
+        <div class="aksi-detail-box">
+          <strong>🚀 Aksi Utama</strong>
+          <ul class="ranger-list">
+            ${d.actions.map(x => `<li>${x}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="aksi-detail-box">
+          <strong>🌿 Dampak yang Diharapkan</strong>
+          <span>${d.impact}</span>
+        </div>
+      </div>
+
+      <div class="aksi-modal-note">
+        🌿 <b>Sekolahku yang BALI</b> — Bersih • Asri • Lestari • Indah
+      </div>
+    </div>
+  `;
+
+  box.addEventListener('click', e => {
+    if(e.target === box) closeRanger();
+  });
+
+  document.body.appendChild(box);
+  document.body.classList.add('aksi-modal-open');
+  box.querySelector('.aksi-modal-close').focus();
+}
+
+function closeRanger(){
+  const modal = document.querySelector('[data-ranger-modal="true"]');
+  if(modal) modal.remove();
+  document.body.classList.remove('aksi-modal-open');
+}
+
 function openAksi(id){
   const d = aksiData[id];
   if(!d) return;
@@ -1377,7 +1580,9 @@ function closeAksi(){
 }
 
 document.addEventListener('keydown', e => {
-  if(e.key === 'Escape') closeAksi();
+  if(e.key !== 'Escape') return;
+  closeAksi();
+  closeRanger();
 });
 </script>
 </body></html>
