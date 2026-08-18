@@ -7,6 +7,193 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+  /* ================================
+   ALUR SEKOLAHKU YANG BALI
+================================ */
+
+.alur-bali {
+  padding: 90px 6%;
+  background: linear-gradient(180deg, #f4fbf6 0%, #ffffff 100%);
+  color: #123c2b;
+  position: relative;
+  overflow: hidden;
+}
+
+.alur-header {
+  max-width: 850px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.alur-label {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: #e0f3e7;
+  color: #18734d;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.alur-header h2 {
+  margin: 15px 0 12px;
+  font-size: clamp(32px, 5vw, 52px);
+  color: #145c3b;
+  font-weight: 900;
+}
+
+.alur-header p {
+  margin: 0 auto;
+  max-width: 700px;
+  color: #60756b;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* GARIS PERJALANAN */
+
+.alur-track {
+  max-width: 1250px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  position: relative;
+}
+
+/* garis penghubung */
+
+.alur-track::before {
+  content: "";
+  position: absolute;
+  top: 54px;
+  left: 7%;
+  right: 7%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #8ac9a5,
+    #3c9c68,
+    #f2c85b,
+    #3c9c68,
+    #8ac9a5
+  );
+  z-index: 0;
+}
+
+/* KARTU */
+
+.alur-card {
+  position: relative;
+  z-index: 1;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid #dceee3;
+  border-radius: 22px;
+  padding: 25px 20px;
+  min-height: 290px;
+  box-shadow: 0 10px 30px rgba(22,80,53,0.08);
+  transition: all 0.3s ease;
+}
+
+.alur-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 40px rgba(22,80,53,0.16);
+  border-color: #65b986;
+}
+
+.alur-icon {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  border-radius: 18px;
+  background: #e7f6ed;
+  font-size: 31px;
+}
+
+.alur-number {
+  position: absolute;
+  top: 20px;
+  right: 18px;
+  font-size: 12px;
+  font-weight: 900;
+  color: #9ab8a7;
+}
+
+.alur-card h3 {
+  margin: 8px 0 12px;
+  font-size: 19px;
+  color: #145c3b;
+  font-weight: 850;
+}
+
+.alur-card p {
+  margin: 0;
+  color: #64766d;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1050px) {
+
+  .alur-track {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .alur-track::before {
+    display: none;
+  }
+
+}
+
+
+/* ================================
+   HP
+================================ */
+
+@media (max-width: 650px) {
+
+  .alur-bali {
+    padding: 65px 20px;
+  }
+
+  .alur-header {
+    margin-bottom: 35px;
+  }
+
+  .alur-header h2 {
+    font-size: 34px;
+  }
+
+  .alur-header p {
+    font-size: 15px;
+  }
+
+  .alur-track {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .alur-card {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .alur-icon {
+    width: 58px;
+    height: 58px;
+    font-size: 27px;
+  }
+
+}
 :root{
   --forest:#0f2e20;      /* hijau sawah gelap */
   --forest2:#2f6b46;     /* hijau daun */
@@ -137,6 +324,80 @@ footer strong{font-family:var(--serif)}
   .section{padding:58px 0}
   .head h2{font-size:29px}
 }
+  <section class="alur-bali" id="alur">
+  <div class="alur-header">
+    <span class="alur-label">PERJALANAN PERUBAHAN SEKOLAH</span>
+    <h2>Alur Sekolahku yang BALI</h2>
+    <p>
+      Dari menemukan masalah hingga menghasilkan perubahan nyata
+      bagi lingkungan dan warga sekolah.
+    </p>
+  </div>
+
+  <div class="alur-track">
+
+    <div class="alur-card">
+      <div class="alur-icon">🔎</div>
+      <div class="alur-number">01</div>
+      <h3>Identifikasi Masalah</h3>
+      <p>
+        Mengenali kondisi, masalah, kebutuhan, dan potensi lingkungan
+        sekolah sebagai dasar menentukan langkah perubahan.
+      </p>
+    </div>
+
+    <div class="alur-card">
+      <div class="alur-icon">🌱</div>
+      <div class="alur-number">02</div>
+      <h3>Pembiasaan</h3>
+      <p>
+        Membangun budaya peduli lingkungan melalui kebiasaan nyata
+        yang dilakukan secara rutin oleh seluruh warga sekolah.
+      </p>
+    </div>
+
+    <div class="alur-card">
+      <div class="alur-icon">💡</div>
+      <div class="alur-number">03</div>
+      <h3>Inovasi</h3>
+      <p>
+        Mengembangkan gagasan kreatif untuk menghasilkan solusi
+        terhadap permasalahan lingkungan sekolah.
+      </p>
+    </div>
+
+    <div class="alur-card">
+      <div class="alur-icon">♻️</div>
+      <div class="alur-number">04</div>
+      <h3>Karya & Produk</h3>
+      <p>
+        Mengubah pembiasaan dan inovasi menjadi karya serta produk
+        yang bermanfaat dan memiliki nilai lingkungan.
+      </p>
+    </div>
+
+    <div class="alur-card">
+      <div class="alur-icon">📊</div>
+      <div class="alur-number">05</div>
+      <h3>Monitoring</h3>
+      <p>
+        Memantau pelaksanaan program, melihat perkembangan,
+        melakukan refleksi, dan menentukan perbaikan.
+      </p>
+    </div>
+
+    <div class="alur-card">
+      <div class="alur-icon">🌿</div>
+      <div class="alur-number">06</div>
+      <h3>Dampak</h3>
+      <p>
+        Terwujudnya sekolah yang Bersih, Asri, Lestari, dan Indah
+        serta tumbuhnya karakter peduli lingkungan.
+      </p>
+    </div>
+
+  </div>
+</section>
 .aksi-bali{
 background:linear-gradient(180deg,#f3f8f3,#fff);
 }
