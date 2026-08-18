@@ -955,6 +955,17 @@ body.aksi-modal-open{overflow:hidden}
   line-height:1.75;
 }
 
+
+.aksi-modal-photo{
+  width:100%;
+  max-height:390px;
+  object-fit:cover;
+  border-radius:20px;
+  display:block;
+  margin-bottom:18px;
+  border:1px solid #dfe9dc;
+}
+
 </style></head>
 <body>
 <header><div class="c nav"><a class="brand" href="#beranda"><img src="logo-sdn1-renon.png" alt="Logo SD Negeri 1 Renon"><span><strong>SD NEGERI 1 RENON</strong><small>Taki Takining Sewaka Guna Widya</small></span></a><nav class="links"><a href="#beranda">BERANDA</a><a href="#tentang">TENTANG</a><a href="#visi">VISI & MISI</a><a href="#aksi">AKSI PROGRAM</a><a href="#jadwal">JADWAL</a><a href="#dokumentasi">DOKUMENTASI</a><a href="#monitoring">MONITORING</a><a href="#kontak">KONTAK</a></nav></div></header>
@@ -1318,7 +1329,7 @@ const aksiData={
 'Si-Pahala merupakan Sistem Penampungan Air Hujan Alami.',
 'Memanfaatkan air hujan dan menumbuhkan kesadaran terhadap konservasi air.',
 'Sesuai kondisi dan kebutuhan'
-],
+,'assets/si-pahala.jpeg'],
 
 'dupa':[
 '🪔','INOVASI','Tempat Pembakaran Khusus Dupa',
@@ -1541,7 +1552,7 @@ function openAksi(id){
     <div class="aksi-modal-panel">
       <button class="aksi-modal-close" type="button" aria-label="Tutup detail" onclick="closeAksi()">×</button>
 
-      <div class="aksi-modal-icon">${d[0]}</div>
+      ${d[6] ? `<img class="aksi-modal-photo" src="${d[6]}" alt="${d[2]}">` : `<div class="aksi-modal-icon">${d[0]}</div>`}
       <span class="aksi-modal-type">${d[1]}</span>
       <h2>${d[2]}</h2>
       <p>${d[3]}</p>
