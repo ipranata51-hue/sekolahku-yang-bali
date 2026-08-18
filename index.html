@@ -1796,10 +1796,10 @@ function openAksi(id){
       <span class="aksi-modal-type">${d[1]}</span>
       <h2>${d[2]}</h2>
       <p>${d[3]}</p>
-      ${d[7] ? `
+      ${d[6] ? `
         <div class="aksi-audio-box">
           <strong>🎵 Dengarkan Lagu Sekolahku yang BALI</strong>
-          <audio controls preload="metadata" src="${d[7]}" style="width:100%;margin-top:12px;"></audio>
+          <audio controls preload="metadata" playsinline src="${d[6]}" style="width:100%;margin-top:12px;"></audio>
         </div>
       ` : ''}
 
