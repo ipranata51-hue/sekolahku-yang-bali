@@ -1,0 +1,87 @@
+name: Enrich Pembiasaan Documentation
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Enrich website documentation
+        shell: python {0}
+        run: |
+          from pathlib import Path
+          import re
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = '<!-- PEMBIASAAN-PRO-2026 -->'
+          if marker in s:
+              print('Already enriched; nothing to do.')
+              raise SystemExit(0)
+
+          css_marker = 'body.aksi-modal-open{overflow:hidden}'
+          css = r'''/* PEMBIASAAN-PRO-2026 */
+          .aksi-modal-photo{width:100%;max-height:360px;object-fit:cover;border-radius:18px;margin:20px 0 6px;border:1px solid #dfe9dc;box-shadow:0 10px 28px rgba(0,0,0,.08)}
+          .aksi-documentation{margin-top:16px;padding:16px 17px;border-radius:16px;background:#f7faf5;border:1px solid #dfe9dc}
+          .aksi-documentation strong{display:block;color:var(--forest2);font-size:13px;margin-bottom:6px}
+          .aksi-documentation span{color:var(--muted);line-height:1.65}
+          '''
+          if css_marker in s:
+              s = s.replace(css_marker, css + '\n' + css_marker, 1)
+
+          s = s.replace('<div class="aksi-icon">🪑</div>\n<span class="aksi-label">PEMBIASAAN</span>\n<h3>Sisir Meja</h3>',
+                        '<div class="aksi-icon">🗂️</div>\n<span class="aksi-label">PEMBIASAAN</span>\n<h3>Sisir Meja</h3>', 1)
+
+          s = s.replace('''      <h2>${d[2]}</h2>\n      <p>${d[3]}</p>\n\n      <div class="aksi-detail-grid">''',
+                        '''      <h2>${d[2]}</h2>\n      <p>${d[3]}</p>\n      ${d[6] ? `<img class="aksi-modal-photo" src="${d[6]}" alt="Dokumentasi ${d[2]}">` : ''}\n\n      <div class="aksi-detail-grid">''', 1)
+          s = s.replace('''      </div>\n\n      <div class="aksi-modal-note">''',
+                        '''      </div>\n\n      ${d[7] ? `<div class="aksi-documentation"><strong>📷 Dokumentasi Kegiatan</strong><span>${d[7]}</span></div>` : ''}\n\n      <div class="aksi-modal-note">''', 1)
+
+          def enrich_entry(text, key, photo, doc):
+              pattern = re.compile(r"('%s':\[)(.*?)(\n\],)" % re.escape(key), re.S)
+              m = pattern.search(text)
+              if not m:
+                  raise SystemExit(f'Missing aksiData entry: {key}')
+              body = m.group(2)
+              if 'dokumentasi/' in body:
+                  return text
+              if len(body.splitlines()) < 6:
+                  raise SystemExit(f'Unexpected aksiData format: {key}')
+              new_body = body + f",\n'{photo}',\n'{doc}'"
+              return text[:m.start(2)] + new_body + text[m.end(2):]
+
+          s = enrich_entry(s, 'operasi-semut', 'dokumentasi/operasi-semut.jpg',
+              'Peserta didik membiasakan diri mengambil sampah yang terlihat saat beraktivitas, kemudian menempatkannya pada tempat sampah yang sesuai.')
+          s = enrich_entry(s, 'general-clean-up', 'dokumentasi/general-clean-up.jpg',
+              'Kegiatan dilakukan bersama untuk membersihkan area sekolah sebagai pembiasaan gotong royong, kepedulian, dan tanggung jawab terhadap lingkungan.')
+          s = enrich_entry(s, 'sisir-meja', 'dokumentasi/sisir-meja.jpg',
+              'Peserta didik memeriksa meja dan area di sekitarnya, mengambil sampah atau benda yang tidak pada tempatnya, lalu merapikan meja sebelum meninggalkan kelas.')
+
+          s = s.replace('<div><div class="footerTitle">Alamat</div>Denpasar – Bali</div>',
+                        '<div><div class="footerTitle">Alamat</div>Jalan Tukad Balian Nomor 37, Renon, Denpasar</div>', 1)
+          s = s.replace('<div><div class="footerTitle">Kontak</div>Informasi sekolah dapat ditambahkan kemudian.</div>',
+                        '<div><div class="footerTitle">Kontak</div><a href="mailto:sdn1renon@gmail.com">sdn1renon@gmail.com</a></div>', 1)
+
+          s += '\n' + marker + '\n'
+          p.write_text(s, encoding='utf-8')
+
+      - name: Commit enriched website
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Enrich pembiasaan documentation"
+          git push
