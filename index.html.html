@@ -1335,7 +1335,15 @@ font-weight:900;
 <h2 style="color:#17352a;margin-bottom:10px">${d[2]}</h2>
 
 <p>${d[3]}</p>
-      ${d[6] ? `<div class="aksi-audio-box"><strong>🎵 Dengarkan Lagu Sekolahku yang BALI</strong><audio controls preload="metadata" playsinline src="${d[6]}"></audio></div>` : ''}
+ ${id === 'lagu-bali' ? `
+  <div class="aksi-audio-box">
+    <strong>🎵 Dengarkan Lagu Sekolahku yang BALI</strong>
+    <audio controls preload="metadata" playsinline
+      src="./lagu-sekolahku-yang-bali.mp3"
+      style="width:100%;margin-top:12px;">
+    </audio>
+  </div>
+` : ''}    
 
 <h4 style="color:#176b45;margin-bottom:5px">🎯 Tujuan</h4>
 <p>${d[4]}</p>
