@@ -87,7 +87,13 @@
     addPapanNamaCard();
   }
 
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',wireCards); else wireCards();
+  function boot(){
+    try{ wireCards(); }catch(e){ console.warn('SAPA/INOVASI popup:',e); }
+    setTimeout(()=>{ try{ addPapanNamaCard(); }catch(e){} },800);
+    setTimeout(()=>{ try{ addPapanNamaCard(); }catch(e){} },2000);
+  }
+
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot); else boot();
   window.openAksi=openPopup;
   window.closeAksi=closePopup;
 })();
