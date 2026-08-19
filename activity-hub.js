@@ -31,9 +31,9 @@
 
   function addMainInnovationCard(){
     if(document.querySelector('[data-papan-nama-digital="true"]'))return;
-    const grids=document.querySelectorAll('#aksi .aksi-grid');
-    if(grids.length<2)return;
-    const grid=grids[grids.length-1];
+    const grids=[...document.querySelectorAll('#aksi .aksi-grid')];
+    const grid=grids.find(g=>g.querySelector('.aksi-card.inovasi'));
+    if(!grid)return;
     const card=document.createElement('article');
     card.className='aksi-card inovasi';
     card.dataset.papanNamaDigital='true';
