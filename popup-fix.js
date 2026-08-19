@@ -16,8 +16,22 @@
     'komposting': {schedule:'Sesuai pelaksanaan program', goal:'Mengolah sampah organik menjadi media yang bermanfaat dan mengurangi sampah.'},
     'ecobrick': {schedule:'Sesuai pelaksanaan program', goal:'Memanfaatkan sampah plastik agar memiliki nilai guna kembali.'},
     'recycle': {schedule:'Sesuai pelaksanaan program', goal:'Mengolah bahan yang tidak terpakai menjadi produk baru yang bermanfaat.'},
-    'lagu-bali': {schedule:'Sesuai kegiatan sekolah', goal:'Menanamkan semangat Bersih, Asri, Lestari, dan Indah melalui media musik.', audio:'lagu-sekolahku-yang-bali.mp3'}
+    'lagu-bali': {schedule:'Sesuai kegiatan sekolah', goal:'Menanamkan semangat Bersih, Asri, Lestari, dan Indah melalui media musik.', audio:'lagu-sekolahku-yang-bali.mp3'},
+    'papan-nama-tanaman-digital': {schedule:'Sesuai pelaksanaan program', goal:'Mengenalkan jenis dan identitas tanaman di lingkungan sekolah, menjadikan lingkungan sebagai sumber belajar kontekstual, serta memanfaatkan teknologi untuk mendukung edukasi lingkungan.'}
   };
+
+  function addPapanNamaCard(){
+    if(document.querySelector('[data-popup-id="papan-nama-tanaman-digital"]')) return;
+    const grids=document.querySelectorAll('.aksi-grid');
+    if(!grids.length) return;
+    const grid=grids[grids.length-1];
+    const card=document.createElement('article');
+    card.className='aksi-card inovasi';
+    card.setAttribute('data-popup-id','papan-nama-tanaman-digital');
+    card.innerHTML=`<div class="aksi-icon">🌱</div><div class="aksi-label">INOVASI</div><h3>Papan Nama Tanaman Digital</h3><p>Media informasi tanaman yang menggabungkan identitas tanaman, pembelajaran lingkungan, dan teknologi digital.</p><button type="button">Lihat Detail →</button>`;
+    card.addEventListener('click',()=>openPopup('papan-nama-tanaman-digital'));
+    grid.appendChild(card);
+  }
 
   function closePopup(){
     const m=document.querySelector('[data-popup-fix="true"]');
@@ -70,6 +84,7 @@
       card.removeAttribute('onclick');
       card.addEventListener('click',()=>openPopup(id));
     });
+    addPapanNamaCard();
   }
 
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',wireCards); else wireCards();
