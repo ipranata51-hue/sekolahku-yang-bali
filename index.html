@@ -932,7 +932,7 @@ dan inovasi kreatif seluruh warga SD Negeri 1 Renon.
 </div>
 
 <div class="aksi-card" onclick="openAksi('sisir-meja')">
-<div class="aksi-icon">🗂️</div>
+<div class="aksi-icon">🪑</div>
 <span class="aksi-label">PEMBIASAAN</span>
 <h3>Sisir Meja</h3>
 <p>Memastikan meja dan area belajar tetap bersih serta rapi.</p>
@@ -1136,10 +1136,6 @@ Sekolahku yang BALI — Bersih • Asri • Lestari • Indah
 </div></footer>
 
 <script>
-document.getElementById('q').addEventListener('input',e=>{
-  let q=e.target.value.toLowerCase();
-  document.querySelectorAll('[data-k]').forEach(x=>x.style.display=!q||x.dataset.k.includes(q)||x.innerText.toLowerCase().includes(q)?'block':'none');
-});
 document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));
   b.classList.add('active');
@@ -1218,6 +1214,13 @@ const aksiData={
 'Si-Pahala merupakan Sistem Penampungan Air Hujan Alami.',
 'Memanfaatkan air hujan dan menumbuhkan kesadaran terhadap konservasi air.',
 'Sesuai kondisi dan kebutuhan'
+],
+
+'a-patar':[
+'🥤','INOVASI','A-PATAR',
+'A-PATAR atau Air Pakai Tumbler merupakan penyediaan air isi ulang untuk membiasakan murid menggunakan tumbler.',
+'Mengurangi penggunaan botol plastik sekali pakai dan menumbuhkan kebiasaan hidup ramah lingkungan.',
+'Sesuai kebutuhan'
 ],
 
 'dupa':[
@@ -1360,8 +1363,4 @@ document.body.appendChild(box);
 })();
 </script>
 
-
-<script src="popup-fix.js"></script>
 </body></html>
-
-<!-- PEMBIASAAN-PRO-2026 -->
