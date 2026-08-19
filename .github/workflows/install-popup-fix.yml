@@ -1,0 +1,30 @@
+name: Pasang Popup Fix
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  inject-popup-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Pasang popup-fix ke index
+        run: node scripts/inject-popup-fix.js
+
+      - name: Simpan perubahan
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "Tidak ada perubahan."
+          else
+            git commit -m "Aktifkan Papan Nama Tanaman Digital"
+            git push
+          fi
