@@ -1,0 +1,43 @@
+name: Activate popup fix
+on:
+  push:
+    paths:
+      - 'activate-popup-fix.trigger'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch index
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          # Make the existing inline popup audio exclusive to Lagu Sekolahku yang BALI.
+          s=s.replace("${d[6] ? `\n        <div class=\"aksi-audio-box\">", "${id === 'lagu-bali' && d[6] ? `\n        <div class=\"aksi-audio-box\">")
+          # Ensure the robust popup fixer is actually loaded by the page.
+          tag='<script src="popup-fix.js"></script>'
+          if tag not in s:
+              s=s.replace('</body>', tag+'\n</body>', 1)
+          # Remove trigger after successful patch.
+          Path('activate-popup-fix.trigger').unlink(missing_ok=True)
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit patch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html activate-popup-fix.trigger
+          git commit -m 'activate popup fix' || exit 0
+          git push
+      - name: Remove workflow
+        if: always()
+        run: |
+          git rm -f .github/workflows/activate-popup-fix.yml || true
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'remove popup fix workflow' || true
+          git push || true
