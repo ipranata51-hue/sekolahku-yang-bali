@@ -1,4 +1,4 @@
-name: Install BALI Rangers module
+name: Install website modules
 
 on:
   push:
@@ -14,21 +14,29 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Add script to index
+      - name: Add website modules to index
         shell: python {0}
         run: |
           from pathlib import Path
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
-          tag = '<script src="bali-rangers.js"></script>'
-          if tag in s:
-              print('BALI Rangers module already installed.')
-              raise SystemExit(0)
           marker = '</body>'
           if marker not in s:
               raise SystemExit('Cannot find </body> in index.html')
-          s = s.replace(marker, tag + '\n' + marker, 1)
-          p.write_text(s, encoding='utf-8')
+          tags = [
+              '<script src="bali-rangers.js"></script>',
+              '<script src="activity-hub.js"></script>'
+          ]
+          changed = False
+          for tag in tags:
+              if tag not in s:
+                  s = s.replace(marker, tag + '\n' + marker, 1)
+                  changed = True
+          if changed:
+              p.write_text(s, encoding='utf-8')
+              print('Website modules installed.')
+          else:
+              print('Website modules already installed.')
 
       - name: Commit installation
         shell: bash
@@ -40,5 +48,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Install BALI Rangers documentation module"
+          git commit -m "Install website activity modules"
           git push
