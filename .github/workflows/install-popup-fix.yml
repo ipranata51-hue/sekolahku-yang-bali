@@ -1,0 +1,36 @@
+name: Install popup fix
+on:
+  push:
+    branches: [main]
+    paths: ["popup-fix-trigger.txt"]
+permissions:
+  contents: write
+jobs:
+  install:
+    if: ${{ !contains(github.event.head_commit.message, 'install popup fix') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inject popup fix script
+        shell: python
+        run: |
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          tag='<script src="popup-fix.js"></script>'
+          if tag not in s:
+              pos=s.lower().rfind('</body>')
+              if pos==-1: raise SystemExit('No </body> found in index.html')
+              s=s[:pos]+'\n'+tag+'\n'+s[pos:]
+              p.write_text(s,encoding='utf-8')
+          Path('popup-fix-trigger.txt').unlink(missing_ok=True)
+          wf=Path('.github/workflows/install-popup-fix.yml')
+          wf.unlink(missing_ok=True)
+      - name: Commit and push
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html popup-fix-trigger.txt .github/workflows/install-popup-fix.yml
+          git diff --cached --quiet || git commit -m 'install popup fix'
+          git push
