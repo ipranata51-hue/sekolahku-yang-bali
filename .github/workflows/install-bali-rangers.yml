@@ -14,30 +14,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Add website modules to index
+      - name: Clean duplicate UI modules and install one UI module
         shell: python {0}
         run: |
           from pathlib import Path
+          import re
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
-          marker = '</body>'
+          # Remove all previously injected UI/documentation modules.
+          for name in ['activity-hub.js','content-manager.js','popup-fix.js','site-ui.js']:
+              s = re.sub(r'<script[^>]+src=["\']'+re.escape(name)+r'["\'][^>]*></script>\s*', '', s, flags=re.I)
+          marker='</body>'
           if marker not in s:
               raise SystemExit('Cannot find </body> in index.html')
-          tags = [
-              '<script src="bali-rangers.js"></script>',
-              '<script src="activity-hub.js"></script>',
-              '<script src="content-manager.js"></script>'
-          ]
-          changed = False
-          for tag in tags:
-              if tag not in s:
-                  s = s.replace(marker, tag + '\n' + marker, 1)
-                  changed = True
-          if changed:
-              p.write_text(s, encoding='utf-8')
-              print('Website modules installed.')
-          else:
-              print('Website modules already installed.')
+          # Keep the existing BALI Rangers module, and install one consolidated UI module.
+          bali='<script src="bali-rangers.js"></script>'
+          if bali not in s:
+              s=s.replace(marker,bali+'\n'+marker,1)
+          ui='<script src="site-ui.js"></script>'
+          s=s.replace(marker,ui+'\n'+marker,1)
+          p.write_text(s,encoding='utf-8')
 
       - name: Commit installation
         shell: bash
@@ -49,5 +45,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Install website content manager"
+          git commit -m "Clean up website UI modules"
           git push
