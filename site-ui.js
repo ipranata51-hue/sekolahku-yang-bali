@@ -28,3 +28,45 @@
   function boot(){style();wire();uploadSection();setTimeout(wire,700);setTimeout(wire,1800)}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
+
+/* SAPA BALI — KIRIM LANGSUNG KE API VERCEL, TANPA LOGIN GITHUB */
+(function(){
+  function install(){
+    const form=document.getElementById('sapaForm');
+    if(!form || form.dataset.publicApiReady==='1') return !!form;
+    form.dataset.publicApiReady='1';
+    const old=form.cloneNode(true);
+    form.replaceWith(old);
+    const f=old;
+    const button=f.querySelector('.sapa-submit');
+    const card=f.closest('.sapa-card');
+    let note=card?.querySelector('.sapa-note');
+    if(!note && card){note=document.createElement('p');note.className='sapa-note';card.appendChild(note)}
+    if(note){note.innerHTML='Saran dikirim melalui sistem website dan akan melalui moderasi sebelum ditampilkan.'}
+    f.addEventListener('submit',async function(e){
+      e.preventDefault();
+      const nama=f.querySelector('#sapaNama')?.value.trim()||'';
+      const status=f.querySelector('#sapaStatus')?.value||'Lainnya';
+      const pesan=f.querySelector('#sapaPesan')?.value.trim()||'';
+      if(!nama||!pesan){if(note)note.textContent='Mohon isi Nama dan Saran & Pandangan terlebih dahulu.';return}
+      const oldText=button?.textContent||'';
+      if(button){button.disabled=true;button.textContent='⏳ Mengirim...'}
+      if(note)note.textContent='Sedang mengirim SAPA BALI...';
+      try{
+        const r=await fetch('/api/sapa',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({nama,status,pesan})});
+        let data={};try{data=await r.json()}catch(_){ }
+        if(!r.ok)throw new Error(data.error||'SAPA BALI gagal dikirim.');
+        f.reset();
+        if(note)note.textContent='✅ SAPA BALI berhasil dikirim. Terima kasih. Saran akan diperiksa terlebih dahulu sebelum dipublikasikan.';
+      }catch(err){
+        console.error('SAPA BALI:',err);
+        if(note)note.textContent='❌ SAPA BALI belum terkirim: '+(err.message||'Terjadi kesalahan.');
+      }finally{
+        if(button){button.disabled=false;button.textContent=oldText||'🌱 Kirim SAPA BALI'}
+      }
+    });
+    return true;
+  }
+  function boot(){if(install())return;setTimeout(install,300);setTimeout(install,1000);setTimeout(install,2000);setTimeout(install,4000)}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
