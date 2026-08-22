@@ -46,4 +46,44 @@
   function boot(){wireCards();setTimeout(wireCards,500);setTimeout(wireCards,1500);setTimeout(wireCards,3000)}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
   window.openAksi=openPopup;window.closeAksi=closePopup;
+
+  /* SAPA BALI: ganti pengiriman GitHub Issues langsung dengan endpoint Vercel.
+     Pengunjung tidak perlu memiliki atau masuk ke akun GitHub. */
+  function setupPublicSapa(){
+    const replaceForm=()=>{
+      const form=document.getElementById('sapaForm');
+      if(!form||form.dataset.publicSapa==='1')return;
+      const clone=form.cloneNode(true);
+      clone.dataset.publicSapa='1';
+      const honeypot=document.createElement('input');
+      honeypot.type='text';honeypot.name='website';honeypot.autocomplete='off';honeypot.tabIndex=-1;honeypot.style.cssText='position:absolute;left:-9999px;height:1px;width:1px;opacity:0';
+      clone.appendChild(honeypot);
+      form.replaceWith(clone);
+      const note=clone.parentElement?.querySelector('.sapa-note');
+      if(note)note.innerHTML='SAPA BALI akan melalui <strong>moderasi pengelola sekolah</strong> sebelum ditampilkan pada website. Pengunjung dapat mengirim tanpa akun GitHub.';
+      clone.addEventListener('submit',async e=>{
+        e.preventDefault();
+        const submit=clone.querySelector('.sapa-submit');
+        const nama=clone.querySelector('#sapaNama')?.value.trim()||'';
+        const status=clone.querySelector('#sapaStatus')?.value||'';
+        const pesan=clone.querySelector('#sapaPesan')?.value.trim()||'';
+        const website=clone.querySelector('[name="website"]')?.value||'';
+        if(!nama||!pesan){alert('Mohon lengkapi nama dan saran/pandangan.');return;}
+        if(nama.length>80||pesan.length>3000){alert('Mohon periksa panjang nama atau pesan.');return;}
+        if(submit){submit.disabled=true;submit.textContent='⏳ Mengirim...';}
+        try{
+          const r=await fetch('/api/sapa',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nama,status,pesan,website})});
+          const data=await r.json().catch(()=>({}));
+          if(!r.ok)throw new Error(data.error||'Pengiriman gagal');
+          clone.reset();
+          alert('Terima kasih! SAPA BALI sudah diterima dan akan ditinjau oleh pengelola sekolah.');
+        }catch(err){alert('SAPA BALI belum terkirim. Silakan coba lagi.');}
+        finally{if(submit){submit.disabled=false;submit.textContent='🌱 Kirim SAPA BALI';}}
+      });
+    };
+    if(document.getElementById('sapaForm'))replaceForm();
+    const obs=new MutationObserver(()=>{if(document.getElementById('sapaForm'))replaceForm()});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setupPublicSapa);else setupPublicSapa();
 })();
