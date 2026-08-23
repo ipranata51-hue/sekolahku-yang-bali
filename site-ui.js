@@ -29,8 +29,12 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
 
-/* SAPA BALI — KIRIM LANGSUNG KE API VERCEL, TANPA LOGIN GITHUB */
+/* SAPA BALI — KIRIM LANGSUNG KE API VERCEL, TANPA LOGIN GITHUB
+   DINONAKTIFKAN: form #sapaForm sudah ditangani langsung di index.html
+   (terhubung ke Google Apps Script / Google Sheet). Blok ini dulu
+   membajak form yang sama dan mengalihkannya ke endpoint /api/sapa. */
 (function(){
+  return; // eslint-disable-line no-unreachable
   function install(){
     const form=document.getElementById('sapaForm');
     if(!form || form.dataset.publicApiReady==='1') return !!form;
