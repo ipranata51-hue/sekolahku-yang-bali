@@ -625,22 +625,250 @@ footer strong{font-family:var(--serif)}
 <div class="card"><ul><li>Seluruh warga sekolah bertanggung jawab terhadap kebersihan, keasrian, kelestarian dan keindahan sekolah.</li><li>Wajib menggunakan tumbler dan kotak makan.</li><li>Membuang sampah sesuai jenisnya.</li><li>Tidak membuang sampah dari luar sekolah ke tempat sampah sekolah.</li><li>Tidak merusak sarana dan prasarana sekolah.</li></ul></div>
 <div class="card"><h3 style="margin-top:0">Konsekuensi Edukatif</h3><ol><li>Teguran Lisan</li><li>Tindakan Sosial Edukatif</li><li>Peringatan Tertulis</li></ol><p class="muted" style="font-size:13.5px;margin-bottom:0">Tindakan sosial edukatif meliputi membersihkan area tertentu, mencabut tanaman liar, merapikan tanaman, dll.</p></div>
 </div></div></section>
+<section class="section" id="sapa-bali" style="background:#eef6ed">
+  <div class="c">
 
-<section class="section" id="sapa-bali" style="background:#eef6ed"><div class="c">
-<div class="head"><span class="kicker">Suara Warga Sekolah</span><h2>Sapa BALI 💬</h2><p class="muted">Punya cerita, dukungan, atau ide untuk program Sekolahku yang BALI? Tinggalkan pesan Anda di sini — siswa, guru, orang tua, maupun pengunjung lainnya boleh menyapa tanpa perlu membuat akun apa pun.</p></div>
-<div class="highlight" style="max-width:760px;margin:0 auto">
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="1728ca31-70cd-4072-b6ea-aa136787aabf"
-  data-page-id="sapa-bali"
-  data-page-url="https://sekolahku-yang-bali.vercel.app/#sapa-bali"
-  data-page-title="Sapa BALI - Sekolahku yang BALI SDN 1 Renon"
-  data-theme="light">
-</div>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-</div>
-<p class="muted" style="text-align:center;font-size:13px;margin-top:16px">🌿 Komentar akan tampil setelah disetujui oleh pengelola sekolah.</p>
-</div></section>
+    <div class="head">
+      <span class="kicker">RUANG PARTISIPASI</span>
+
+      <h2>SAPA BALI</h2>
+
+      <p class="muted">
+        Sarana bagi warga sekolah, orang tua, dan masyarakat
+        untuk menyampaikan apresiasi, saran, ide, dan pandangan
+        terkait Program Sekolahku yang BALI.
+      </p>
+    </div>
+
+    <div class="two">
+
+      <!-- =========================
+           FORM SAPA BALI
+      ========================== -->
+      <div class="highlight">
+
+        <h3 style="
+          margin-top:0;
+          color:var(--forest);
+          font-size:28px;
+        ">
+          💬 Sampaikan SAPA BALI
+        </h3>
+
+        <p class="muted">
+          Ruang bagi warga sekolah, orang tua, dan masyarakat
+          untuk menyampaikan apresiasi, saran, ide, dan pandangan
+          demi pengembangan Program Sekolahku yang BALI.
+        </p>
+
+        <form id="sapaForm" style="margin-top:24px">
+
+          <!-- Nama -->
+          <div style="margin-bottom:18px">
+            <label
+              for="sapaNama"
+              style="
+                display:block;
+                font-weight:800;
+                color:var(--forest);
+                margin-bottom:7px;
+              ">
+              Nama
+            </label>
+
+            <input
+              id="sapaNama"
+              name="nama"
+              type="text"
+              maxlength="80"
+              placeholder="Nama Anda"
+              required
+              style="
+                width:100%;
+                padding:15px 17px;
+                border:1px solid #dfe4d8;
+                border-radius:15px;
+                background:#fffdf9;
+                font:inherit;
+                color:var(--text);
+                outline:none;
+              ">
+          </div>
+
+          <!-- Sebagai -->
+          <div style="margin-bottom:18px">
+
+            <label
+              for="sapaStatus"
+              style="
+                display:block;
+                font-weight:800;
+                color:var(--forest);
+                margin-bottom:7px;
+              ">
+              Sebagai
+            </label>
+
+            <select
+              id="sapaStatus"
+              name="status"
+              style="
+                width:100%;
+                padding:15px 17px;
+                border:1px solid #dfe4d8;
+                border-radius:15px;
+                background:#fffdf9;
+                font:inherit;
+                color:var(--text);
+                outline:none;
+              ">
+
+              <option value="Orang Tua">Orang Tua</option>
+              <option value="Siswa">Siswa</option>
+              <option value="Guru">Guru</option>
+              <option value="Tenaga Kependidikan">
+                Tenaga Kependidikan
+              </option>
+              <option value="Alumni">Alumni</option>
+              <option value="Masyarakat">Masyarakat</option>
+              <option value="Lainnya">Lainnya</option>
+
+            </select>
+
+          </div>
+
+          <!-- Saran & Pandangan -->
+          <div style="margin-bottom:18px">
+
+            <label
+              for="sapaPesan"
+              style="
+                display:block;
+                font-weight:800;
+                color:var(--forest);
+                margin-bottom:7px;
+              ">
+              Saran &amp; Pandangan
+            </label>
+
+            <textarea
+              id="sapaPesan"
+              name="pesan"
+              maxlength="3000"
+              rows="6"
+              placeholder="Tuliskan saran, apresiasi, atau pandangan Anda..."
+              required
+              style="
+                width:100%;
+                padding:15px 17px;
+                border:1px solid #dfe4d8;
+                border-radius:15px;
+                background:#fffdf9;
+                font:inherit;
+                color:var(--text);
+                resize:vertical;
+                outline:none;
+              "></textarea>
+
+          </div>
+
+          <!-- Tombol -->
+          <button
+            type="submit"
+            class="sapa-submit"
+            style="
+              width:100%;
+              border:0;
+              border-radius:999px;
+              padding:14px 22px;
+              background:var(--forest2);
+              color:#fff;
+              font:inherit;
+              font-weight:800;
+              font-size:16px;
+              cursor:pointer;
+              transition:.2s;
+            ">
+            🌱 Kirim SAPA BALI
+          </button>
+
+        </form>
+
+        <p
+          class="sapa-note muted"
+          style="
+            font-size:13px;
+            margin:16px 0 0;
+          ">
+          SAPA BALI akan melalui
+          <strong>moderasi pengelola sekolah</strong>
+          sebelum ditampilkan pada website.
+        </p>
+
+      </div>
+
+
+      <!-- =========================
+           SAPA DARI PENGUNJUNG
+      ========================== -->
+      <div class="highlight">
+
+        <h3 style="
+          margin-top:0;
+          color:var(--forest);
+          font-size:28px;
+        ">
+          🌿 SAPA dari Pengunjung
+        </h3>
+
+        <p class="muted">
+          Apresiasi, saran, dan pandangan yang telah
+          dipublikasikan.
+        </p>
+
+        <div
+          id="sapaPublik"
+          style="
+            margin-top:22px;
+            display:grid;
+            gap:14px;
+          ">
+
+          <div
+            style="
+              padding:20px;
+              border-radius:18px;
+              background:#f7faf5;
+              border:1px solid #dfe9dc;
+            ">
+
+            <strong
+              style="
+                display:block;
+                color:var(--forest);
+                margin-bottom:10px;
+              ">
+              Belum ada SAPA yang dipublikasikan.
+            </strong>
+
+            <span
+              class="muted"
+              style="font-size:14px">
+              SAPA yang telah disetujui oleh pengelola
+              akan ditampilkan di sini.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 
 <section class="section" style="background:var(--paper)"><div class="c"><div class="highlight" style="text-align:center;background:var(--forest);border:none"><p class="quoteGreen" style="color:#fff;border-left-color:var(--gold)">"SEKOLAH BERSIH BUKAN KARENA ADA PETUGAS KEBERSIHAN,<br>TETAPI KARENA SEMUA WARGA SEKOLAH PEDULI."</p><a class="btn primary" style="margin-top:18px" href="#kontak">Ayo Jadi Bagian dari Sekolahku yang BALI</a></div></div></section>
 
@@ -730,5 +958,62 @@ document.body.appendChild(box);
 </script>
 <script src="bali-rangers.js"></script>
 <script src="site-ui.js"></script>
+<script>
+const SAPA_APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbwzz-ErKLgYe6_l02C1UBV1SKGc0A3MZomzjwoD9pVmMGihUFYowBRjlm5U1hACAbSlNA/exec";
+
+const sapaForm = document.getElementById("sapaForm");
+
+if (sapaForm) {
+  sapaForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById("sapaNama")?.value.trim() || "";
+    const sebagai = document.getElementById("sapaSebagai")?.value.trim() || "";
+    const pesan = document.getElementById("sapaPesan")?.value.trim() || "";
+
+    if (!nama || !sebagai || !pesan) {
+      alert("Mohon lengkapi semua isian terlebih dahulu.");
+      return;
+    }
+
+    const tombol = sapaForm.querySelector(".sapa-submit");
+
+    if (tombol) {
+      tombol.disabled = true;
+      tombol.textContent = "Mengirim...";
+    }
+
+    try {
+      await fetch(SAPA_APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify({
+          name: nama,
+          sebagai: sebagai,
+          pesan: pesan
+        })
+      });
+
+      alert("Terima kasih! Saran & pandangan Anda berhasil dikirim.");
+
+      sapaForm.reset();
+
+    } catch (error) {
+      console.error("Gagal mengirim:", error);
+      alert("Maaf, terjadi kendala saat mengirim. Silakan coba lagi.");
+    } finally {
+      if (tombol) {
+        tombol.disabled = false;
+        tombol.textContent = "Kirim";
+      }
+    }
+  });
+}
+</script>
+   
 </body>
 </html>
