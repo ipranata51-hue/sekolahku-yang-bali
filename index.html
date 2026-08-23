@@ -850,14 +850,13 @@ footer strong{font-family:var(--serif)}
                 color:var(--forest);
                 margin-bottom:10px;
               ">
-              Belum ada SAPA yang dipublikasikan.
+              Memuat SAPA BALI...
             </strong>
 
             <span
               class="muted"
               style="font-size:14px">
-              SAPA yang telah disetujui oleh pengelola
-              akan ditampilkan di sini.
+              Mohon tunggu sebentar.
             </span>
 
           </div>
@@ -1016,6 +1015,51 @@ if (sapaForm) {
     }
   });
 }
+
+// Menampilkan SAPA BALI yang sudah disetujui (dari kolom Status di Google Sheet)
+function escSapa(s) {
+  return String(s || "").replace(/[&<>"']/g, function (m) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m];
+  });
+}
+
+async function loadSapaPublik() {
+  const box = document.getElementById("sapaPublik");
+  if (!box) return;
+
+  const kosong = `
+    <div style="padding:20px;border-radius:18px;background:#f7faf5;border:1px solid #dfe9dc;">
+      <strong style="display:block;color:var(--forest);margin-bottom:10px;">Belum ada SAPA yang dipublikasikan.</strong>
+      <span class="muted" style="font-size:14px">SAPA yang telah disetujui oleh pengelola akan ditampilkan di sini.</span>
+    </div>`;
+
+  try {
+    const res = await fetch(SAPA_APPS_SCRIPT_URL + "?action=list");
+    const data = await res.json();
+    const items = (data && data.items) || [];
+
+    if (!items.length) {
+      box.innerHTML = kosong;
+      return;
+    }
+
+    box.innerHTML = items.map(function (it) {
+      return `
+      <div style="padding:20px;border-radius:18px;background:#f7faf5;border:1px solid #dfe9dc;">
+        <strong style="display:block;color:var(--forest);margin-bottom:6px;">
+          ${escSapa(it.nama)}
+          <span class="muted" style="font-weight:600;font-size:12px">(${escSapa(it.sebagai)})</span>
+        </strong>
+        <span style="font-size:14px;color:var(--text);white-space:pre-wrap">${escSapa(it.pesan)}</span>
+      </div>`;
+    }).join("");
+  } catch (error) {
+    console.error("Gagal memuat SAPA BALI:", error);
+    box.innerHTML = kosong;
+  }
+}
+
+loadSapaPublik();
 </script>
    
 <script src="site-ui.js"></script>
