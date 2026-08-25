@@ -160,8 +160,8 @@
 
         note.textContent='⏳ Memverifikasi foto tersimpan...';
         let verified=false;
-        for(let i=0;i<3&&!verified;i++){
-          await new Promise(r=>setTimeout(r,1500));
+        for(let i=0;i<5&&!verified;i++){
+          await new Promise(r=>setTimeout(r,2000));
           const after=await fetchDokumentasi_(aksiId);
           if(after.length>beforeCount)verified=true;
         }

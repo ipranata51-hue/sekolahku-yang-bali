@@ -1,6 +1,5 @@
-/* BALI RANGERS + SAPA BALI */
+/* BALI RANGERS — Dokumentasi & upload foto tim (Apps Script + Google Drive) */
 (function(){
-  const REPO='ipranata51-hue/sekolahku-yang-bali', BASE='dokumentasi/bali-rangers';
   const teams={
     'Tim Biopori':{id:'tim-biopori',icon:'💧',desc:'Tim yang mengembangkan dan merawat lubang biopori sebagai upaya meningkatkan resapan air, mengurangi genangan, dan mengelola bahan organik di lingkungan sekolah.',focus:'Pembuatan, pemeliharaan, pengisian bahan organik, dan pemantauan lubang biopori.'},
     'Tim Eco Enzym':{id:'tim-eco-enzym',icon:'🍃',desc:'Tim yang mengolah sisa bahan organik menjadi eco enzyme melalui proses fermentasi sehingga dapat dimanfaatkan sebagai bagian dari praktik ramah lingkungan.',focus:'Pengumpulan bahan organik, proses fermentasi, perawatan, dan dokumentasi hasil.'},
@@ -11,14 +10,140 @@
     'Tim Reduce':{id:'tim-reduce',icon:'➖',desc:'Tim yang mendorong pengurangan sampah sejak dari sumbernya melalui kebiasaan memilih, menggunakan, dan mengonsumsi secara lebih bijak.',focus:'Mengurangi plastik sekali pakai, menghemat sumber daya, dan membangun kebiasaan minim sampah.'},
     'Tim Recycle':{id:'tim-recycle',icon:'♻️',desc:'Tim yang mengolah bahan yang sudah tidak digunakan menjadi produk atau bahan baru yang memiliki nilai guna.',focus:'Pemilahan, pengolahan, pembuatan produk daur ulang, dan pameran hasil karya.'}
   };
+  // Samakan dengan UPLOAD_PIN di site-ui.js kalau salah satunya diganti.
+  const UPLOAD_PIN='BALI2026';
   const esc=s=>String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-  const gh=p=>`https://github.com/${REPO}/tree/main/${p}`;
-  const api=p=>`https://api.github.com/repos/${REPO}/contents/${p}?ref=main`;
-  function addCSS(){if(document.getElementById('br-style'))return;const s=document.createElement('style');s.id='br-style';s.textContent='.br-card{cursor:pointer!important;position:relative;transition:.25s!important}.br-card:hover{transform:translateY(-7px)!important;box-shadow:0 16px 32px rgba(31,63,45,.12)!important;border-color:#9bc7aa!important}.br-card:after{content:"Lihat aktivitas & dokumentasi →";display:block;margin-top:12px;color:var(--forest2);font-size:12px;font-weight:800}.br-modal{position:fixed;inset:0;z-index:100;background:rgba(8,28,18,.72);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px}.br-panel{width:min(980px,96vw);max-height:92vh;overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:0 24px 70px rgba(0,0,0,.25);padding:28px}.br-close{float:right;border:0;background:#edf3ec;width:40px;height:40px;border-radius:50%;font-size:24px;cursor:pointer;color:var(--forest)}.br-title{display:flex;gap:14px;align-items:center;padding-right:50px}.br-title .ico{font-size:38px}.br-title h2{margin:0;color:var(--forest);font-size:30px}.br-lead{color:var(--muted);max-width:780px}.br-focus{padding:15px 18px;border-left:4px solid var(--gold);background:#f6f8ef;border-radius:12px;margin:18px 0;color:var(--text)}.br-actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.br-upload{display:inline-flex;align-items:center;gap:8px;background:var(--forest2);color:#fff!important;padding:11px 16px;border-radius:999px;font-weight:800;font-size:13px}.br-help{font-size:12px;color:var(--muted);margin:0 0 16px}.br-section-title{font-size:19px;color:var(--forest);margin:24px 0 12px}.br-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.br-media{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#f8faf5}.br-media img,.br-media video{display:block;width:100%;height:180px;object-fit:cover}.br-media figcaption{padding:9px 11px;font-size:12px;color:var(--muted);word-break:break-word}.br-empty{padding:22px;border:1px dashed #cbd8cc;border-radius:15px;color:var(--muted);background:#fbfcf9}.br-activity{padding:15px 17px;border:1px solid #dfe9dc;border-radius:15px;background:#f7faf5;margin-bottom:10px}.br-activity strong{display:block;color:var(--forest);margin-bottom:6px}.br-activity p{margin:0;color:var(--muted);white-space:pre-wrap;line-height:1.65}.sapa-wrap{max-width:1000px;margin:auto}.sapa-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px}.sapa-card{background:var(--qc-card-bg);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:var(--qc-card-shadow)}.sapa-card h3{margin:0 0 8px;color:var(--forest);font-size:22px}.sapa-card p{color:var(--muted)}.sapa-form{display:grid;gap:12px;margin-top:18px}.sapa-form label{font-size:12px;font-weight:800;color:var(--forest)}.sapa-form input,.sapa-form select,.sapa-form textarea{width:100%;border:1px solid #d9dfd2;border-radius:12px;padding:12px 14px;background:#fffdf8;font:inherit;color:var(--text)}.sapa-form textarea{min-height:145px;resize:vertical}.sapa-submit{border:0;border-radius:999px;padding:12px 18px;background:var(--forest2);color:#fff;font-weight:800;cursor:pointer}.sapa-submit:hover{filter:brightness(1.08)}.sapa-note{font-size:12px!important;line-height:1.6}.sapa-list{display:grid;gap:11px;margin-top:15px}.sapa-item{border:1px solid #dfe9dc;background:#f7faf5;border-radius:14px;padding:14px 16px}.sapa-item strong{display:block;color:var(--forest);margin-bottom:4px}.sapa-item p{margin:0;color:var(--muted);white-space:pre-wrap}.sapa-empty{padding:18px;border:1px dashed #cbd8cc;border-radius:14px;color:var(--muted);background:#fbfcf9}@media(max-width:800px){.br-gallery,.sapa-grid{grid-template-columns:repeat(2,1fr)}.br-panel,.sapa-card{padding:20px}}@media(max-width:600px){.br-gallery,.sapa-grid{grid-template-columns:1fr}.br-media img,.br-media video{height:220px}}';document.head.appendChild(s)}
-  async function folder(path){try{const r=await fetch(api(path));if(!r.ok)throw new Error();return await r.json()}catch(e){return null}}
-  async function openTeam(team,title){const path=`${BASE}/${team.id}`,box=document.createElement('div');box.className='br-modal';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.innerHTML=`<div class="br-panel"><button class="br-close" aria-label="Tutup">×</button><div class="br-title"><div class="ico">${team.icon}</div><div><span class="badge">BALI RANGERS</span><h2>${esc(title)}</h2></div></div><p class="br-lead">${esc(team.desc)}</p><div class="br-focus"><strong>Fokus kegiatan:</strong> ${esc(team.focus)}</div><div class="br-actions"><a class="br-upload" href="${gh(path)}" target="_blank" rel="noopener">📤 Tambah Foto / Aktivitas</a></div><p class="br-help">Masuk ke folder GitHub → <b>Add file → Upload files</b>. Foto/video atau catatan aktivitas yang diunggah akan terbaca otomatis.</p><h3 class="br-section-title">📸 Dokumentasi Foto & Video</h3><div class="br-gallery"><div class="br-empty">Memuat...</div></div><h3 class="br-section-title">📝 Aktivitas Tim</h3><div class="br-activities"><div class="br-empty">Memuat...</div></div></div>`;box.addEventListener('click',e=>{if(e.target===box)box.remove()});box.querySelector('.br-close').onclick=()=>box.remove();document.body.appendChild(box);const files=await folder(path),gallery=box.querySelector('.br-gallery'),acts=box.querySelector('.br-activities');if(!Array.isArray(files)){gallery.innerHTML='<div class="br-empty">Dokumentasi belum tersedia atau belum dapat dimuat.</div>';acts.innerHTML='';return}const media=files.filter(f=>f.type==='file'&&/\.(jpe?g|png|webp|gif|mp4|webm|mov)$/i.test(f.name)),texts=files.filter(f=>f.type==='file'&&/\.(md|txt)$/i.test(f.name));gallery.innerHTML=media.length?media.map(f=>{const v=/\.(mp4|webm|mov)$/i.test(f.name);return `<figure class="br-media">${v?`<video controls preload="metadata" src="${esc(f.download_url)}"></video>`:`<img loading="lazy" src="${esc(f.download_url)}" alt="${esc(f.name)}">`}<figcaption>${esc(f.name)}</figcaption></figure>`}).join(''):'<div class="br-empty">Belum ada foto/video. Gunakan tombol Tambah Foto / Aktivitas.</div>';if(!texts.length){acts.innerHTML='<div class="br-empty">Belum ada catatan aktivitas. Unggah file <b>.txt</b> atau <b>.md</b> ke folder tim.</div>';return}const out=[];for(const f of texts.slice(0,10)){try{const t=await (await fetch(f.download_url)).text();out.push(`<div class="br-activity"><strong>${esc(f.name)}</strong><p>${esc(t)}</p></div>`)}catch(e){}}acts.innerHTML=out.length?out.join(''):'<div class="br-empty">Catatan aktivitas belum dapat dibaca.</div>'}
-  async function loadSapa(){const url=`https://api.github.com/repos/${REPO}/issues?state=open&per_page=50`;try{const r=await fetch(url,{headers:{Accept:'application/vnd.github+json'}});if(!r.ok)throw new Error();const items=await r.json();return Array.isArray(items)?items.filter(i=>!i.pull_request&&/^SAPA BALI\s*—/i.test(i.title)):[]}catch(e){return[]}}
-  function setupSapa(){const old=document.getElementById('dokumentasi');if(!old)return;const section=document.createElement('section');section.className='section';section.id='sapa-bali';section.style.background='#eef6ed';section.innerHTML=`<div class="c"><div class="head"><span class="kicker">Ruang Partisipasi</span><h2>SAPA BALI</h2><p class="muted">Saran dan Pandangan terkait Program Sekolahku yang BALI.</p></div><div class="sapa-wrap"><div class="sapa-grid"><div class="sapa-card"><h3>💬 Sampaikan SAPA BALI</h3><p>Ruang bagi warga sekolah, orang tua, dan masyarakat untuk menyampaikan apresiasi, saran, ide, dan pandangan demi pengembangan Program Sekolahku yang BALI.</p><form class="sapa-form" id="sapaForm"><div><label for="sapaNama">Nama</label><input id="sapaNama" required placeholder="Nama Anda"></div><div><label for="sapaStatus">Sebagai</label><select id="sapaStatus"><option>Orang Tua</option><option>Guru</option><option>Siswa</option><option>Masyarakat</option><option>Lainnya</option></select></div><div><label for="sapaPesan">Saran & Pandangan</label><textarea id="sapaPesan" required placeholder="Tuliskan saran, apresiasi, atau pandangan Anda..."></textarea></div><button class="sapa-submit" type="submit">🌱 Kirim SAPA BALI</button></form><p class="sapa-note">SAPA BALI akan melalui moderasi sebelum ditampilkan pada website. Untuk sementara, pengiriman menggunakan GitHub sebagai ruang penyimpanan terbuka; pengunjung perlu masuk ke akun GitHub saat mengirim.</p></div><div class="sapa-card"><h3>🌿 SAPA dari Pengunjung</h3><p>Apresiasi, saran, dan pandangan yang telah dipublikasikan.</p><div class="sapa-list" id="sapaList"><div class="sapa-empty">Memuat SAPA BALI...</div></div></div></div></div></div>`;old.replaceWith(section);const nav=document.querySelector('nav.links');if(nav){const a=[...nav.querySelectorAll('a')].find(x=>x.textContent.trim()==='DOKUMENTASI');if(a){a.textContent='SAPA BALI';a.href='#sapa-bali'}}document.querySelectorAll('a[href="#dokumentasi"]').forEach(a=>{a.href='#sapa-bali';if(a.textContent.includes('Dokumentasi'))a.textContent='💬 Sapa BALI'});section.querySelector('#sapaForm').addEventListener('submit',e=>{e.preventDefault();const nama=section.querySelector('#sapaNama').value.trim(),status=section.querySelector('#sapaStatus').value,pesan=section.querySelector('#sapaPesan').value.trim();const title=encodeURIComponent(`SAPA BALI — ${nama}`);const body=encodeURIComponent(`**Pengirim:** ${nama}\n\n**Sebagai:** ${status}\n\n**Saran & Pandangan:**\n${pesan}\n\n---\nDikirim melalui website Sekolahku yang BALI.`);window.open(`https://github.com/${REPO}/issues/new?title=${title}&body=${body}`,'_blank','noopener');});loadSapa().then(items=>{const list=section.querySelector('#sapaList');if(!items.length){list.innerHTML='<div class="sapa-empty">Belum ada SAPA yang dipublikasikan. Jadilah yang pertama memberikan pandangan.</div>';return}list.innerHTML=items.map(i=>`<article class="sapa-item"><strong>${esc(i.title.replace(/^SAPA BALI — /i,''))}</strong><p>${esc(i.body||'')}</p></article>`).join('')})}
-  function init(){addCSS();/* setupSapa() dinonaktifkan: menu & form SAPA BALI resmi sudah ditangani langsung di index.html (terhubung ke Google Sheet). Fungsi ini dulu membuat section id="sapa-bali" kedua dan mengubah label menu "DOKUMENTASI" menjadi "SAPA BALI", sehingga muncul 2 menu SAPA BALI di navbar. */const h=[...document.querySelectorAll('h2')].find(x=>x.textContent.trim()==='BALI Rangers');if(!h)return;const section=h.closest('section');if(!section)return;section.querySelectorAll('.teams .card').forEach(card=>{const title=card.querySelector('h3')?.textContent.trim(),team=teams[title];if(!team)return;card.classList.add('br-card');card.setAttribute('tabindex','0');card.setAttribute('role','button');card.addEventListener('click',()=>openTeam(team,title));card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openTeam(team,title)}})})}
+  function getAksiUrl_(qs){return (typeof SAPA_APPS_SCRIPT_URL!=='undefined'?SAPA_APPS_SCRIPT_URL:'')+qs}
+  async function fetchDokumentasi_(id){
+    try{
+      const url=getAksiUrl_('?action=dokumentasi&aksiId='+encodeURIComponent(id));
+      if(!url)return[];
+      const r=await fetch(url);
+      const data=await r.json();
+      return (data&&data.items)||[];
+    }catch(err){console.error('Gagal memuat dokumentasi tim:',err);return[]}
+  }
+  function compressImage_(file){
+    return new Promise((resolve,reject)=>{
+      const reader=new FileReader();
+      reader.onerror=()=>reject(new Error('Gagal membaca file.'));
+      reader.onload=()=>{
+        const img=new Image();
+        img.onerror=()=>reject(new Error('File bukan gambar yang valid.'));
+        img.onload=()=>{
+          const maxW=1280;
+          const scale=Math.min(1,maxW/img.width);
+          const canvas=document.createElement('canvas');
+          canvas.width=Math.round(img.width*scale);
+          canvas.height=Math.round(img.height*scale);
+          const ctx=canvas.getContext('2d');
+          ctx.drawImage(img,0,0,canvas.width,canvas.height);
+          const dataUrl=canvas.toDataURL('image/jpeg',0.75);
+          resolve(dataUrl.split(',')[1]);
+        };
+        img.src=reader.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+  function addCSS(){if(document.getElementById('br-style'))return;const s=document.createElement('style');s.id='br-style';s.textContent='.br-card{cursor:pointer!important;position:relative;transition:.25s!important}.br-card:hover{transform:translateY(-7px)!important;box-shadow:0 16px 32px rgba(31,63,45,.12)!important;border-color:#9bc7aa!important}.br-card:after{content:"Lihat dokumentasi & upload foto →";display:block;margin-top:12px;color:var(--forest2);font-size:12px;font-weight:800}.br-modal{position:fixed;inset:0;z-index:100;background:rgba(8,28,18,.72);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px}.br-panel{width:min(980px,96vw);max-height:92vh;overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:0 24px 70px rgba(0,0,0,.25);padding:28px}.br-close{float:right;border:0;background:#edf3ec;width:40px;height:40px;border-radius:50%;font-size:24px;cursor:pointer;color:var(--forest)}.br-title{display:flex;gap:14px;align-items:center;padding-right:50px}.br-title .ico{font-size:38px}.br-title h2{margin:0;color:var(--forest);font-size:30px}.br-lead{color:var(--muted);max-width:780px}.br-focus{padding:15px 18px;border-left:4px solid var(--gold);background:#f6f8ef;border-radius:12px;margin:18px 0;color:var(--text)}.br-section-title{font-size:19px;color:var(--forest);margin:24px 0 12px}.br-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.br-gallery img{display:block;width:100%;height:150px;object-fit:cover;border-radius:15px;border:1px solid var(--line);background:#f8faf5}.br-empty{padding:22px;border:1px dashed #cbd8cc;border-radius:15px;color:var(--muted);background:#fbfcf9}.br-upload{margin-top:24px;padding:20px;border-radius:19px;background:#f6f9f3;border:1px solid #dfe9dc}.br-upload-form{display:grid;gap:12px;max-width:520px}.br-upload-form label{font-size:12px;font-weight:800;color:var(--forest)}.br-upload-form input{width:100%;border:1px solid #d9dfd2;border-radius:12px;padding:11px 13px;background:#fffdf8;font:inherit;color:var(--text)}.br-upload-btn{border:0;border-radius:999px;padding:12px 18px;background:var(--forest2);color:#fff;font-weight:800;cursor:pointer}.br-note{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6}@media(max-width:800px){.br-gallery{grid-template-columns:repeat(2,1fr)}.br-panel{padding:20px}}@media(max-width:600px){.br-gallery{grid-template-columns:1fr}.br-gallery img{height:180px}}';document.head.appendChild(s)}
+
+  async function openTeam(team,title){
+    const box=document.createElement('div');
+    box.className='br-modal';
+    box.setAttribute('role','dialog');
+    box.setAttribute('aria-modal','true');
+    box.innerHTML=`<div class="br-panel"><button class="br-close" aria-label="Tutup">×</button><div class="br-title"><div class="ico">${team.icon}</div><div><span class="badge">BALI RANGERS</span><h2>${esc(title)}</h2></div></div><p class="br-lead">${esc(team.desc)}</p><div class="br-focus"><strong>Fokus kegiatan:</strong> ${esc(team.focus)}</div><h3 class="br-section-title">📸 Dokumentasi Foto</h3><div class="br-gallery"><div class="br-empty">Memuat foto...</div></div><div class="br-upload"><h3 class="br-section-title" style="margin-top:0">📤 Upload Foto Kegiatan Tim</h3><form class="br-upload-form" id="brForm-${esc(team.id)}"><div><label>Foto</label><input type="file" accept="image/*" class="brFoto" required></div><div><label>Keterangan (opsional)</label><input type="text" class="brKeterangan" placeholder="Contoh: Pengisian biopori, Agustus 2026"></div><div><label>Kode Admin</label><input type="password" class="brPin" placeholder="Kode akses admin sekolah" required></div><button type="submit" class="br-upload-btn">📤 Upload Foto</button><p class="br-note brNote">Foto akan dikompres otomatis di browser sebelum dikirim.</p></form></div></div>`;
+    box.addEventListener('click',e=>{if(e.target===box)box.remove()});
+    box.querySelector('.br-close').onclick=()=>box.remove();
+    document.body.appendChild(box);
+
+    // Muat galeri foto tim ini
+    const gallerySpot=box.querySelector('.br-gallery');
+    fetchDokumentasi_(team.id).then(items=>{
+      if(!box.isConnected)return; // modal sudah ditutup
+      if(!items.length){gallerySpot.innerHTML='<div class="br-empty">Belum ada foto untuk tim ini. Gunakan form di bawah untuk menambahkan.</div>';return}
+      gallerySpot.innerHTML=items.map(it=>`<img src="${esc(it.imageUrl)}" alt="${esc(it.keterangan||title)}" loading="lazy">`).join('');
+    });
+
+    // Form upload
+    const form=box.querySelector('form');
+    const note=box.querySelector('.brNote');
+    form.addEventListener('submit',async function(e){
+      e.preventDefault();
+      const fileInput=form.querySelector('.brFoto');
+      const keterangan=form.querySelector('.brKeterangan').value.trim();
+      const pin=form.querySelector('.brPin').value;
+      const file=fileInput.files&&fileInput.files[0];
+      const btn=form.querySelector('.br-upload-btn');
+
+      if(pin!==UPLOAD_PIN){note.textContent='❌ Kode admin salah.';return}
+      if(!file){note.textContent='❌ Pilih foto terlebih dahulu.';return}
+
+      btn.disabled=true;
+      note.textContent='⏳ Mengompres & mengirim foto...';
+
+      try{
+        const base64=await compressImage_(file);
+        const before=await fetchDokumentasi_(team.id);
+        const beforeCount=before.length;
+
+        await fetch(getAksiUrl_(''),{
+          method:'POST',
+          mode:'no-cors',
+          headers:{'Content-Type':'text/plain;charset=utf-8'},
+          body:JSON.stringify({
+            type:'dokumentasi',
+            aksiId:team.id,
+            keterangan:keterangan,
+            filename:(file.name||'foto')+'.jpg',
+            mimeType:'image/jpeg',
+            base64:base64
+          })
+        });
+
+        note.textContent='⏳ Memverifikasi foto tersimpan...';
+        let verified=false;
+        let latestItems=before;
+        for(let i=0;i<5&&!verified;i++){
+          await new Promise(r=>setTimeout(r,2000));
+          const after=await fetchDokumentasi_(team.id);
+          if(after.length>beforeCount){verified=true;latestItems=after}
+        }
+
+        if(verified){
+          note.textContent='✅ Foto berhasil diunggah dan sudah tersimpan.';
+          form.reset();
+          if(box.isConnected){
+            gallerySpot.innerHTML=latestItems.map(it=>`<img src="${esc(it.imageUrl)}" alt="${esc(it.keterangan||title)}" loading="lazy">`).join('');
+          }
+        }else{
+          note.textContent='⚠️ Foto sudah dikirim, tapi belum terverifikasi tersimpan. Cek beberapa saat lagi atau lihat langsung di Google Sheet.';
+        }
+      }catch(err){
+        console.error('Gagal upload dokumentasi tim:',err);
+        note.textContent='❌ Gagal mengunggah foto: '+(err.message||'Terjadi kesalahan.');
+      }finally{
+        btn.disabled=false;
+      }
+    });
+  }
+
+  function init(){
+    addCSS();
+    const h=[...document.querySelectorAll('h2')].find(x=>x.textContent.trim()==='BALI Rangers');
+    if(!h)return;
+    const section=h.closest('section');
+    if(!section)return;
+    section.querySelectorAll('.teams .card').forEach(card=>{
+      const title=card.querySelector('h3')?.textContent.trim(),team=teams[title];
+      if(!team)return;
+      card.classList.add('br-card');
+      card.setAttribute('tabindex','0');
+      card.setAttribute('role','button');
+      card.addEventListener('click',()=>openTeam(team,title));
+      card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openTeam(team,title)}});
+    });
+  }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
