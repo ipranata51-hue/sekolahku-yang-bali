@@ -443,7 +443,7 @@ footer strong{font-family:var(--serif)}
 <h1>Sekolahku<br>yang <em>BALI</em></h1>
 <h2>SD Negeri 1 Renon</h2>
 <p>Mewujudkan lingkungan sekolah yang bersih, asri, lestari dan indah melalui keterlibatan seluruh warga sekolah demi masa depan yang lebih baik.</p>
-<div class="btnrow"><a class="btn primary" href="#aksi">🌱 Jelajahi Program</a></div>
+<div class="btnrow"><a class="btn primary" href="#aksi">🌱 Jelajahi Program</a><a class="btn light" href="#bali-rangers">🛡️ BALI Rangers</a></div>
 <div class="quote">"Sekolah bersih bukan karena ada petugas kebersihan, tetapi karena <b>semua warga sekolah peduli.</b>"</div>
 </div>
 <div class="heroStats">
@@ -575,7 +575,7 @@ footer strong{font-family:var(--serif)}
 <div class="card"><h3>ORANG TUA</h3><ul><li>Mendorong anak datang tepat waktu.</li><li>Memberikan dukungan dan motivasi.</li></ul></div>
 </div></div></section>
 
-<section class="section" style="background:var(--paper)"><div class="c"><div class="head"><span class="kicker">Kader Lingkungan</span><h2>BALI Rangers</h2><p class="muted">Kader Sekolahku yang BALI.</p></div><div class="teams">
+<section class="section" id="bali-rangers" style="background:var(--paper)"><div class="c"><div class="head"><span class="kicker">Kader Lingkungan</span><h2>BALI Rangers</h2><p class="muted">Kader Sekolahku yang BALI.</p></div><div class="teams">
 <div class="card">💧 <h3>Tim Biopori</h3></div>
 <div class="card">🍃 <h3>Tim Eco Enzym</h3></div>
 <div class="card">♻️ <h3>Tim Komposter</h3></div>
@@ -913,198 +913,29 @@ const aksiData={
 };
 
 // Fungsi Buka Modal Detail
-async function openAksi(id) {
-  const d = aksiData[id];
-  if (!d) return;
-
-  // Ambil dokumentasi terbaru dari Google Apps Script
-  let dokumentasi = [];
-
-  try {
-    const url =
-      SAPA_APPS_SCRIPT_URL +
-      "?action=dokumentasi&aksiId=" +
-      encodeURIComponent(id);
-
-    const response = await fetch(url);
-    const result = await response.json();
-
-    if (result && result.ok && Array.isArray(result.items)) {
-      dokumentasi = result.items;
-    }
-  } catch (error) {
-    console.error("Gagal mengambil dokumentasi:", error);
-  }
-
-  const box = document.createElement("div");
-
-  box.style.cssText =
-    "position:fixed;inset:0;background:rgba(10,35,25,.72);" +
-    "display:flex;align-items:center;justify-content:center;" +
-    "padding:20px;z-index:9999;";
-
-  // Foto lama sebagai fallback
-  let fotoLama = "";
-
-  if (d[7]) {
-    fotoLama = `
-      <img
-        class="aksi-modal-photo"
-        src="${d[7]}"
-        alt="Dokumentasi ${d[2]}"
-        onerror="this.style.display='none'"
-      >
-    `;
-  }
-
-  // Foto hasil upload dari Google Drive
-  let galeri = "";
-
-  if (dokumentasi.length > 0) {
-    galeri = `
-      <div style="margin-top:22px;">
-        <h4 style="color:#176b45;margin:0 0 12px;">
-          📷 Dokumentasi Kegiatan
-        </h4>
-
-        <div style="
-          display:grid;
-          grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-          gap:12px;
-        ">
-          ${dokumentasi.map((item) => `
-            <div style="
-              border-radius:16px;
-              overflow:hidden;
-              background:#f4f8f5;
-              border:1px solid #dcebe1;
-            ">
-              <img
-                src="${item.imageUrl}"
-                alt="${item.keterangan || 'Dokumentasi'}"
-                style="
-                  width:100%;
-                  height:180px;
-                  object-fit:cover;
-                  display:block;
-                  cursor:pointer;
-                "
-                onclick="window.open('${item.imageUrl}','_blank')"
-                onerror="this.parentElement.style.display='none'"
-              >
-
-              ${
-                item.keterangan
-                  ? `
-                    <div style="
-                      padding:10px;
-                      font-size:13px;
-                      color:#456;
-                    ">
-                      ${item.keterangan}
-                    </div>
-                  `
-                  : ""
-              }
-            </div>
-          `).join("")}
-        </div>
-      </div>
-    `;
-  }
-
-  box.innerHTML = `
-    <div
-      style="
-        background:white;
-        width:min(750px,100%);
-        max-height:85vh;
-        overflow:auto;
-        border-radius:24px;
-        padding:32px;
-        position:relative;
-        box-shadow:0 25px 70px #0005;
-      "
-    >
-
-      <button
-        onclick="this.closest('[data-modal]').remove()"
-        style="
-          position:absolute;
-          right:18px;
-          top:15px;
-          border:0;
-          background:#edf5ef;
-          color:#176b45;
-          width:40px;
-          height:40px;
-          border-radius:50%;
-          font-size:25px;
-          cursor:pointer;
-        "
-      >×</button>
-
-      <div style="font-size:55px;margin-bottom:10px;">
-        ${d[0]}
-      </div>
-
-      <span style="
-        display:inline-block;
-        background:#e7f3eb;
-        color:#176b45;
-        padding:5px 10px;
-        border-radius:99px;
-        font-size:11px;
-        font-weight:900;
-      ">
-        ${d[1]}
-      </span>
-
-      <h2 style="color:#17352a;margin:10px 0;">
-        ${d[2]}
-      </h2>
-
-      <p>${d[3]}</p>
-
-      ${
-        d[6]
-          ? `
-            <div class="aksi-audio-box">
-              <strong>🎵 Dengarkan Lagu Sekolahku yang BALI</strong>
-              <audio controls src="${d[6]}"></audio>
-            </div>
-          `
-          : ""
-      }
-
-      ${dokumentasi.length === 0 ? fotoLama : ""}
-
-      <h4 style="color:#176b45;margin:15px 0 5px;">
-        🎯 Tujuan
-      </h4>
-
-      <p>${d[4]}</p>
-
-      <h4 style="color:#176b45;margin:15px 0 5px;">
-        📅 Pelaksanaan
-      </h4>
-
-      <p>${d[5]}</p>
-
-      ${galeri}
-
-    </div>
-  `;
-
-  box.setAttribute("data-modal", "true");
-
-  box.onclick = function(e) {
-    if (e.target === box) {
-      box.remove();
-    }
-  };
-
-  document.body.appendChild(box);
+function openAksi(id){
+const d=aksiData[id];
+if(!d)return;
+const box=document.createElement('div');
+box.style.cssText='position:fixed;inset:0;background:rgba(10,35,25,.72);display:flex;align-items:center;justify-content:center;padding:20px;z-index:9999;';
+box.innerHTML=`
+<div style="background:white;width:min(650px,100%);max-height:85vh;overflow:auto;border-radius:24px;padding:32px;position:relative;box-shadow:0 25px 70px #0005;">
+<button onclick="this.closest('[data-modal]').remove()" style="position:absolute;right:18px;top:15px;border:0;background:#edf5ef;color:#176b45;width:40px;height:40px;border-radius:50%;font-size:25px;cursor:pointer;">×</button>
+<div style="font-size:55px;margin-bottom:10px">${d[0]}</div>
+<span style="display:inline-block;background:#e7f3eb;color:#176b45;padding:5px 10px;border-radius:99px;font-size:11px;font-weight:900;">${d[1]}</span>
+<h2 style="color:#17352a;margin:10px 0">${d[2]}</h2>
+<p>${d[3]}</p>
+${d[6]?`<div class="aksi-audio-box"><strong>🎵 Dengarkan Lagu Sekolahku yang BALI</strong><audio controls src="${d[6]}"></audio></div>`:''}
+${d[7]?`<img class="aksi-modal-photo" src="${d[7]}" alt="Dokumentasi ${d[2]}">`:''}
+<h4 style="color:#176b45;margin:15px 0 5px">🎯 Tujuan</h4>
+<p>${d[4]}</p>
+<h4 style="color:#176b45;margin:15px 0 5px">📅 Pelaksanaan</h4>
+<p>${d[5]}</p>
+${d[8]?`<div class="aksi-documentation"><strong>📷 Dokumentasi Kegiatan</strong><span>${d[8]}</span></div>`:''}
+</div>`;
+box.setAttribute('data-modal','true');
+box.onclick=e=>{if(e.target===box)box.remove();};
+document.body.appendChild(box);
 }
 </script>
 <script src="bali-rangers.js"></script>
@@ -1211,6 +1042,5 @@ loadSapaPublik();
 </script>
    
 <script src="site-ui.js"></script>
-  <script src="popup-fix.js"></script>
 </body>
 </html>
