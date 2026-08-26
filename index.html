@@ -1013,7 +1013,7 @@ async function loadSapaPublik() {
     </div>`;
 
   try {
-    const res = await fetch(SAPA_APPS_SCRIPT_URL + "?action=list");
+    const res = await fetch("/api/sapa-list?action=list");
     const data = await res.json();
     const items = (data && data.items) || [];
 
