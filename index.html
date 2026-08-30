@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sekolahku yang BALI | SD Negeri 1 Renon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ================================
+   GAYA UTAMA & VARIABEL QC
+================================ */
+:root{
+  --forest:#0f2e20;      /* hijau sawah gelap */
+  --forest2:#2f6b46;     /* hijau daun */
+  --clay:#b5651d;        /* terakota / genteng pura */
+  --clay2:#d98338;
+  --gold:#c9a227;        /* emas padi */
+  --gold2:#e6c04a;
+  --cream:#faf6ec;       /* krem kamboja */
+  --paper:#fffdf7;
+  --text:#20301f;
+  --muted:#63705f;
+  --line:#e6e0cb;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Plus Jakarta Sans',system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  
+  /* QC CLEAN BACKGROUND */
+  --qc-bg-1: #fffdf8;
+  --qc-bg-2: #fbfaf4;
+  --qc-bg-3: #f5f7f1;
+  --qc-card-bg: rgba(255, 253, 248, 0.94);
+  --qc-card-shadow: 0 8px 24px rgba(31, 63, 45, 0.055);
+  --qc-card-hover-shadow: 0 14px 30px rgba(31, 63, 45, 0.10);
+  --qc-audio-bg: linear-gradient(135deg, #eef7ea, #fbfaf4);
+  --qc-audio-border: 1px solid #dbe9d8;
+  --qc-doc-bg: #f7faf5;
+  --qc-doc-border: 1px solid #dfe9dc;
+}
+
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font:16px/1.7 var(--sans);color:var(--text);background:linear-gradient(180deg, var(--qc-bg-1) 0%, var(--qc-bg-2) 55%, var(--qc-bg-3) 100%);background-attachment:fixed}
+a{text-decoration:none;color:inherit}
+.c{width:min(1180px,92%);margin:auto}
+h1,h2,h3,h4{font-family:var(--serif);letter-spacing:-.01em}
+::selection{background:var(--gold2);color:var(--forest)}
+:focus-visible{outline:3px solid var(--clay);outline-offset:3px}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(15,46,32,.96);color:#fff;backdrop-filter:blur(12px)}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand img{width:52px;height:52px;object-fit:contain}
+.brand strong{display:block;font-family:var(--serif);font-size:19px;line-height:1.15;font-weight:600}
+.brand small{display:block;color:var(--gold2);font-style:italic;margin-top:5px;font-size:12px}
+nav.links{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end}
+nav.links a{font-size:12.5px;font-weight:700;letter-spacing:.04em;color:#e9e6da;position:relative;padding:4px 0}
+nav.links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--gold);transition:width .25s}
+nav.links a:hover{color:#fff}
+nav.links a:hover::after{width:100%}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;background:
+  linear-gradient(100deg,rgba(8,26,17,.96) 0%,rgba(10,38,25,.9) 34%,rgba(12,45,29,.55) 58%,rgba(12,45,29,.18) 82%),
+  url('background.png') center/cover no-repeat;
+}
+.heroGrid{min-height:660px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:30px;padding:60px 0 0}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--gold2);font-weight:700;letter-spacing:.16em;font-size:12.5px;text-transform:uppercase}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--gold2)}
+.hero h1{font-size:clamp(46px,6.4vw,80px);line-height:.98;margin:16px 0 6px;font-weight:600}
+.hero h1 em{font-style:italic;color:var(--gold2);font-weight:500}
+.hero h2{font-family:var(--sans);font-weight:700;font-size:16px;letter-spacing:.14em;margin:0 0 22px;color:#cfe0d2;text-transform:uppercase}
+.hero p{max-width:560px;color:#e4ece1;font-size:16.5px}
+.btnrow{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 22px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:14.5px;transition:.2s}
+.primary{background:var(--gold);color:var(--forest)}
+.primary:hover{background:var(--gold2);transform:translateY(-2px)}
+.light{background:transparent;color:#fff;border:1.5px solid #ffffff55}
+.light:hover{border-color:#fff;background:#ffffff12}
+.quote{max-width:520px;padding:16px 20px;border-left:3px solid var(--clay2);background:#0b2318cc;font-family:var(--serif);font-style:italic;font-size:16px;font-weight:500;color:#f1ece0}
+.quote b{color:var(--gold2);font-style:normal}
+
+.heroStats{align-self:end;margin-bottom:0;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#ffffff22;border:1px solid #ffffff2b;border-radius:20px;overflow:hidden}
+.stat{text-align:center;padding:22px 14px;background:#0c2a1cd9;color:#fff}
+.stat b{display:block;font-family:var(--serif);color:var(--gold2);font-size:25px;font-weight:600}
+.stat small{font-weight:600;line-height:1.35;font-size:12.5px;color:#d9e4d5}
+
+/* ---------- terrace divider (subak rice-terrace contour) ---------- */
+.terrace{width:100%;height:34px;display:block;line-height:0}
+.terrace svg{width:100%;height:100%;display:block}
+
+/* ---------- sections ---------- */
+.section{position:relative;overflow:hidden;padding:80px 0}
+.head{text-align:center;max-width:760px;margin:0 auto 42px}
+.kicker{display:inline-block;color:var(--clay);font-weight:800;letter-spacing:.14em;font-size:12px;text-transform:uppercase;margin-bottom:8px}
+.head h2{font-size:38px;line-height:1.14;color:var(--forest);margin:0 0 12px;font-weight:600}
+.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--qc-card-bg);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--qc-card-shadow);transition:.22s}
+.card:hover{transform:translateY(-5px);box-shadow:var(--qc-card-hover-shadow);border-color:#d9d1ae}
+.core .card{text-align:center}
+.icon{width:58px;height:58px;border-radius:16px;background:var(--forest2);color:#fff;display:grid;place-items:center;font-size:27px;margin:0 auto 14px;transform:rotate(-4deg)}
+.core h3{color:var(--forest2);margin:6px 0;font-size:19px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.highlight{background:#eef1e2;border:1px solid var(--line);border-radius:22px;padding:28px}
+.quoteGreen{font-family:var(--serif);font-size:21px;font-weight:500;font-style:italic;color:var(--forest2);border-left:4px solid var(--clay2);padding-left:16px;margin:0}
+.badge{font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--forest2);background:#dfe6cf;padding:6px 11px;border-radius:99px}
+.band{background:var(--forest);color:#fff}
+.band .stat{background:transparent;border-right:1px solid #ffffff1f}
+.band .grid{grid-template-columns:repeat(4,1fr)}
+.band .stat b{font-size:30px}
+.programs,.teams,.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.table{overflow:auto;border:1px solid var(--line);border-radius:16px}
+.table table{width:100%;border-collapse:collapse;background:var(--paper)}
+.table th,.table td{padding:15px;border-bottom:1px solid var(--line);text-align:left;font-size:14.5px}
+.table th{background:var(--forest);color:#fff;font-weight:700;letter-spacing:.03em}
+
+/* ---------- alur sekolahku yang bali ---------- */
+.alur-bali {
+  padding: 90px 6%;
+  background: linear-gradient(180deg, #f4fbf6 0%, #ffffff 100%);
+  color: #123c2b;
+}
+.alur-header {
+  max-width: 850px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+.alur-label {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: #e0f3e7;
+  color: #18734d;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+.alur-header h2 {
+  margin: 15px 0 12px;
+  font-size: clamp(32px, 5vw, 52px);
+  color: #145c3b;
+  font-weight: 900;
+}
+.alur-header p {
+  margin: 0 auto;
+  max-width: 700px;
+  color: #60756b;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.alur-track {
+  max-width: 1250px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  position: relative;
+}
+.alur-track::before {
+  content: "";
+  position: absolute;
+  top: 54px;
+  left: 7%;
+  right: 7%;
+  height: 3px;
+  background: linear-gradient(90deg,#8ac9a5,#3c9c68,#f2c85b,#3c9c68,#8ac9a5);
+  z-index: 0;
+}
+.alur-card {
+  position: relative;
+  z-index: 1;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid #dceee3;
+  border-radius: 22px;
+  padding: 25px 20px;
+  min-height: 290px;
+  box-shadow: 0 10px 30px rgba(22,80,53,0.08);
+  transition: all 0.3s ease;
+}
+.alur-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 40px rgba(22,80,53,0.16);
+  border-color: #65b986;
+}
+.alur-icon {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  border-radius: 18px;
+  background: #e7f6ed;
+  font-size: 31px;
+}
+.alur-number {
+  position: absolute;
+  top: 20px;
+  right: 18px;
+  font-size: 12px;
+  font-weight: 900;
+  color: #9ab8a7;
+}
+.alur-card h3 {
+  margin: 8px 0 12px;
+  font-size: 19px;
+  color: #145c3b;
+  font-weight: 850;
+}
+.alur-card p {
+  margin: 0;
+  color: #64766d;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* ---------- aksi program (qc clean) ---------- */
+.aksi-bali {
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(244, 248, 239, 0.98));
+}
+.aksi-heading{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin:42px 0 20px;
+}
+.aksi-heading>span{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  background:#e4f2e8;
+  border-radius:15px;
+  font-size:27px;
+}
+.aksi-heading h3{
+  margin:0;
+  color:var(--forest);
+}
+.aksi-heading p{
+  margin:3px 0 0;
+  color:var(--muted);
+  font-size:14px;
+}
+.inovasi-heading{
+  margin-top:60px;
+}
+.aksi-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.aksi-card{
+  background:var(--qc-card-bg);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:22px;
+  box-shadow:var(--qc-card-shadow);
+  cursor:pointer;
+  transition:.25s ease;
+  position:relative;
+  overflow:hidden;
+}
+.aksi-card:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:5px;
+  background:var(--forest2);
+}
+.aksi-card.inovasi:before{
+  background:#c99a3d;
+}
+.aksi-card:hover{
+  transform:translateY(-7px);
+  box-shadow:var(--qc-card-hover-shadow);
+}
+.aksi-icon{
+  font-size:42px;
+  margin-bottom:10px;
+}
+.aksi-label{
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  color:var(--forest2);
+}
+.aksi-card.inovasi .aksi-label{
+  color:#9a762d;
+}
+.aksi-card h3{
+  margin:5px 0 8px;
+  color:var(--forest);
+}
+.aksi-card p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+  min-height:65px;
+}
+.aksi-card button{
+  border:0;
+  background:transparent;
+  padding:7px 0;
+  color:var(--forest2);
+  font-weight:900;
+  cursor:pointer;
+}
+.aksi-audio-box {
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--qc-audio-bg);
+  border: var(--qc-audio-border);
+}
+.aksi-audio-box strong {
+  display: block;
+  color: var(--forest2);
+  margin-bottom: 8px;
+}
+.aksi-audio-box audio {
+  width: 100%;
+  height: 42px;
+}
+.aksi-modal-photo {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin: 18px 0 8px;
+  border: var(--qc-doc-border);
+  box-shadow: 0 10px 28px rgba(0,0,0,.08);
+}
+.aksi-documentation {
+  margin-top: 16px;
+  padding: 15px 16px;
+  border-radius: 16px;
+  background: var(--qc-doc-bg);
+  border: var(--qc-doc-border);
+}
+.aksi-documentation strong {
+  display: block;
+  color: #176b45;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.aksi-documentation span {
+  color: #5c6d64;
+  line-height: 1.65;
+}
+.aksi-closing{
+  margin-top:40px;
+  padding:25px;
+  text-align:center;
+  border-radius:20px;
+  background:white;
+  border:1px solid var(--line);
+}
+.aksi-closing strong{
+  font-size:20px;
+  color:var(--forest2);
+}
+.aksi-closing p{
+  color:var(--muted);
+  margin-bottom:0;
+}
+
+/* ---------- gallery & monitoring ---------- */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.photoItem{overflow:hidden;border-radius:18px;background:var(--paper);border:1px solid var(--line)}
+.photoItem img{width:100%;height:225px;object-fit:cover;display:block;transition:.4s}
+.photoItem:hover img{transform:scale(1.05)}
+.caption{padding:13px 16px;font-weight:700;font-size:14.5px}
+.ph{height:225px;display:none;place-items:center;background:#eef1e2;color:var(--forest2)}
+.bar{height:16px;background:#e5e6d5;border-radius:99px;overflow:hidden}
+.bar span{display:block;width:90%;height:100%;background:linear-gradient(90deg,var(--forest2),var(--gold))}
+/* ---------- footer ---------- */
+footer{background:var(--forest);color:#cddac6;padding:50px 0 30px}
+footer a{color:#f0d77a;font-weight:700}
+.footerGrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+.footerTitle{color:var(--gold2);font-weight:800;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+footer strong{font-family:var(--serif)}
+
+/* ---------- mobile navigation ---------- */
+.mobileMenuBtn{display:none;width:44px;height:44px;padding:9px;border:1px solid rgba(255,255,255,.22);border-radius:12px;background:rgba(255,255,255,.08);cursor:pointer}
+.mobileMenuBtn span{display:block;width:23px;height:2px;margin:5px auto;background:#fff;border-radius:999px;transition:.25s}
+
+/* ---------- media queries ---------- */
+@media(max-width:1050px) {
+  .alur-track { grid-template-columns: repeat(3, 1fr); }
+  .alur-track::before { display: none; }
+}
+@media(max-width:1000px){
+  nav.links{display:none}
+  .heroGrid{grid-template-columns:1fr;min-height:auto;padding:50px 0 40px}
+  .heroStats{margin-top:10px}
+  .grid,.programs,.teams,.areas,.band .grid{grid-template-columns:repeat(2,1fr)}
+  .mobileMenuBtn{display:block}
+  .nav{position:relative}
+  nav.links{position:absolute;top:calc(100% + 8px);left:0;right:0;padding:10px;flex-direction:column;gap:3px;background:rgba(15,46,32,.98);border-radius:16px;box-shadow:0 16px 35px rgba(0,0,0,.22);z-index:100}
+  nav.links.mobile-open{display:flex}
+  nav.links a{width:100%;padding:12px 14px;border-radius:10px}
+  .mobileMenuBtn.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .mobileMenuBtn.active span:nth-child(2){opacity:0}
+  .mobileMenuBtn.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+@media(max-width:900px){
+  .aksi-grid{ grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:700px){
+  body{background-attachment:scroll}
+  .aksi-card,.card{box-shadow:0 5px 18px rgba(31,63,45,.05)}
+}
+@media(max-width:650px) {
+  .alur-bali { padding: 65px 20px; }
+  .alur-header { margin-bottom: 35px; }
+  .alur-header h2 { font-size: 34px; }
+  .alur-header p { font-size: 15px; }
+  .alur-track { grid-template-columns: 1fr; gap: 18px; }
+  .alur-card { min-height: auto; padding: 22px; }
+  .alur-icon { width: 58px; height: 58px; font-size: 27px; }
+  .brand img{width:44px;height:44px}
+  .brand strong{font-size:14.5px}
+  .brand small{font-size:10px}
+  .hero h1{font-size:44px}
+  .two,.footerGrid,.gallery,.grid,.programs,.teams,.areas,.band .grid,.aksi-grid{grid-template-columns:1fr}
+  .section{padding:58px 0}
+  .head h2{font-size:29px}
+}
+</style></head>
+<body>
+<header><div class="c nav"><a class="brand" href="#beranda"><img src="logo-sdn1-renon.png" alt="Logo SD Negeri 1 Renon"><span><strong>SD NEGERI 1 RENON</strong><small>Taki Takining Sewaka Guna Widya</small></span></a><nav class="links" id="mainNav"><a href="#beranda">BERANDA</a><a href="#tentang">TENTANG</a><a href="#visi">VISI & MISI</a><a href="#aksi">AKSI PROGRAM</a><a href="#jadwal">JADWAL</a><a href="#monitoring">MONITORING</a><a href="#sapa-bali">SAPA BALI</a><a href="#kontak">KONTAK</a></nav>
+<button class="mobileMenuBtn" id="mobileMenuBtn" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="mainNav">
+  <span></span><span></span><span></span>
+</button></div></header>
+
+<section class="hero" id="beranda"><div class="c heroGrid">
+<div>
+<div class="eyebrow">Program Lingkungan Sekolah</div>
+<h1>Sekolahku<br>yang <em>BALI</em></h1>
+<h2>SD Negeri 1 Renon</h2>
+<p>Mewujudkan lingkungan sekolah yang bersih, asri, lestari dan indah melalui keterlibatan seluruh warga sekolah demi masa depan yang lebih baik.</p>
+<div class="btnrow"><a class="btn primary" href="#aksi">🌱 Jelajahi Program</a><a class="btn light" href="#bali-rangers">🛡️ BALI Rangers</a></div>
+<div class="quote">"Sekolah bersih bukan karena ada petugas kebersihan, tetapi karena <b>semua warga sekolah peduli.</b>"</div>
+</div>
+<div class="heroStats">
+<div class="stat"><b>90%</b><small>Target Partisipasi<br>Warga Sekolah</small></div>
+<div class="stat"><b>Setiap Hari</b><small>Pembiasaan yang<br>Berkelanjutan</small></div>
+<div class="stat"><b>Seluruh Area</b><small>Sekolah Menjadi<br>Ruang Aksi</small></div>
+<div class="stat"><b>♥ Bersama</b><small>Kita Jaga, Kita Rawat,<br>Kita Lestarikan</small></div>
+</div>
+</div></section>
+
+<div class="terrace" style="background:var(--cream)"><svg viewBox="0 0 1200 34" preserveAspectRatio="none"><path d="M0,34 L0,20 L100,20 L100,10 L200,10 L200,24 L300,24 L300,6 L400,6 L400,18 L500,18 L500,2 L600,2 L600,16 L700,16 L700,4 L800,4 L800,22 L900,22 L900,8 L1000,8 L1000,20 L1100,20 L1100,0 L1200,0 L1200,34 Z" fill="#0f2e20"></path></svg></div>
+
+<section class="section alur-bali" id="alur">
+  <div class="c">
+    <div class="alur-header">
+      <span class="alur-label">PERJALANAN PERUBAHAN SEKOLAH</span>
+      <h2>Alur Sekolahku yang BALI</h2>
+      <p>Dari menemukan masalah hingga menghasilkan perubahan nyata bagi lingkungan dan warga sekolah.</p>
+    </div>
+    <div class="alur-track">
+      <div class="alur-card">
+        <div class="alur-icon">🔎</div><div class="alur-number">01</div>
+        <h3>Identifikasi Masalah</h3>
+        <p>Mengenali kondisi, masalah, kebutuhan, dan potensi lingkungan sekolah sebagai dasar menentukan langkah perubahan.</p>
+      </div>
+      <div class="alur-card">
+        <div class="alur-icon">🌱</div><div class="alur-number">02</div>
+        <h3>Pembiasaan</h3>
+        <p>Membangun budaya peduli lingkungan melalui kebiasaan nyata yang dilakukan secara rutin oleh seluruh warga sekolah.</p>
+      </div>
+      <div class="alur-card">
+        <div class="alur-icon">💡</div><div class="alur-number">03</div>
+        <h3>Inovasi</h3>
+        <p>Mengembangkan gagasan kreatif untuk menghasilkan solusi terhadap permasalahan lingkungan sekolah.</p>
+      </div>
+      <div class="alur-card">
+        <div class="alur-icon">♻️</div><div class="alur-number">04</div>
+        <h3>Karya & Produk</h3>
+        <p>Mengubah pembiasaan dan inovasi menjadi karya serta produk yang bermanfaat dan memiliki nilai lingkungan.</p>
+      </div>
+      <div class="alur-card">
+        <div class="alur-icon">📊</div><div class="alur-number">05</div>
+        <h3>Monitoring</h3>
+        <p>Memantau pelaksanaan program, melihat perkembangan, melakukan refleksi, dan menentukan perbaikan.</p>
+      </div>
+      <div class="alur-card">
+        <div class="alur-icon">🌿</div><div class="alur-number">06</div>
+        <h3>Dampak</h3>
+        <p>Terwujudnya sekolah yang Bersih, Asri, Lestari, dan Indah serta tumbuhnya karakter peduli lingkungan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section core" id="tentang"><div class="c"><div class="head"><span class="kicker">Empat Semangat</span><h2>Sekolahku yang BALI</h2><p class="muted">Karakter lingkungan sekolah yang menjadi budaya bersama seluruh warga SD Negeri 1 Renon.</p></div><div class="grid">
+<div class="card"><div class="icon">🧹</div><h3>BERSIH</h3><p class="muted">Membiasakan seluruh warga sekolah menjaga kebersihan lingkungan.</p></div>
+<div class="card"><div class="icon">🌿</div><h3>ASRI</h3><p class="muted">Mewujudkan lingkungan sekolah yang hijau, rindang, dan nyaman.</p></div>
+<div class="card"><div class="icon" style="background:var(--clay)">♻️</div><h3 style="color:var(--clay)">LESTARI</h3><p class="muted">Menumbuhkan kepedulian terhadap kelestarian lingkungan.</p></div>
+<div class="card"><div class="icon" style="background:var(--gold)">🌼</div><h3 style="color:#a5820f">INDAH</h3><p class="muted">Menciptakan lingkungan sekolah yang rapi, tertata, dan menyenangkan.</p></div>
+</div></div></section>
+
+<section class="section" id="visi" style="background:var(--paper)"><div class="c"><div class="head"><span class="kicker">Arah Bersama</span><h2>Visi & Misi</h2></div><div class="two">
+<div class="card"><span class="badge">VISI</span><p class="quoteGreen" style="margin-top:14px">"Terwujudnya lingkungan sekolah yang bersih, asri, lestari dan indah."</p></div>
+<div class="card"><span class="badge">MISI</span><p class="quoteGreen" style="margin-top:14px">"Optimalisasi peran seluruh warga sekolah dalam mewujudkan lingkungan sekolah yang bersih, asri, lestari dan indah."</p></div>
+</div></div></section>
+
+<section class="section band"><div class="c grid">
+<div class="stat"><b>90%</b>Target partisipasi aktif warga sekolah</div>
+<div class="stat"><b>Setiap Hari</b>Pembiasaan berkelanjutan</div>
+<div class="stat"><b>Seluruh Area</b>Menjadi ruang aksi program</div>
+<div class="stat"><b>Bersama</b>Kita jaga dan rawat sekolah</div>
+</div></section>
+
+<div class="terrace" style="background:var(--forest)"><svg viewBox="0 0 1200 34" preserveAspectRatio="none"><path d="M0,0 L0,14 L100,14 L100,24 L200,24 L200,10 L300,10 L300,28 L400,28 L400,16 L500,16 L500,32 L600,32 L600,18 L700,18 L700,30 L800,30 L800,12 L900,12 L900,26 L1000,26 L1000,14 L1100,14 L1100,34 L1200,34 L1200,0 Z" fill="#eef6ed"></path></svg></div>
+
+<section class="section aksi-bali" id="aksi"><div class="c">
+<div class="head"><span class="badge">AKSI PROGRAM</span><h2>Pembiasaan & Inovasi</h2><p class="muted">Membangun budaya peduli lingkungan melalui pembiasaan sehari-hari dan inovasi kreatif seluruh warga SD Negeri 1 Renon.</p></div>
+
+<div class="aksi-heading"><span>🌱</span><div><h3>PEMBIASAAN</h3><p>Kebiasaan sederhana yang dilakukan secara konsisten untuk membangun budaya peduli lingkungan.</p></div></div>
+<div class="aksi-grid">
+<div class="aksi-card" onclick="openAksi('piket-kelas')"><div class="aksi-icon">🧹</div><span class="aksi-label">PEMBIASAAN</span><h3>Piket Kelas</h3><p>Menjaga kebersihan dan kerapian ruang kelas dengan penuh tanggung jawab.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card" onclick="openAksi('piket-umum')"><div class="aksi-icon">🏫</div><span class="aksi-label">PEMBIASAAN</span><h3>Piket Umum</h3><p>Menjaga kebersihan lingkungan sekolah di luar ruang kelas.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card" onclick="openAksi('operasi-semut')"><div class="aksi-icon">🐜</div><span class="aksi-label">PEMBIASAAN</span><h3>Operasi Semut</h3><p>Gerakan sederhana mengambil sampah dan menempatkannya pada tempat yang sesuai.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card" onclick="openAksi('general-clean-up')"><div class="aksi-icon">🧽</div><span class="aksi-label">PEMBIASAAN</span><h3>General Clean Up</h3><p>Kegiatan membersihkan lingkungan sekolah secara menyeluruh.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card" onclick="openAksi('sisir-meja')"><div class="aksi-icon">🗂️</div><span class="aksi-label">PEMBIASAAN</span><h3>Sisir Meja</h3><p>Memastikan meja dan area belajar tetap bersih serta rapi.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card" onclick="openAksi('pemilahan-sampah')"><div class="aksi-icon">♻️</div><span class="aksi-label">PEMBIASAAN</span><h3>Pemilahan Sampah</h3><p>Membiasakan warga sekolah memilah sampah sesuai jenisnya.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card" onclick="openAksi('perawatan-tanaman')"><div class="aksi-icon">🌱</div><span class="aksi-label">PEMBIASAAN</span><h3>Perawatan Tanaman</h3><p>Menjaga tanaman dan ruang hijau sekolah agar tetap asri.</p><button>Lihat Detail →</button></div>
+</div>
+
+<div class="aksi-heading inovasi-heading"><span>💡</span><div><h3>INOVASI</h3><p>Solusi kreatif untuk mewujudkan lingkungan sekolah yang bersih, asri, lestari, dan indah.</p></div></div>
+<div class="aksi-grid">
+<div class="aksi-card inovasi" onclick="openAksi('piral')"><div class="aksi-icon">🏆</div><span class="aksi-label">INOVASI</span><h3>PIRAL</h3><p><b>Piala Ramah Lingkungan.</b> Pemanfaatan kertas menjadi produk kreatif.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card inovasi" onclick="openAksi('si-pahala')"><div class="aksi-icon">💧</div><span class="aksi-label">INOVASI</span><h3>Si-Pahala</h3><p><b>Sistem Penampungan Air Hujan Alami.</b></p><button>Lihat Detail →</button></div>
+<div class="aksi-card inovasi" onclick="openAksi('a-patar')"><div class="aksi-icon">🥤</div><span class="aksi-label">INOVASI</span><h3>A-PATAR</h3><p><b>Air Pakai Tumbler.</b> Penyediaan air isi ulang untuk membiasakan murid menggunakan tumbler.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card inovasi" onclick="openAksi('dupa')"><div class="aksi-icon">🪔</div><span class="aksi-label">INOVASI</span><h3>Pembakaran Khusus Dupa</h3><p>Tempat khusus untuk menjaga aktivitas pembakaran dupa tetap tertata.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card inovasi" onclick="openAksi('eco-enzym')"><div class="aksi-icon">🧼</div><span class="aksi-label">INOVASI</span><h3>Eco Enzym</h3><p>Pengolahan bahan organik yang dimanfaatkan sebagai pengganti sabun cuci tangan.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card inovasi" onclick="openAksi('komposting')"><div class="aksi-icon">🌱</div><span class="aksi-label">INOVASI</span><h3>Media Komposting</h3><p><b>Teba Modern • Biopori • Tong Komposter</b></p><button>Lihat Detail →</button></div>
+<div class="aksi-card inovasi" onclick="openAksi('ecobrick')"><div class="aksi-icon">🧱</div><span class="aksi-label">INOVASI</span><h3>Ecobrick</h3><p>Pemanfaatan sampah plastik menjadi bahan yang dapat dimanfaatkan kembali.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card inovasi" onclick="openAksi('recycle')"><div class="aksi-icon">♻️</div><span class="aksi-label">INOVASI</span><h3>Produk Recycle</h3><p>Mengolah bahan yang sudah tidak terpakai menjadi produk baru.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card inovasi" onclick="openAksi('batara')"><div class="aksi-icon">🥥</div><span class="aksi-label">INOVASI</span><h3>BATARA</h3><p><b>Batok Kelapa Nusantara.</b> Pengolahan kembali "nyuh daksina" menjadi barang baru yang bermanfaat.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card inovasi" onclick="openAksi('pantas')"><div class="aksi-icon">🏷️</div><span class="aksi-label">INOVASI</span><h3>PANTAS</h3><p><b>Papan Nama Tanaman Smart.</b> Papan nama tanaman digital.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card inovasi" onclick="openAksi('lagu-bali')"><div class="aksi-icon">🎵</div><span class="aksi-label">INOVASI</span><h3>Lagu Sekolahku</h3><p>Media untuk membangun identitas dan budaya peduli lingkungan.</p><button>Lihat Detail →</button></div>
+</div>
+
+<div class="aksi-closing"><strong>🌿 Dari Kebiasaan Menjadi Budaya, Dari Inovasi Menjadi Solusi</strong><p>Sekolahku yang BALI — Bersih • Asri • Lestari • Indah</p></div>
+</div></section>
+
+<section class="section" id="jadwal" style="background:var(--paper)"><div class="c"><div class="head"><span class="kicker">Ritme Kegiatan</span><h2>Jadwal Kegiatan</h2></div><div class="table"><table><tr><th>Kegiatan</th><th>Jadwal</th></tr>
+<tr><td>Piket Kelas</td><td>Senin–Jumat</td></tr>
+<tr><td>Piket Umum</td><td>Kelas 6A, 6B, 6C: Senin dan Selasa<br>Kelas 5A, 5B, 5C: Rabu dan Kamis<br>Kelas 4A, 4B, 4C: Jumat</td></tr>
+<tr><td>Operasi Semut</td><td>Senin–Jumat</td></tr>
+<tr><td>General Clean Up</td><td>Setiap Jumat secara bergiliran.</td></tr>
+<tr><td>Sisir Meja</td><td>Setiap hari.</td></tr>
+<tr><td>Pemilahan Sampah</td><td>Setiap hari.</td></tr>
+<tr><td>Perawatan Tanaman</td><td>Setiap hari.</td></tr>
+</table></div><h3 style="margin-top:32px">Pembagian Area General Clean Up</h3><div class="areas">
+<div class="card"><h3>Kelas 1</h3>Area sekitar kelas.</div>
+<div class="card"><h3>Kelas 2</h3>Area sekitar kelas.</div>
+<div class="card"><h3>Kelas 3</h3>Lapangan, kebun sekitar lapangan basket dan gudang.</div>
+<div class="card"><h3>Kelas 4</h3>Toilet lantai 1 dan halaman sekitar gedung baru.</div>
+<div class="card"><h3>Kelas 5</h3>Padmasana dan kebun depan-belakang gedung kelas 5.</div>
+<div class="card"><h3>Kelas 6</h3>Toilet lantai 2 dan aula.</div>
+</div></div></section>
+
+<section class="section" style="background:#eef6ed"><div class="c"><div class="head"><span class="kicker">Gotong Royong</span><h2>Peran Warga Sekolah</h2></div><div class="grid">
+<div class="card"><h3>KEPALA SEKOLAH</h3><ul><li>Mengawasi pelaksanaan program.</li><li>Memberi penguatan kepada warga sekolah.</li><li>Mencari solusi terhadap permasalahan.</li></ul></div>
+<div class="card"><h3>GURU</h3><ul><li>Mengatur dan mengarahkan murid.</li><li>Memastikan seluruh murid terlibat.</li><li>Melakukan koordinasi dengan kepala sekolah.</li></ul></div>
+<div class="card"><h3>MURID</h3><ul><li>Datang tepat waktu.</li><li>Melaksanakan tugas dengan penuh kesadaran dan tanggung jawab.</li></ul></div>
+<div class="card"><h3>ORANG TUA</h3><ul><li>Mendorong anak datang tepat waktu.</li><li>Memberikan dukungan dan motivasi.</li></ul></div>
+</div></div></section>
+
+<section class="section" id="bali-rangers" style="background:var(--paper)"><div class="c"><div class="head"><span class="kicker">Kader Lingkungan</span><h2>BALI Rangers</h2><p class="muted">Kader Sekolahku yang BALI.</p></div><div class="teams">
+<div class="card">💧 <h3>Tim Biopori</h3></div>
+<div class="card">🍃 <h3>Tim Eco Enzym</h3></div>
+<div class="card">♻️ <h3>Tim Komposter</h3></div>
+<div class="card">💡 <h3>Tim Inovasi</h3></div>
+<div class="card">📣 <h3>Tim Kampanye</h3></div>
+<div class="card">🔁 <h3>Tim Reuse</h3></div>
+<div class="card">➖ <h3>Tim Reduce</h3></div>
+<div class="card">🔄 <h3>Tim Recycle</h3></div>
+</div></div></section>
+
+<div class="terrace" style="background:var(--paper)"><svg viewBox="0 0 1200 34" preserveAspectRatio="none"><path d="M0,34 L0,20 L100,20 L100,10 L200,10 L200,24 L300,24 L300,6 L400,6 L400,18 L500,18 L500,2 L600,2 L600,16 L700,16 L700,4 L800,4 L800,22 L900,22 L900,8 L1000,8 L1000,20 L1100,20 L1100,0 L1200,0 L1200,34 Z" fill="#eef6ed"></path></svg></div>
+
+
+
+<section class="section" id="monitoring" style="background:var(--paper)"><div class="c"><div class="head"><span class="kicker">Menjaga Konsistensi</span><h2>Monitoring & Evaluasi</h2></div><div class="grid">
+<div class="card"><h3>Monitoring</h3>Dilakukan setiap hari oleh kepala sekolah.</div>
+<div class="card"><h3>Evaluasi</h3>Dilakukan setiap bulan melalui rapat rutin bulanan.</div>
+<div class="card"><h3>Pengumpulan Data</h3><ul><li>Observasi.</li><li>Catatan guru piket.</li></ul></div>
+<div class="card"><h3>Pelaporan</h3>Laporan disampaikan kepada kepala sekolah setiap satu bulan sekali.</div>
+</div><div class="card" style="margin-top:18px"><h3>Target Partisipasi Warga Sekolah: 90%</h3><div class="bar"><span></span></div></div>
+<div class="two" style="margin-top:24px">
+<div class="highlight"><h3 style="margin-top:0">Sarana dan Prasarana</h3><ul class="muted"><li>Pengeras suara</li><li>Alat-alat kebersihan</li><li>Buku catatan</li></ul></div>
+<div class="highlight"><h3 style="margin-top:0">Sumber Pendanaan</h3><ul class="muted"><li>Dana BOSP</li><li>Dana Komite</li><li>Sumbangan pihak ketiga</li></ul></div>
+</div>
+</div></section>
+
+<section class="section" id="aturan" style="background:#eef6ed"><div class="c"><div class="head"><span class="kicker">Budaya BALI</span><h2>Aturan Sekolah</h2></div><div class="two">
+<div class="card"><ul><li>Seluruh warga sekolah bertanggung jawab terhadap kebersihan, keasrian, kelestarian dan keindahan sekolah.</li><li>Wajib menggunakan tumbler dan kotak makan.</li><li>Membuang sampah sesuai jenisnya.</li><li>Tidak membuang sampah dari luar sekolah ke tempat sampah sekolah.</li><li>Tidak merusak sarana dan prasarana sekolah.</li></ul></div>
+<div class="card"><h3 style="margin-top:0">Konsekuensi Edukatif</h3><ol><li>Teguran Lisan</li><li>Tindakan Sosial Edukatif</li><li>Peringatan Tertulis</li></ol><p class="muted" style="font-size:13.5px;margin-bottom:0">Tindakan sosial edukatif meliputi membersihkan area tertentu, mencabut tanaman liar, merapikan tanaman, dll.</p></div>
+</div></div></section>
+<section class="section" id="sapa-bali" style="background:#eef6ed">
+  <div class="c">
+
+    <div class="head">
+      <span class="kicker">RUANG PARTISIPASI</span>
+
+      <h2>SAPA BALI</h2>
+
+      <p class="muted">
+        Sarana bagi warga sekolah, orang tua, dan masyarakat
+        untuk menyampaikan apresiasi, saran, ide, dan pandangan
+        terkait Program Sekolahku yang BALI.
+      </p>
+    </div>
+
+    <div class="two">
+
+      <!-- =========================
+           FORM SAPA BALI
+      ========================== -->
+      <div class="highlight">
+
+        <h3 style="
+          margin-top:0;
+          color:var(--forest);
+          font-size:28px;
+        ">
+          💬 Sampaikan SAPA BALI
+        </h3>
+
+        <p class="muted">
+          Ruang bagi warga sekolah, orang tua, dan masyarakat
+          untuk menyampaikan apresiasi, saran, ide, dan pandangan
+          demi pengembangan Program Sekolahku yang BALI.
+        </p>
+
+        <form id="sapaForm" style="margin-top:24px">
+
+          <!-- Nama -->
+          <div style="margin-bottom:18px">
+            <label
+              for="sapaNama"
+              style="
+                display:block;
+                font-weight:800;
+                color:var(--forest);
+                margin-bottom:7px;
+              ">
+              Nama
+            </label>
+
+            <input
+              id="sapaNama"
+              name="nama"
+              type="text"
+              maxlength="80"
+              placeholder="Nama Anda"
+              required
+              style="
+                width:100%;
+                padding:15px 17px;
+                border:1px solid #dfe4d8;
+                border-radius:15px;
+                background:#fffdf9;
+                font:inherit;
+                color:var(--text);
+                outline:none;
+              ">
+          </div>
+
+          <!-- Sebagai -->
+          <div style="margin-bottom:18px">
+
+            <label
+              for="sapaStatus"
+              style="
+                display:block;
+                font-weight:800;
+                color:var(--forest);
+                margin-bottom:7px;
+              ">
+              Sebagai
+            </label>
+
+            <select
+              id="sapaStatus"
+              name="status"
+              style="
+                width:100%;
+                padding:15px 17px;
+                border:1px solid #dfe4d8;
+                border-radius:15px;
+                background:#fffdf9;
+                font:inherit;
+                color:var(--text);
+                outline:none;
+              ">
+
+              <option value="Orang Tua">Orang Tua</option>
+              <option value="Siswa">Siswa</option>
+              <option value="Guru">Guru</option>
+              <option value="Tenaga Kependidikan">
+                Tenaga Kependidikan
+              </option>
+              <option value="Alumni">Alumni</option>
+              <option value="Masyarakat">Masyarakat</option>
+              <option value="Lainnya">Lainnya</option>
+
+            </select>
+
+          </div>
+
+          <!-- Saran & Pandangan -->
+          <div style="margin-bottom:18px">
+
+            <label
+              for="sapaPesan"
+              style="
+                display:block;
+                font-weight:800;
+                color:var(--forest);
+                margin-bottom:7px;
+              ">
+              Saran &amp; Pandangan
+            </label>
+
+            <textarea
+              id="sapaPesan"
+              name="pesan"
+              maxlength="3000"
+              rows="6"
+              placeholder="Tuliskan saran, apresiasi, atau pandangan Anda..."
+              required
+              style="
+                width:100%;
+                padding:15px 17px;
+                border:1px solid #dfe4d8;
+                border-radius:15px;
+                background:#fffdf9;
+                font:inherit;
+                color:var(--text);
+                resize:vertical;
+                outline:none;
+              "></textarea>
+
+          </div>
+
+          <!-- Tombol -->
+          <button
+            type="submit"
+            class="sapa-submit"
+            style="
+              width:100%;
+              border:0;
+              border-radius:999px;
+              padding:14px 22px;
+              background:var(--forest2);
+              color:#fff;
+              font:inherit;
+              font-weight:800;
+              font-size:16px;
+              cursor:pointer;
+              transition:.2s;
+            ">
+            🌱 Kirim SAPA BALI
+          </button>
+
+        </form>
+
+        <p
+          class="sapa-note muted"
+          style="
+            font-size:13px;
+            margin:16px 0 0;
+          ">
+          SAPA BALI akan melalui
+          <strong>moderasi pengelola sekolah</strong>
+          sebelum ditampilkan pada website.
+        </p>
+
+      </div>
+
+
+      <!-- =========================
+           SAPA DARI PENGUNJUNG
+      ========================== -->
+      <div class="highlight">
+
+        <h3 style="
+          margin-top:0;
+          color:var(--forest);
+          font-size:28px;
+        ">
+          🌿 SAPA dari Pengunjung
+        </h3>
+
+        <p class="muted">
+          Apresiasi, saran, dan pandangan yang telah
+          dipublikasikan.
+        </p>
+
+        <div
+          id="sapaPublik"
+          style="
+            margin-top:22px;
+            display:grid;
+            gap:14px;
+          ">
+
+          <div
+            style="
+              padding:20px;
+              border-radius:18px;
+              background:#f7faf5;
+              border:1px solid #dfe9dc;
+            ">
+
+            <strong
+              style="
+                display:block;
+                color:var(--forest);
+                margin-bottom:10px;
+              ">
+              Memuat SAPA BALI...
+            </strong>
+
+            <span
+              class="muted"
+              style="font-size:14px">
+              Mohon tunggu sebentar.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" style="background:var(--paper)"><div class="c"><div class="highlight" style="text-align:center;background:var(--forest);border:none"><p class="quoteGreen" style="color:#fff;border-left-color:var(--gold)">"SEKOLAH BERSIH BUKAN KARENA ADA PETUGAS KEBERSIHAN,<br>TETAPI KARENA SEMUA WARGA SEKOLAH PEDULI."</p><a class="btn primary" style="margin-top:18px" href="#kontak">Ayo Jadi Bagian dari Sekolahku yang BALI</a></div></div></section>
+
+<footer id="kontak"><div class="c footerGrid">
+<div><strong style="font-size:22px;color:#fff">Sekolahku yang BALI</strong><br>SD NEGERI 1 RENON<p>Program lingkungan sekolah: Bersih • Asri • Lestari • Indah.</p></div>
+<div><div class="footerTitle">Alamat</div>Jalan Tukad Balian Nomor 37, Renon<br>Denpasar, Bali</div>
+<div><div class="footerTitle">Kontak</div><a href="mailto:sdn1renon@gmail.com">sdn1renon@gmail.com</a></div>
+</div></footer>
+
+<script>
+// Filter Galeri
+document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  let f=b.dataset.filter;
+  document.querySelectorAll('.photoItem').forEach(x=>x.style.display=f==='semua'||x.dataset.cat===f?'block':'none');
+});
+
+// Menu Mobile
+(function(){
+  const btn=document.getElementById('mobileMenuBtn');
+  const nav=document.getElementById('mainNav');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',function(){
+    const open=nav.classList.toggle('mobile-open');
+    btn.classList.toggle('active',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    nav.classList.remove('mobile-open');
+    btn.classList.remove('active');
+    btn.setAttribute('aria-expanded','false');
+  }));
+})();
+
+// Data Aksi & Inovasi (Menampung data lagu dan foto)
+const aksiData={
+'piket-kelas':['🧹','PEMBIASAAN','Piket Kelas','Piket Kelas merupakan pembiasaan peserta didik untuk bertanggung jawab terhadap kebersihan dan kerapian ruang kelas.','Membangun tanggung jawab, disiplin, gotong royong, dan kepedulian terhadap lingkungan belajar.','Senin–Jumat'],
+'piket-umum':['🏫','PEMBIASAAN','Piket Umum','Piket Umum merupakan kegiatan bersama untuk menjaga kebersihan lingkungan sekolah di luar ruang kelas.','Menumbuhkan kesadaran bahwa kebersihan sekolah merupakan tanggung jawab bersama.','Sesuai jadwal'],
+'pemilahan-sampah':['♻️','PEMBIASAAN','Pemilahan Sampah','Pemilahan Sampah merupakan pembiasaan memisahkan sampah berdasarkan jenisnya.','Membangun kepedulian terhadap pengelolaan sampah.','Setiap hari'],
+'perawatan-tanaman':['🌱','PEMBIASAAN','Perawatan Tanaman','Perawatan Tanaman merupakan pembiasaan warga sekolah untuk menjaga tanaman dan ruang hijau sekolah.','Menumbuhkan tanggung jawab, kesabaran, dan kecintaan terhadap lingkungan.','Setiap hari'],
+
+// Pembiasaan dengan Foto
+'operasi-semut':['🐜','PEMBIASAAN','Operasi Semut','Operasi Semut adalah gerakan mengambil sampah yang ditemukan di lingkungan sekolah.','Membangun kepedulian dan kebiasaan menjaga kebersihan secara spontan.','Senin–Jumat','','dokumentasi/image_1.png','Peserta didik membiasakan diri mengambil sampah yang terlihat saat beraktivitas.'],
+'general-clean-up':['🧽','PEMBIASAAN','General Clean Up','General Clean Up merupakan kegiatan pembersihan lingkungan sekolah secara menyeluruh.','Menjaga lingkungan sekolah tetap bersih, nyaman, sehat, dan tertata.','Setiap Jumat secara bergiliran','','dokumentasi/image_0.png','Kegiatan dilakukan bersama untuk membersihkan area sekolah sebagai pembiasaan gotong royong.'],
+'sisir-meja':['🗂️','PEMBIASAAN','Sisir Meja','Sisir Meja merupakan pembiasaan memastikan area meja dan ruang belajar tetap bersih.','Membentuk kebiasaan menjaga kebersihan sebelum meninggalkan tempat.','Setiap hari','','dokumentasi/image_2.png','Peserta didik memeriksa meja dan area di sekitarnya, mengambil sampah, lalu merapikan meja.'],
+
+// Inovasi
+'piral':['🏆','INOVASI','PIRAL','PIRAL atau Piala Ramah Lingkungan merupakan inovasi pemanfaatan kertas menjadi produk kreatif.','Memanfaatkan kertas dan menumbuhkan kreativitas serta kepedulian lingkungan.','Sesuai program'],
+'si-pahala':['💧','INOVASI','Si-Pahala','Si-Pahala merupakan Sistem Penampungan Air Hujan Alami.','Memanfaatkan air hujan dan menumbuhkan kesadaran terhadap konservasi air.','Sesuai kondisi'],
+'a-patar':['🥤','INOVASI','A-PATAR','A-PATAR atau Air Pakai Tumbler merupakan penyediaan air isi ulang untuk membiasakan murid menggunakan tumbler.','Mengurangi penggunaan botol plastik sekali pakai.','Sesuai kebutuhan'],
+'dupa':['🪔','INOVASI','Pembakaran Khusus Dupa','Tempat khusus yang disediakan untuk aktivitas pembakaran dupa agar lebih tertata.','Menjaga kebersihan dan ketertiban lingkungan sekolah.','Sesuai kebutuhan'],
+'eco-enzym':['🧼','INOVASI','Eco Enzym','Eco Enzym merupakan inovasi pengolahan bahan organik dimanfaatkan sebagai pengganti sabun cuci tangan.','Memanfaatkan bahan organik sekaligus mendukung upaya menjaga lingkungan.','Sesuai kebutuhan'],
+'komposting':['🌱','INOVASI','Media Komposting','Pengelolaan sampah organik dilakukan melalui Teba Modern, Biopori, dan Tong Komposter.','Mengolah sampah organik agar dapat dimanfaatkan kembali.','Berkelanjutan'],
+'ecobrick':['🧱','INOVASI','Ecobrick','Ecobrick merupakan inovasi pemanfaatan sampah plastik dengan mengemasnya secara padat ke dalam botol plastik.','Mengurangi sampah plastik.','Berkelanjutan'],
+'recycle':['♻️','INOVASI','Produk Recycle','Berbagai Produk Recycle merupakan hasil kreativitas dalam memanfaatkan bahan yang sudah tidak terpakai.','Mengembangkan kreativitas sekaligus mengurangi limbah.','Sesuai kegiatan'],
+'batara':['🥥','INOVASI','BATARA','BATARA atau Batok Kelapa Nusantara merupakan inovasi pengolahan kembali "nyuh daksina" menjadi barang baru yang bermanfaat.','Memanfaatkan limbah batok kelapa sekaligus menumbuhkan kreativitas dan kepedulian terhadap lingkungan.','Sesuai kegiatan'],
+'pantas':['🏷️','INOVASI','PANTAS','PANTAS atau Papan Nama Tanaman Smart merupakan papan nama tanaman digital.','Memberikan informasi tanaman secara interaktif serta menumbuhkan kecintaan terhadap lingkungan hijau sekolah.','Sesuai kebutuhan'],
+
+// Inovasi dengan Lagu
+'lagu-bali':['🎵','INOVASI','Lagu Sekolahku yang BALI','Lagu Sekolahku yang BALI menjadi media untuk membangun identitas dan budaya peduli lingkungan.','Menanamkan semangat Bersih, Asri, Lestari, dan Indah melalui media musik.','Sesuai kegiatan sekolah','lagu-sekolahku-yang-bali.mp3']
+};
+
+// Fungsi Buka Modal Detail
+function openAksi(id){
+const d=aksiData[id];
+if(!d)return;
+const box=document.createElement('div');
+box.style.cssText='position:fixed;inset:0;background:rgba(10,35,25,.72);display:flex;align-items:center;justify-content:center;padding:20px;z-index:9999;';
+box.innerHTML=`
+<div style="background:white;width:min(650px,100%);max-height:85vh;overflow:auto;border-radius:24px;padding:32px;position:relative;box-shadow:0 25px 70px #0005;">
+<button onclick="this.closest('[data-modal]').remove()" style="position:absolute;right:18px;top:15px;border:0;background:#edf5ef;color:#176b45;width:40px;height:40px;border-radius:50%;font-size:25px;cursor:pointer;">×</button>
+<div style="font-size:55px;margin-bottom:10px">${d[0]}</div>
+<span style="display:inline-block;background:#e7f3eb;color:#176b45;padding:5px 10px;border-radius:99px;font-size:11px;font-weight:900;">${d[1]}</span>
+<h2 style="color:#17352a;margin:10px 0">${d[2]}</h2>
+<p>${d[3]}</p>
+${d[6]?`<div class="aksi-audio-box"><strong>🎵 Dengarkan Lagu Sekolahku yang BALI</strong><audio controls src="${d[6]}"></audio></div>`:''}
+${d[7]?`<img class="aksi-modal-photo" src="${d[7]}" alt="Dokumentasi ${d[2]}">`:''}
+<h4 style="color:#176b45;margin:15px 0 5px">🎯 Tujuan</h4>
+<p>${d[4]}</p>
+<h4 style="color:#176b45;margin:15px 0 5px">📅 Pelaksanaan</h4>
+<p>${d[5]}</p>
+${d[8]?`<div class="aksi-documentation"><strong>📷 Dokumentasi Kegiatan</strong><span>${d[8]}</span></div>`:''}
+</div>`;
+box.setAttribute('data-modal','true');
+box.onclick=e=>{if(e.target===box)box.remove();};
+document.body.appendChild(box);
+}
+</script>
+<script src="bali-rangers.js"></script>
+<script>
+const SAPA_APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbzqQb9WnQ9IstihBNTaSSzc4mBzbd2fcSo3sXFQ8P8pc1khJpCZqh2h-CFt9iefumq_pw/exec";
+
+const sapaForm = document.getElementById("sapaForm");
+
+if (sapaForm) {
+  sapaForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById("sapaNama")?.value.trim() || "";
+    const sebagai = document.getElementById("sapaStatus")?.value.trim() || "";
+    const pesan = document.getElementById("sapaPesan")?.value.trim() || "";
+
+    if (!nama || !sebagai || !pesan) {
+      alert("Mohon lengkapi semua isian terlebih dahulu.");
+      return;
+    }
+
+    const tombol = sapaForm.querySelector(".sapa-submit");
+
+    if (tombol) {
+      tombol.disabled = true;
+      tombol.textContent = "Mengirim...";
+    }
+
+    try {
+      await fetch(SAPA_APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify({
+          name: nama,
+          sebagai: sebagai,
+          pesan: pesan
+        })
+      });
+
+      alert("Terima kasih! Saran & pandangan Anda berhasil dikirim.");
+
+      sapaForm.reset();
+
+    } catch (error) {
+      console.error("Gagal mengirim:", error);
+      alert("Maaf, terjadi kendala saat mengirim. Silakan coba lagi.");
+    } finally {
+      if (tombol) {
+        tombol.disabled = false;
+        tombol.textContent = "Kirim";
+      }
+    }
+  });
+}
+
+// Menampilkan SAPA BALI yang sudah disetujui (dari kolom Status di Google Sheet)
+function escSapa(s) {
+  return String(s || "").replace(/[&<>"']/g, function (m) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m];
+  });
+}
+
+async function loadSapaPublik() {
+  const box = document.getElementById("sapaPublik");
+  if (!box) return;
+
+  const kosong = `
+    <div style="padding:20px;border-radius:18px;background:#f7faf5;border:1px solid #dfe9dc;">
+      <strong style="display:block;color:var(--forest);margin-bottom:10px;">Belum ada SAPA yang dipublikasikan.</strong>
+      <span class="muted" style="font-size:14px">SAPA yang telah disetujui oleh pengelola akan ditampilkan di sini.</span>
+    </div>`;
+
+  try {
+    const res = await fetch("/api/sapa-list?action=list");
+    const data = await res.json();
+    const items = (data && data.items) || [];
+
+    if (!items.length) {
+      box.innerHTML = kosong;
+      return;
+    }
+
+    box.innerHTML = items.map(function (it) {
+      return `
+      <div style="padding:20px;border-radius:18px;background:#f7faf5;border:1px solid #dfe9dc;">
+        <strong style="display:block;color:var(--forest);margin-bottom:6px;">
+          ${escSapa(it.nama)}
+          <span class="muted" style="font-weight:600;font-size:12px">(${escSapa(it.sebagai)})</span>
+        </strong>
+        <span style="font-size:14px;color:var(--text);white-space:pre-wrap">${escSapa(it.pesan)}</span>
+      </div>`;
+    }).join("");
+  } catch (error) {
+    console.error("Gagal memuat SAPA BALI:", error);
+    box.innerHTML = kosong;
+  }
+}
+
+loadSapaPublik();
+</script>
+   
+<script src="site-ui.js"></script>
+</body>
+</html>
