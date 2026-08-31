@@ -17,7 +17,7 @@ const extra={
 'ecobrick':{schedule:'Sesuai pelaksanaan program',goal:'Memanfaatkan sampah plastik agar memiliki nilai guna kembali.'},
 'recycle':{schedule:'Sesuai pelaksanaan program',goal:'Mengolah bahan yang tidak terpakai menjadi produk baru yang bermanfaat.'},
 'lagu-bali':{schedule:'Sesuai kegiatan sekolah',goal:'Menanamkan semangat Bersih, Asri, Lestari, dan Indah melalui media musik.',audio:'lagu-sekolahku-yang-bali.mp3'},
-'papan-nama-tanaman-digital':{schedule:'Sesuai pelaksanaan program',goal:'Mengenalkan jenis dan identitas tanaman di lingkungan sekolah, menjadikan lingkungan sebagai sumber belajar kontekstual, serta memanfaatkan teknologi untuk mendukung edukasi lingkungan.'}
+
 };
 
 function injectPopupStyles(){
