@@ -327,7 +327,8 @@ nav.links a:hover::after{width:100%}
 }
 .aksi-modal-photo {
   width: 100%;
-  max-height: 360px;
+  height: 420px;
+  max-height: none;
   object-fit: cover;
   border-radius: 18px;
   margin: 18px 0 8px;
@@ -543,7 +544,7 @@ footer strong{font-family:var(--serif)}
 <div class="aksi-card inovasi" onclick="openAksi('komposting')"><div class="aksi-icon">🌱</div><span class="aksi-label">INOVASI</span><h3>Media Komposting</h3><p><b>Teba Modern • Biopori • Tong Komposter</b></p><button>Lihat Detail →</button></div>
 <div class="aksi-card inovasi" onclick="openAksi('ecobrick')"><div class="aksi-icon">🧱</div><span class="aksi-label">INOVASI</span><h3>Ecobrick</h3><p>Pemanfaatan sampah plastik menjadi bahan yang dapat dimanfaatkan kembali.</p><button>Lihat Detail →</button></div>
 <div class="aksi-card inovasi" onclick="openAksi('recycle')"><div class="aksi-icon">♻️</div><span class="aksi-label">INOVASI</span><h3>Produk Recycle</h3><p>Mengolah bahan yang sudah tidak terpakai menjadi produk baru.</p><button>Lihat Detail →</button></div>
-<div class="aksi-card inovasi" onclick="openAksi('batara')"><div class="aksi-icon">🥥</div><span class="aksi-label">INOVASI</span><h3>BATARA</h3><p><b>Batok Kelapa Nusantara.</b> Pengolahan kembali "nyuh daksina" menjadi barang baru yang bermanfaat.</p><button>Lihat Detail →</button></div>
+<div class="aksi-card inovasi" onclick="openAksi('batara')"><div class="aksi-icon">🥥</div><span class="aksi-label">INOVASI</span><h3>BATARA</h3><p><b>Batok Kreasi Nusantara.</b> Pengolahan kembali "nyuh daksina" menjadi barang baru yang bermanfaat.</p><button>Lihat Detail →</button></div>
 <div class="aksi-card inovasi" onclick="openAksi('pantas')"><div class="aksi-icon">🏷️</div><span class="aksi-label">INOVASI</span><h3>PANTAS</h3><p><b>Papan Nama Tanaman Smart.</b> Papan nama tanaman digital.</p><button>Lihat Detail →</button></div>
 <div class="aksi-card inovasi" onclick="openAksi('lagu-bali')"><div class="aksi-icon">🎵</div><span class="aksi-label">INOVASI</span><h3>Lagu Sekolahku</h3><p>Media untuk membangun identitas dan budaya peduli lingkungan.</p><button>Lihat Detail →</button></div>
 </div>
@@ -905,7 +906,7 @@ const aksiData={
 'komposting':['🌱','INOVASI','Media Komposting','Pengelolaan sampah organik dilakukan melalui Teba Modern, Biopori, dan Tong Komposter.','Mengolah sampah organik agar dapat dimanfaatkan kembali.','Berkelanjutan'],
 'ecobrick':['🧱','INOVASI','Ecobrick','Ecobrick merupakan inovasi pemanfaatan sampah plastik dengan mengemasnya secara padat ke dalam botol plastik.','Mengurangi sampah plastik.','Berkelanjutan'],
 'recycle':['♻️','INOVASI','Produk Recycle','Berbagai Produk Recycle merupakan hasil kreativitas dalam memanfaatkan bahan yang sudah tidak terpakai.','Mengembangkan kreativitas sekaligus mengurangi limbah.','Sesuai kegiatan'],
-'batara':['🥥','INOVASI','BATARA','BATARA atau Batok Kelapa Nusantara merupakan inovasi pengolahan kembali "nyuh daksina" menjadi barang baru yang bermanfaat.','Memanfaatkan limbah batok kelapa sekaligus menumbuhkan kreativitas dan kepedulian terhadap lingkungan.','Sesuai kegiatan'],
+'batara':['🥥','INOVASI','BATARA','BATARA atau Batok Kreasi Nusantara merupakan inovasi pengolahan kembali "nyuh daksina" menjadi barang baru yang bermanfaat.','Memanfaatkan limbah batok kelapa sekaligus menumbuhkan kreativitas dan kepedulian terhadap lingkungan.','Sesuai kegiatan'],
 'pantas':['🏷️','INOVASI','PANTAS','PANTAS atau Papan Nama Tanaman Smart merupakan papan nama tanaman digital.','Memberikan informasi tanaman secara interaktif serta menumbuhkan kecintaan terhadap lingkungan hijau sekolah.','Sesuai kebutuhan'],
 
 // Inovasi dengan Lagu
@@ -1042,6 +1043,5 @@ loadSapaPublik();
 </script>
    
 <script src="site-ui.js"></script>
-  <script src="popup-fix.js"></script>
 </body>
 </html>
