@@ -79,13 +79,16 @@ function injectPopupStyles(){
       background:#dcebe2!important;
     }
     .aksi-modal[data-popup-fix="true"] .aksi-modal-photo{
-      display:block!important;
-      width:100%!important;
-      max-height:420px!important;
-      object-fit:cover!important;
-      border-radius:18px!important;
-      margin:0 0 20px!important;
-    }
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  border-radius:18px!important;
+  margin:0 0 20px!important;
+  border:1px solid #dfe9dc!important;
+  box-shadow:0 10px 28px rgba(0,0,0,.08)!important;
+}
     .aksi-modal[data-popup-fix="true"] .aksi-modal-icon{
       width:72px!important;
       height:72px!important;
