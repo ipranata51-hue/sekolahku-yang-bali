@@ -81,7 +81,7 @@ function injectPopupStyles(){
     .aksi-modal[data-popup-fix="true"] .aksi-modal-photo{
       display:block!important;
       width:100%!important;
-      max-height:300px!important;
+      max-height:420px!important;
       object-fit:cover!important;
       border-radius:18px!important;
       margin:0 0 20px!important;
